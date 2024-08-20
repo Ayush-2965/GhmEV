@@ -1,13 +1,1004 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GHM EV</title>
-  </head>
-  <body>
-    <div id="main"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-scroll-container>
+    <nav id="navbar">
+        <div class="nav">
+            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="white"
+                viewBox="0 0 5032.51 2516.26">
+                <g>
+                    <path
+                        d="M2256.29,1585.93h-220.19c-61.04,0-121.03-4.52-179.98-13.61-58.97-9.07-111.54-24.93-157.72-47.62-46.19-22.67-83.5-53.39-111.95-92.15-28.45-38.76-42.68-87.83-42.68-147.21,0-39.58,10.52-80.4,31.54-122.46,21.03-42.06,49.27-80.4,84.74-115.04,35.45-34.64,76.69-62.87,123.7-84.74,47-21.84,96.49-32.78,148.44-32.78h612.31c-28.88,31.35-57.73,60.83-86.59,88.45-28.88,27.64-60.61,53.81-95.25,78.55h-385.94c-16.51,0-32.16,3.52-47.01,10.52-14.84,7.01-28.45,16.29-40.82,27.83-12.37,11.56-23.5,24.55-33.4,38.97-9.9,14.44-17.74,28.66-23.5,42.68-7.42,21.46-11.13,38.35-11.13,50.72,0,15.68,4.74,32.37,14.23,50.1,9.47,17.74,21.65,34.02,36.49,48.86,14.84,14.85,31.55,27.21,50.1,37.11,18.56,9.9,36.9,14.85,55.05,14.85h86.59l34.64-80.41h-168.23v-1.23c.81-2.47,7-10.52,18.56-24.12,11.54-13.61,25.15-28.86,40.82-45.77,15.65-16.89,32.16-33.8,49.48-50.71,17.32-16.89,32.98-29.88,47.01-38.97h356.26l-185.55,408.21Z" />
+                    <path
+                        d="M2409.67,1585.93l285.75-655.61h285.75l-168.23,383.47,150.91-129.89h226.37l111.33-253.58h282.04l-286.98,655.61h-282.04l102.67-235.03h-320.38l-102.67,235.03h-284.51Z" />
+                    <path
+                        d="M4600.37,1585.93h-285.75l160.81-368.63-404.49,368.63h-101.44l-81.64-368.63-160.81,368.63h-284.51l285.75-655.61h359.96l75.46,329.04,363.67-329.04h358.73l-285.75,655.61Z" />
+                </g>
+                <g>
+                    <path
+                        d="M154.59,750.1c17.05-4.14,33.34-8.1,49.64-12.04,86.38-20.9,172.77-41.79,259.15-62.69,77.6-18.78,155.24-37.38,232.74-56.54,12.29-3.04,23.68-3.03,35.96,0,90.06,22.17,180.24,43.85,270.38,65.67,84.29,20.4,168.59,40.78,252.88,61.18,5.84,1.41,11.68,2.84,18.1,4.41,.62,5.76,1.32,11.47,1.83,17.19,4.51,49.85,7.16,99.79,6.45,149.86-.58,40.33-2.89,80.56-7.15,120.69-9.77,92.12-29.73,181.89-61.17,269.05-45.6,126.4-111.97,240.82-198.71,343.44-62.68,74.14-133.2,139.78-212.53,195.83-26.25,18.55-53.23,35.92-81.93,50.5-1.92,.97-3.83,1.95-5.97,3.05-16.83-8.11-33.11-17.33-48.96-27.31-45.53-28.66-88.2-61.16-128.64-96.59-71.7-62.82-134.87-133.31-189.23-211.64-45.89-66.11-84.04-136.43-114.72-210.83-28.76-69.74-50.26-141.68-64.17-215.78-5.52-29.41-9.7-59.1-13.51-88.79-7.06-55.05-9.32-110.41-8.49-165.87,.6-40.11,2.79-80.15,6.94-120.07,.42-4.05,.7-8.11,1.09-12.72Zm938.58,677.31c3.2-6.11,6.01-12.8,9.12-18.96,66.91-132.37,101.79-273.11,109.69-420.85,2.61-48.72,1.79-97.43-1.3-146.11-.6-9.44-1.57-18.86-2.41-28.81-97.32-23.55-194.44-47.05-291.84-70.62-15.49-3.25-36.94-9-38.17-9.3-52.72-12.76-105.43-25.55-158.19-38.16-2.99-.71-6.46-.56-9.48,.16-46.06,10.98-92.09,22.11-138.12,33.22-7.92,1.91-15.81,3.92-23.74,5.89-6.51,1.98-12.15,2.79-34.04,8.18-97.65,23.64-194.82,47.16-292.15,70.72-1.31,20.65-2.99,40.42-3.72,60.22-1.89,51.32-1.34,102.6,3.25,153.81,2.5,27.91,5.87,55.68,10.33,83.34,9.86,61.18,25.1,120.98,45.69,179.42,16.21,46,35.78,90.54,58.48,133.7,1.07,2.03,39.4,68.48,42.42,73.2,49.97,77.97,109.24,148.09,177.63,210.48,41.97,38.29,86.64,73.13,134.82,103.34,2.12,1.33,24.15,11.93,24.15,11.93,0,0,30.27-15.63,36.32-19.65,122.83-81.65,223.09-185.36,302.49-309.49,2.15-3.36,34.03-55.79,36.04-60.53l2.72-5.14Z" />
+                    <path
+                        d="M414.1,1413.28m.02,84.44l-33.68,.41c0-28.23,.94-152.32,.94-421.03-30.68-11.74-41.23-38.08-37.07-61.91,4.36-24.97,25.28-43.22,51.3-44.32,26.54-1.12,47.09,16.37,53.71,38.01,3.57,11.65,3.39,23.34-.83,34.75-6.06,16.39-18,27.07-34.3,33.25v7.93m-16.26-92.08c-18.42,0-32.8,14.47-32.69,32.87,.11,18.05,14.49,32.27,32.64,32.29,18.23,.02,33.11-14.87,32.84-32.88-.27-17.97-14.81-32.29-32.79-32.28Z" />
+                    <path
+                        d="M1047.61,1413.28m.02,84.44l-33.68,.41c0-28.23,.94-152.32,.94-421.03-30.68-11.74-41.23-38.08-37.07-61.91,4.36-24.97,25.28-43.22,51.3-44.32,26.54-1.12,47.09,16.37,53.71,38.01,3.57,11.65,3.39,23.34-.83,34.75-6.06,16.39-18,27.07-34.3,33.25v7.93m-16.26-92.08c-18.42,0-32.8,14.47-32.69,32.87,.11,18.05,14.49,32.27,32.64,32.29,18.23,.02,33.11-14.87,32.84-32.88-.27-17.97-14.81-32.29-32.79-32.28Z" />
+                    <path
+                        d="M729.95,1411.47m.02,374.87l-33.68,.41c0-28.23,.94-442.76,.94-711.47-30.68-11.74-41.23-38.08-37.07-61.91,4.36-24.97,25.28-43.22,51.3-44.32,26.54-1.12,47.09,16.37,53.71,38.01,3.57,11.65,3.39,23.34-.83,34.75-6.06,16.39-18,27.07-34.3,33.25v7.93m-16.26-92.08c-18.42,0-32.8,14.47-32.69,32.87,.11,18.05,14.49,32.27,32.64,32.29,18.23,.02,33.11-14.87,32.84-32.88-.27-17.97-14.81-32.29-32.79-32.28Z" />
+                    <path
+                        d="M536.46,972.4m-.02-239.74l35.36-.44c0,29.64-.98,311.02-.98,593.15,32.21,12.32,43.28,39.98,38.92,65-4.58,26.21-26.55,45.38-53.87,46.54-27.87,1.18-49.44-17.19-56.39-39.91-3.75-12.24-3.56-24.51,.87-36.49,6.36-17.21,18.9-28.42,36.01-34.91,0-3.05,0-5.68,0-8.32m17.07,96.68c19.34,0,34.44-15.19,34.32-34.51-.12-18.95-15.22-33.88-34.27-33.9-19.14-.02-34.76,15.62-34.48,34.52,.28,18.87,15.55,33.9,34.43,33.9Z" />
+                    <path
+                        d="M859.57,972.4m-.02-239.74l35.36-.44c0,29.64-.98,311.02-.98,593.15,32.21,12.32,43.28,39.98,38.92,65-4.58,26.21-26.55,45.38-53.87,46.54-27.87,1.18-49.44-17.19-56.39-39.91-3.75-12.24-3.56-24.51,.87-36.49,6.36-17.21,18.9-28.42,36.01-34.91v-8.32m17.07,96.68c19.34,0,34.44-15.19,34.32-34.51-.12-18.95-15.22-33.88-34.27-33.9-19.14-.02-34.76,15.62-34.48,34.52,.28,18.87,15.55,33.9,34.43,33.9Z" />
+                    <path
+                        d="M219.8,808.6c15.06-3.65,29.46-7.15,43.87-10.64,76.33-18.47,152.67-36.92,229-55.39,68.57-16.59,137.18-33.03,205.66-49.96,10.86-2.69,20.92-2.68,31.78,0,79.58,19.59,159.27,38.75,238.92,58.03,74.48,18.03,148.97,36.04,223.46,54.06,5.16,1.25,10.32,2.51,16,3.9,.55,5.09,1.16,10.13,1.62,15.19,3.99,44.05,6.33,88.18,5.7,132.42-.51,35.64-2.56,71.18-6.32,106.65-8.63,81.4-26.27,160.73-54.05,237.74-40.29,111.69-98.94,212.8-175.59,303.48-55.38,65.52-117.7,123.51-187.8,173.05-23.19,16.39-47.04,31.74-72.39,44.62-1.69,.86-3.38,1.73-5.28,2.69-14.87-7.16-29.26-15.31-43.27-24.13-40.23-25.33-77.94-54.04-113.67-85.35-63.36-55.51-119.17-117.8-167.21-187.01-40.55-58.42-74.26-120.56-101.37-186.3-25.41-61.62-44.41-125.19-56.7-190.67-4.88-25.98-8.57-52.22-11.94-78.45-6.24-48.64-8.24-97.56-7.51-146.57,.53-35.44,2.47-70.82,6.14-106.1,.37-3.58,.62-7.16,.97-11.24Zm318.2,518.88V801.5c-86.28,20.89-172.15,41.67-258.15,62.49-1.15,18.25-2.64,35.71-3.29,53.21-1.67,45.35-1.18,90.66,2.87,135.91,2.21,24.66,5.19,49.2,9.13,73.64,8.71,54.06,22.18,106.9,40.37,158.54,14.32,40.65,31.62,80,51.67,118.14,.94,1.79,1.28,4.3,3.93,5.12v-336.87c-27.73-10.61-37.27-34.43-33.51-55.97,3.94-22.57,22.86-39.08,46.38-40.07,23.99-1.02,42.57,14.8,48.56,34.36,3.23,10.54,3.06,21.1-.75,31.42-5.48,14.82-16.27,24.47-31.01,30.06,0,2.62,0,4.89,0,7.17,0,125.39,.02,250.79-.08,376.18,0,5,1.3,9.11,3.97,13.29,44.15,68.9,96.53,130.86,156.96,185.99,37.09,33.84,76.56,64.62,119.13,91.32,1.87,1.17,3.82,2.21,6.26,3.62v-677.4c-24.18-8.46-37.56-30.08-34.09-54.55,2.94-20.7,20.02-39.59,45.2-41.39,20.92-1.49,41.22,10.69,49.16,31.89,3.86,10.31,4.09,20.91,.83,31.42-4.96,15.99-16.06,26.32-30.92,32.21v678.09c6.13-3.85,11.64-7.15,16.99-10.7,108.54-72.15,197.14-163.8,267.29-273.48,1.9-2.97,2.17-5.93,2.17-9.19-.02-125.96-.02-251.93-.02-377.89v-6.01c-27.37-12.59-38.92-32.13-34.18-57.27,4.12-21.88,23.35-38.45,46.59-39.14,23.94-.72,42.32,14.98,48.29,34.76,3.26,10.79,2.87,21.45-1.22,31.91-5.53,14.13-15.94,23.38-30.15,29v7.55c0,107.29,0,214.58,0,321.87,0,1.52-.09,3.06,.05,4.57,.09,.94,.53,1.85,.93,3.13,.73-.94,1.17-1.35,1.43-1.85,2.82-5.4,5.67-10.79,8.42-16.23,59.12-116.97,89.94-241.33,96.93-371.88,2.3-43.05,1.59-86.09-1.14-129.1-.53-8.34-1.38-16.67-2.13-25.46-85.99-20.81-171.82-41.58-257.89-62.41v525.86c28.32,11.36,36.34,36.45,32.39,56.13-4.25,21.14-23.25,37.51-43.96,38.73-24.07,1.42-43.97-14.29-49.87-34.76-3-10.42-2.66-20.69,1.2-30.81,5.5-14.39,16.03-23.72,30-29.11V794.42c-1.36-.45-2.41-.88-3.51-1.14-46.58-11.28-93.16-22.58-139.78-33.72-2.64-.63-5.71-.5-8.37,.14-40.7,9.7-81.38,19.53-122.05,29.36-7,1.69-13.97,3.47-20.98,5.21v532.94c26.87,13.73,37.84,34.06,31.89,58.3-5.24,21.34-25.5,37.78-49.55,36.72-21.46-.95-40.6-17.23-44.86-39.68-3.85-20.29,5.31-44.42,32.44-55.07Zm-138.49-332.06c-16.65,0-29.66,13.08-29.55,29.72,.1,16.32,13.1,29.18,29.51,29.19,16.48,.02,29.93-13.45,29.69-29.72-.24-16.25-13.39-29.19-29.65-29.19Zm315.78,58.91c16.23-.09,29.61-13.26,29.38-29.42-.27-18.9-15.88-29.93-29.87-29.57-16.36,.42-29.27,13.13-29.28,29.49-.02,16.59,13.11,29.59,29.78,29.49Zm316.1,0c16.37-.1,29.29-13.04,29.32-29.38,.03-16.6-13.06-29.6-29.75-29.52-16.22,.07-29.4,13.2-29.46,29.38-.07,16.34,13.38,29.63,29.89,29.53Z" />
+                </g>
+            </svg>
+
+            <div class="middlecont">
+                <div class="capsule">
+                    <h4>e-bikes
+                    </h4>
+                    <i class="ri-arrow-drop-right-line"></i>
+
+                </div>
+
+                <div class="capsule">
+                    <h4>app</h4>
+                </div>
+
+                <div class="capsule">
+                    <h4>GHM Labs</h4>
+                </div>
+
+
+
+                <div class="capsule">
+                    <h4>about</h4>
+                </div>
+
+                <div class="capsule">
+                    <h4>service
+                    </h4>
+                    <i class="ri-arrow-drop-right-line"></i>
+
+                </div>
+
+                <div class="capsule">
+                    <h4>B2B
+                    </h4>
+
+
+                </div>
+            </div>
+            <div class="endcontent">
+                <i class="ri-shopping-cart-fill righticon"></i>
+                <div class="profile">
+
+                    <div class="profileicon">
+                        <i class="ri-user-3-fill"></i>
+                    </div>
+                    <i class="ri-arrow-drop-down-line righticon"></i>
+                </div>
+                <i class="ri-menu-fill righticon"></i>
+            </div>
+        </div>
+    </nav>
+    <div class="main overflow-hidden" id="main">
+        <div class="scrollArea">
+            <div id="model" class="w-full h-screen absolute md:translate-x-[40%]" data-scroll>
+
+            </div>
+            <div class="page1">
+                <div class="content">
+                    <h1>electric like never before</h1>
+                </div>
+                <div class="absolute object-contain w-1/4 top-0 left-1/3  z-[-1] opacity-40">
+                    <img src="images/26a1.gif" alt="">
+                </div>
+                <div class="content2">A mobility that is innovative elegant and sustainable</div>
+                <div id="explore" class="button">Explore more
+                    <i class="ri-arrow-drop-right-line"></i>
+                </div>
+                <!-- <div id="model"></div> -->
+            </div>
+            <div id="part2" class="page1 part2">
+                <div class="features">features & specifications
+                    <h6>The convergence of style and function.</h6>
+                    <div class="buttons">
+                        <div class="box box1">Performance</div>
+                        <div class="box box2">Safety</div>
+                        <div class="box box3">Comfort</div>
+                    </div>
+                </div>
+                <!-- <div class="components">
+                    <div class="comp comp1">Motor <i class="ri-add-line"></i></div>
+                    <div class="comp comp2">supension fork <i class="ri-add-line"></i></div>
+                    <div class="comp comp3">alloy <i class="ri-add-line"></i></div>
+                    <div class="comp comp4">Rasion HI-taction Tyre <i class="ri-add-line"></i></div>
+                    <div class="comp comp5">horn <i class="ri-add-line"></i></div>
+                    <div class="comp comp6">headlight <i class="ri-add-line"></i></div>
+                    <div class="comp comp7">disc brake <i class="ri-add-line"></i></div>
+                    <div class="comp comp8">saddle <i class="ri-add-line"></i></div>
+                    <div class="comp comp9">carbon steel frame <i class="ri-add-line"></i></div>
+                    <div class="comp comp10">handle positioning <i class="ri-add-line"></i></div>
+                </div> -->
+                <div class="w-full h-full flex flex-col  items-end ">
+                    <div class="h-[90%] w-full flex flex-col items-end">
+
+                        <div class="w-full h-[9%]"></div>
+                        <div class="w-[50%] h-[91%] flex items-center backdrop-blur bg-transparent">
+                            <div class="flex flex-col gap-2 w-[75%] mx-auto featurecont">
+                                <div
+                                    class="btn-headcolor1 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2">
+                                    <div id="1" class="absolute w-[100%] h-full top-0 left-0 z-10 cursor-pointer">
+
+                                    </div>
+                                    <div id="motor" class=" w-[95%] h-full">
+                                        Motor
+                                    </div>
+                                    <i id="11" class="ri-add-line cursor-pointer"></i>
+                                    <div
+                                        class="headcolor1 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
+                                    </div>
+                                </div>
+                                <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
+                                    omnis velit id minima quisquam quam. Expedita!</div>
+
+                                <div
+                                    class="btn-headcolor2 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2">
+
+                                    <div id="2" class="absolute w-[100%] h-full top-0 left-0 z-10 cursor-pointer"></div>
+                                    <div id="spf" class=" w-[95%] h-full">
+                                        supension fork
+                                    </div>
+                                    <i id="12" class="ri-add-line cursor-pointer"></i>
+                                    <div
+                                        class="headcolor2 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
+                                    </div>
+                                </div>
+                                <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
+                                    omnis velit id minima quisquam quam. Expedita!</div>
+
+                                <div
+                                    class="btn-headcolor3 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2">
+
+                                    <div id="3" class="absolute w-[100%] h-full top-0 left-0 z-10 cursor-pointer"></div>
+                                    <div id="alloy" class=" w-[95%] h-full">
+                                        supension fork
+                                    </div>
+                                    <i id="13" class="ri-add-line cursor-pointer"></i>
+                                    <div
+                                        class="headcolor3 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
+                                    </div>
+                                </div>
+                                <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
+                                    omnis velit id minima quisquam quam. Expedita!</div>
+
+                                <div
+                                    class="btn-headcolor4 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2">
+
+                                    <div id="4" class="absolute w-[100%] h-full top-0 left-0 z-10 cursor-pointer"></div>
+                                    <div id="tyre" class=" w-[95%] h-full">
+                                        Rasion HI-taction Tyre
+                                    </div>
+                                    <i id="14" class="ri-add-line cursor-pointer"></i>
+                                    <div
+                                        class="headcolor4 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
+                                    </div>
+                                </div>
+                                <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
+                                    omnis velit id minima quisquam quam. Expedita!</div>
+
+                                <div class="btn-headcolor5 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2"
+                                    style="display: none;">
+
+                                    <div id="5" class="absolute w-[100%] h-full top-0 left-0 z-10 cursor-pointer"></div>
+                                    <div id="horn" class=" w-[95%] h-full">
+                                        Horn
+                                    </div>
+                                    <i id="15" class="ri-add-line cursor-pointer"></i>
+                                    <div
+                                        class="headcolor5 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
+                                    </div>
+                                </div>
+                                <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
+                                    omnis velit id minima quisquam quam. Expedita!</div>
+
+                                <div class="btn-headcolor6 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2"
+                                    style="display: none;">
+
+                                    <div id="6" class="absolute w-[100%] h-full top-0 left-0 z-10 cursor-pointer"></div>
+                                    <div id="light" class=" w-[95%] h-full">
+                                        Headlight
+                                    </div>
+                                    <i id="16" class="ri-add-line cursor-pointer"></i>
+                                    <div
+                                        class="headcolor6 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
+                                    </div>
+                                </div>
+                                <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
+                                    omnis velit id minima quisquam quam. Expedita!</div>
+
+                                <div class="btn-headcolor7 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2"
+                                    style="display: none;">
+
+                                    <div id="7" class="absolute w-[100%] h-full top-0 left-0 z-10 cursor-pointer"></div>
+                                    <div id="brake" class=" w-[95%] h-full">
+                                        Disc Brake
+                                    </div>
+                                    <i id="17" class="ri-add-line cursor-pointer"></i>
+                                    <div
+                                        class="headcolor7 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
+                                    </div>
+                                </div>
+                                <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
+                                    omnis velit id minima quisquam quam. Expedita!</div>
+
+                                <div class="btn-headcolor8 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2"
+                                    style="display: none;">
+
+                                    <div id="8" class="absolute w-[100%] h-full top-0 left-0 z-10 cursor-pointer"></div>
+                                    <div id="saddle" class=" w-[95%] h-full">
+                                        Saddle
+                                    </div>
+                                    <i id="18" class="ri-add-line cursor-pointer"></i>
+                                    <div
+                                        class="headcolor8 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
+                                    </div>
+                                </div>
+                                <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
+                                    omnis velit id minima quisquam quam. Expedita!</div>
+
+                                <div class="btn-headcolor9 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2"
+                                    style="display: none;">
+
+                                    <div id="9" class="absolute w-[100%] h-full top-0 left-0 z-10 cursor-pointer"></div>
+                                    <div id="frame" class=" w-[95%] h-full">
+                                        Carbon Steel Frame
+                                    </div>
+                                    <i id="19" class="ri-add-line cursor-pointer"></i>
+                                    <div
+                                        class="headcolor9 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
+                                    </div>
+                                </div>
+                                <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
+                                    omnis velit id minima quisquam quam. Expedita!</div>
+
+                                <div class="btn-headcolor10 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2"
+                                    style="display: none;">
+
+                                    <div id="10" class="absolute w-[100%] h-full top-0 left-0 z-10 cursor-pointer"></div>
+                                    <div id="handle" class=" w-[95%] h-full">
+                                        Handle Positioning
+                                    </div>
+                                    <i id="20" class="ri-add-line cursor-pointer"></i>
+                                    <div
+                                        class="headcolor10 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
+                                    </div>
+                                </div>
+                                <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
+                                    omnis velit id minima quisquam quam. Expedita!</div>
+
+                                <!-- <div id="11"
+                                    class="btn-headcolor11 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2">
+                                    carbon steel frame
+                                    <i class="ri-add-line"></i>
+                                    <div class="headcolor11 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0"></div>
+                                </div> -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page2">
+            <div class="toptext">
+                <span>Explore the Future of E-Bikes</span>
+            </div>
+            <div class="cardcontainer">
+                <div class="uppercard">
+                    <div class="card card1">
+                        <div class="img img1"></div>
+                        <div id="1" class=" card overlay">
+                            <div class="img overlay"></div>
+                        </div>
+                        <div class="innercont innercont1">
+                            <div class="modelname">
+                                <h2> I - Series</h2>
+                                <h5>ggdjas</h5>
+                            </div>
+                            <i class="ri-arrow-right-circle-fill"></i>
+                        </div>
+                    </div>
+                    <div class="card card2">
+                        <div class="img img2"></div>
+                        <div id="2" class=" card overlay">
+                            <div class="img overlay"></div>
+                        </div>
+                        <div class="innercont innercont2">
+                            <div class="modelname">
+                                <h2> L - Series</h2>
+                                <h5>ggdjas</h5>
+                            </div>
+                            <i class="ri-arrow-right-circle-fill"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="lowercard">
+                    <div class="card card3">
+
+                        <div class="img img3"></div>
+                        <div id="3" class=" card overlay">
+                            <div class="img overlay"></div>
+                        </div>
+                        <div class="innercont innercont3">
+
+                            <div class="modelname">
+                                <h2> F - Series</h2>
+                                <h5>ggdjas</h5>
+                            </div>
+
+                            <i class="ri-arrow-right-circle-fill"></i>
+                        </div>
+
+                    </div>
+                    <div class="card card4">
+
+                        <div class="img img4"></div>
+                        <div id="4" class=" card overlay">
+                            <div class="img overlay"></div>
+                        </div>
+                        <div class="innercont innercont4">
+                            <div class="modelname">
+                                <h2> H - Series</h2>
+                                <h5>ggdjas</h5>
+                            </div>
+                            <i class="ri-arrow-right-circle-fill"></i>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="part3">
+            <div class="topline">Try out our app</div>
+            <div class="image">
+                <div class="overlay">
+
+                    <div class="centercont">
+                        <div class="applogo">
+                            <img src="images/ghm-logo.svg" alt="">
+                        </div>
+                        <div class="contenttitle">
+                            GHM Connect
+                        </div>
+                        <div class="description">
+                            Your trusted companion for effortless rides and endless rewards. Stay charged, connected,
+                            and motivated as you unlock cycling achievements and conquer the city with ease.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="page3">
+            <div class="customerreview">
+                <div class="topline">what our customer thinks</div>
+                <!-- <div class="filter">
+                    <div class="filterbox">Filter
+                        <i class="ri-filter-3-line"></i>
+                    </div>
+                </div> -->
+            </div>
+            <div class="wrapper">
+
+                <ul class="carousel">
+                    <li class="reviewcard">
+                        <!-- <div class="reviewimg">
+                            <img src="images/1.png" alt="" draggable="false">
+                        </div> -->
+                        <h1>Maverick</h1>
+                        <div class="rating">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                        </div>
+                        <div class="reviewcontent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                            repudiandae exercitationem commodi explicabo, obcaecati dicta reprehenderit eaque. Quibusdam
+                            molestias ipsum ducimus voluptas vitae consectetur ex! Vero earum, quasi ratione autem amet
+                            fugiat, dolorem quis tempora ducimus magni odit, ad praesentium soluta corporis nam.</div>
+                    </li>
+                    <li class="reviewcard">
+
+                        <!-- <div class="reviewimg"><img src="images/2.png" alt="" draggable="false">
+                        </div> -->
+                        <h1>Anderson</h1>
+                        <div class="rating">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                        </div>
+                        <div class="reviewcontent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                            repudiandae exercitationem commodi explicabo, obcaecati dicta reprehenderit eaque. Quibusdam
+                            molestias ipsum ducimus voluptas vitae consectetur ex! Vero earum, quasi ratione autem amet
+                            fugiat, dolorem quis tempora ducimus magni odit, ad praesentium soluta corporis nam.</div>
+                    </li>
+                    <li class="reviewcard">
+
+                        <!-- <div class="reviewimg"><img src="images/3.png" alt="" draggable="false"></div> -->
+                        <h1>Alana</h1>
+                        <div class="rating">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt=""
+                                style="filter: grayscale();">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt=""
+                                style="filter: grayscale();">
+                        </div>
+                        <div class="reviewcontent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                            repudiandae exercitationem commodi explicabo, obcaecati dicta reprehenderit eaque. Quibusdam
+                            molestias ipsum ducimus voluptas vitae consectetur ex! Vero earum, quasi ratione autem amet
+                            fugiat, dolorem quis tempora ducimus magni odit, ad praesentium soluta corporis nam.</div>
+                    </li>
+                    <li class="reviewcard">
+                        <!-- <div class="reviewimg"><img src="images/4.png" alt="" draggable="false"></div> -->
+                        <h1>Mathews</h1>
+                        <div class="rating">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt=""
+                                style="filter: grayscale();">
+                        </div>
+                        <div class="reviewcontent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                            repudiandae exercitationem commodi explicabo, obcaecati dicta reprehenderit eaque. Quibusdam
+                            molestias ipsum ducimus voluptas vitae consectetur ex! Vero earum, quasi ratione autem amet
+                            fugiat, dolorem quis tempora ducimus magni odit, ad praesentium soluta corporis nam.</div>
+                    </li>
+                    <li class="reviewcard">
+                        <!-- <div class="reviewimg"><img src="images/5.png" alt="" draggable="false"></div> -->
+                        <h1>David</h1>
+                        <div class="rating">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt="">
+                            <img src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000" alt=""
+                                style="filter: grayscale();">
+                        </div>
+                        <div class="reviewcontent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                            repudiandae exercitationem commodi explicabo, obcaecati dicta reprehenderit eaque. Quibusdam
+                            molestias ipsum ducimus voluptas vitae consectetur ex! Vero earum, quasi ratione autem amet
+                            fugiat, dolorem quis tempora ducimus magni odit, ad praesentium soluta corporis nam.</div>
+                    </li>
+
+
+
+                </ul>
+            </div>
+            <div class="bottomline">
+                <h2>Proudly Made in India with love</h2>
+                <img width="28" height="28" src="https://img.icons8.com/color/48/hearts.png" alt="hearts" />
+                <img width="32" height="32" src="https://img.icons8.com/emoji/48/india-emoji.png" alt="india-emoji" />
+            </div>
+        </div>
+        <div class="footer">
+            <!--Waves Container-->
+            <div class="wavecontainer">
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs>
+                        <path id="gentle-wave"
+                            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    </defs>
+                    <g class="parallax">
+                        <use xlink:href="#gentle-wave" x="48" y="0" fill="#c7c7c7" />
+                        <use xlink:href="#gentle-wave" x="48" y="3" fill="#b8b8b8" />
+                        <use xlink:href="#gentle-wave" x="48" y="5" fill="#68686891" />
+                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#343434" />
+                    </g>
+                </svg>
+            </div>
+            <!--Waves end-->
+            <div class="endpart">
+                <div class="end">
+                    <div class="r1c1">
+                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="white"
+                            viewBox="0 0 5032.51 2516.26">
+                            <g>
+                                <path
+                                    d="M2256.29,1585.93h-220.19c-61.04,0-121.03-4.52-179.98-13.61-58.97-9.07-111.54-24.93-157.72-47.62-46.19-22.67-83.5-53.39-111.95-92.15-28.45-38.76-42.68-87.83-42.68-147.21,0-39.58,10.52-80.4,31.54-122.46,21.03-42.06,49.27-80.4,84.74-115.04,35.45-34.64,76.69-62.87,123.7-84.74,47-21.84,96.49-32.78,148.44-32.78h612.31c-28.88,31.35-57.73,60.83-86.59,88.45-28.88,27.64-60.61,53.81-95.25,78.55h-385.94c-16.51,0-32.16,3.52-47.01,10.52-14.84,7.01-28.45,16.29-40.82,27.83-12.37,11.56-23.5,24.55-33.4,38.97-9.9,14.44-17.74,28.66-23.5,42.68-7.42,21.46-11.13,38.35-11.13,50.72,0,15.68,4.74,32.37,14.23,50.1,9.47,17.74,21.65,34.02,36.49,48.86,14.84,14.85,31.55,27.21,50.1,37.11,18.56,9.9,36.9,14.85,55.05,14.85h86.59l34.64-80.41h-168.23v-1.23c.81-2.47,7-10.52,18.56-24.12,11.54-13.61,25.15-28.86,40.82-45.77,15.65-16.89,32.16-33.8,49.48-50.71,17.32-16.89,32.98-29.88,47.01-38.97h356.26l-185.55,408.21Z" />
+                                <path
+                                    d="M2409.67,1585.93l285.75-655.61h285.75l-168.23,383.47,150.91-129.89h226.37l111.33-253.58h282.04l-286.98,655.61h-282.04l102.67-235.03h-320.38l-102.67,235.03h-284.51Z" />
+                                <path
+                                    d="M4600.37,1585.93h-285.75l160.81-368.63-404.49,368.63h-101.44l-81.64-368.63-160.81,368.63h-284.51l285.75-655.61h359.96l75.46,329.04,363.67-329.04h358.73l-285.75,655.61Z" />
+                            </g>
+                            <g>
+                                <path
+                                    d="M154.59,750.1c17.05-4.14,33.34-8.1,49.64-12.04,86.38-20.9,172.77-41.79,259.15-62.69,77.6-18.78,155.24-37.38,232.74-56.54,12.29-3.04,23.68-3.03,35.96,0,90.06,22.17,180.24,43.85,270.38,65.67,84.29,20.4,168.59,40.78,252.88,61.18,5.84,1.41,11.68,2.84,18.1,4.41,.62,5.76,1.32,11.47,1.83,17.19,4.51,49.85,7.16,99.79,6.45,149.86-.58,40.33-2.89,80.56-7.15,120.69-9.77,92.12-29.73,181.89-61.17,269.05-45.6,126.4-111.97,240.82-198.71,343.44-62.68,74.14-133.2,139.78-212.53,195.83-26.25,18.55-53.23,35.92-81.93,50.5-1.92,.97-3.83,1.95-5.97,3.05-16.83-8.11-33.11-17.33-48.96-27.31-45.53-28.66-88.2-61.16-128.64-96.59-71.7-62.82-134.87-133.31-189.23-211.64-45.89-66.11-84.04-136.43-114.72-210.83-28.76-69.74-50.26-141.68-64.17-215.78-5.52-29.41-9.7-59.1-13.51-88.79-7.06-55.05-9.32-110.41-8.49-165.87,.6-40.11,2.79-80.15,6.94-120.07,.42-4.05,.7-8.11,1.09-12.72Zm938.58,677.31c3.2-6.11,6.01-12.8,9.12-18.96,66.91-132.37,101.79-273.11,109.69-420.85,2.61-48.72,1.79-97.43-1.3-146.11-.6-9.44-1.57-18.86-2.41-28.81-97.32-23.55-194.44-47.05-291.84-70.62-15.49-3.25-36.94-9-38.17-9.3-52.72-12.76-105.43-25.55-158.19-38.16-2.99-.71-6.46-.56-9.48,.16-46.06,10.98-92.09,22.11-138.12,33.22-7.92,1.91-15.81,3.92-23.74,5.89-6.51,1.98-12.15,2.79-34.04,8.18-97.65,23.64-194.82,47.16-292.15,70.72-1.31,20.65-2.99,40.42-3.72,60.22-1.89,51.32-1.34,102.6,3.25,153.81,2.5,27.91,5.87,55.68,10.33,83.34,9.86,61.18,25.1,120.98,45.69,179.42,16.21,46,35.78,90.54,58.48,133.7,1.07,2.03,39.4,68.48,42.42,73.2,49.97,77.97,109.24,148.09,177.63,210.48,41.97,38.29,86.64,73.13,134.82,103.34,2.12,1.33,24.15,11.93,24.15,11.93,0,0,30.27-15.63,36.32-19.65,122.83-81.65,223.09-185.36,302.49-309.49,2.15-3.36,34.03-55.79,36.04-60.53l2.72-5.14Z" />
+                                <path
+                                    d="M414.1,1413.28m.02,84.44l-33.68,.41c0-28.23,.94-152.32,.94-421.03-30.68-11.74-41.23-38.08-37.07-61.91,4.36-24.97,25.28-43.22,51.3-44.32,26.54-1.12,47.09,16.37,53.71,38.01,3.57,11.65,3.39,23.34-.83,34.75-6.06,16.39-18,27.07-34.3,33.25v7.93m-16.26-92.08c-18.42,0-32.8,14.47-32.69,32.87,.11,18.05,14.49,32.27,32.64,32.29,18.23,.02,33.11-14.87,32.84-32.88-.27-17.97-14.81-32.29-32.79-32.28Z" />
+                                <path
+                                    d="M1047.61,1413.28m.02,84.44l-33.68,.41c0-28.23,.94-152.32,.94-421.03-30.68-11.74-41.23-38.08-37.07-61.91,4.36-24.97,25.28-43.22,51.3-44.32,26.54-1.12,47.09,16.37,53.71,38.01,3.57,11.65,3.39,23.34-.83,34.75-6.06,16.39-18,27.07-34.3,33.25v7.93m-16.26-92.08c-18.42,0-32.8,14.47-32.69,32.87,.11,18.05,14.49,32.27,32.64,32.29,18.23,.02,33.11-14.87,32.84-32.88-.27-17.97-14.81-32.29-32.79-32.28Z" />
+                                <path
+                                    d="M729.95,1411.47m.02,374.87l-33.68,.41c0-28.23,.94-442.76,.94-711.47-30.68-11.74-41.23-38.08-37.07-61.91,4.36-24.97,25.28-43.22,51.3-44.32,26.54-1.12,47.09,16.37,53.71,38.01,3.57,11.65,3.39,23.34-.83,34.75-6.06,16.39-18,27.07-34.3,33.25v7.93m-16.26-92.08c-18.42,0-32.8,14.47-32.69,32.87,.11,18.05,14.49,32.27,32.64,32.29,18.23,.02,33.11-14.87,32.84-32.88-.27-17.97-14.81-32.29-32.79-32.28Z" />
+                                <path
+                                    d="M536.46,972.4m-.02-239.74l35.36-.44c0,29.64-.98,311.02-.98,593.15,32.21,12.32,43.28,39.98,38.92,65-4.58,26.21-26.55,45.38-53.87,46.54-27.87,1.18-49.44-17.19-56.39-39.91-3.75-12.24-3.56-24.51,.87-36.49,6.36-17.21,18.9-28.42,36.01-34.91,0-3.05,0-5.68,0-8.32m17.07,96.68c19.34,0,34.44-15.19,34.32-34.51-.12-18.95-15.22-33.88-34.27-33.9-19.14-.02-34.76,15.62-34.48,34.52,.28,18.87,15.55,33.9,34.43,33.9Z" />
+                                <path
+                                    d="M859.57,972.4m-.02-239.74l35.36-.44c0,29.64-.98,311.02-.98,593.15,32.21,12.32,43.28,39.98,38.92,65-4.58,26.21-26.55,45.38-53.87,46.54-27.87,1.18-49.44-17.19-56.39-39.91-3.75-12.24-3.56-24.51,.87-36.49,6.36-17.21,18.9-28.42,36.01-34.91v-8.32m17.07,96.68c19.34,0,34.44-15.19,34.32-34.51-.12-18.95-15.22-33.88-34.27-33.9-19.14-.02-34.76,15.62-34.48,34.52,.28,18.87,15.55,33.9,34.43,33.9Z" />
+                                <path
+                                    d="M219.8,808.6c15.06-3.65,29.46-7.15,43.87-10.64,76.33-18.47,152.67-36.92,229-55.39,68.57-16.59,137.18-33.03,205.66-49.96,10.86-2.69,20.92-2.68,31.78,0,79.58,19.59,159.27,38.75,238.92,58.03,74.48,18.03,148.97,36.04,223.46,54.06,5.16,1.25,10.32,2.51,16,3.9,.55,5.09,1.16,10.13,1.62,15.19,3.99,44.05,6.33,88.18,5.7,132.42-.51,35.64-2.56,71.18-6.32,106.65-8.63,81.4-26.27,160.73-54.05,237.74-40.29,111.69-98.94,212.8-175.59,303.48-55.38,65.52-117.7,123.51-187.8,173.05-23.19,16.39-47.04,31.74-72.39,44.62-1.69,.86-3.38,1.73-5.28,2.69-14.87-7.16-29.26-15.31-43.27-24.13-40.23-25.33-77.94-54.04-113.67-85.35-63.36-55.51-119.17-117.8-167.21-187.01-40.55-58.42-74.26-120.56-101.37-186.3-25.41-61.62-44.41-125.19-56.7-190.67-4.88-25.98-8.57-52.22-11.94-78.45-6.24-48.64-8.24-97.56-7.51-146.57,.53-35.44,2.47-70.82,6.14-106.1,.37-3.58,.62-7.16,.97-11.24Zm318.2,518.88V801.5c-86.28,20.89-172.15,41.67-258.15,62.49-1.15,18.25-2.64,35.71-3.29,53.21-1.67,45.35-1.18,90.66,2.87,135.91,2.21,24.66,5.19,49.2,9.13,73.64,8.71,54.06,22.18,106.9,40.37,158.54,14.32,40.65,31.62,80,51.67,118.14,.94,1.79,1.28,4.3,3.93,5.12v-336.87c-27.73-10.61-37.27-34.43-33.51-55.97,3.94-22.57,22.86-39.08,46.38-40.07,23.99-1.02,42.57,14.8,48.56,34.36,3.23,10.54,3.06,21.1-.75,31.42-5.48,14.82-16.27,24.47-31.01,30.06,0,2.62,0,4.89,0,7.17,0,125.39,.02,250.79-.08,376.18,0,5,1.3,9.11,3.97,13.29,44.15,68.9,96.53,130.86,156.96,185.99,37.09,33.84,76.56,64.62,119.13,91.32,1.87,1.17,3.82,2.21,6.26,3.62v-677.4c-24.18-8.46-37.56-30.08-34.09-54.55,2.94-20.7,20.02-39.59,45.2-41.39,20.92-1.49,41.22,10.69,49.16,31.89,3.86,10.31,4.09,20.91,.83,31.42-4.96,15.99-16.06,26.32-30.92,32.21v678.09c6.13-3.85,11.64-7.15,16.99-10.7,108.54-72.15,197.14-163.8,267.29-273.48,1.9-2.97,2.17-5.93,2.17-9.19-.02-125.96-.02-251.93-.02-377.89v-6.01c-27.37-12.59-38.92-32.13-34.18-57.27,4.12-21.88,23.35-38.45,46.59-39.14,23.94-.72,42.32,14.98,48.29,34.76,3.26,10.79,2.87,21.45-1.22,31.91-5.53,14.13-15.94,23.38-30.15,29v7.55c0,107.29,0,214.58,0,321.87,0,1.52-.09,3.06,.05,4.57,.09,.94,.53,1.85,.93,3.13,.73-.94,1.17-1.35,1.43-1.85,2.82-5.4,5.67-10.79,8.42-16.23,59.12-116.97,89.94-241.33,96.93-371.88,2.3-43.05,1.59-86.09-1.14-129.1-.53-8.34-1.38-16.67-2.13-25.46-85.99-20.81-171.82-41.58-257.89-62.41v525.86c28.32,11.36,36.34,36.45,32.39,56.13-4.25,21.14-23.25,37.51-43.96,38.73-24.07,1.42-43.97-14.29-49.87-34.76-3-10.42-2.66-20.69,1.2-30.81,5.5-14.39,16.03-23.72,30-29.11V794.42c-1.36-.45-2.41-.88-3.51-1.14-46.58-11.28-93.16-22.58-139.78-33.72-2.64-.63-5.71-.5-8.37,.14-40.7,9.7-81.38,19.53-122.05,29.36-7,1.69-13.97,3.47-20.98,5.21v532.94c26.87,13.73,37.84,34.06,31.89,58.3-5.24,21.34-25.5,37.78-49.55,36.72-21.46-.95-40.6-17.23-44.86-39.68-3.85-20.29,5.31-44.42,32.44-55.07Zm-138.49-332.06c-16.65,0-29.66,13.08-29.55,29.72,.1,16.32,13.1,29.18,29.51,29.19,16.48,.02,29.93-13.45,29.69-29.72-.24-16.25-13.39-29.19-29.65-29.19Zm315.78,58.91c16.23-.09,29.61-13.26,29.38-29.42-.27-18.9-15.88-29.93-29.87-29.57-16.36,.42-29.27,13.13-29.28,29.49-.02,16.59,13.11,29.59,29.78,29.49Zm316.1,0c16.37-.1,29.29-13.04,29.32-29.38,.03-16.6-13.06-29.6-29.75-29.52-16.22,.07-29.4,13.2-29.46,29.38-.07,16.34,13.38,29.63,29.89,29.53Z" />
+                            </g>
+                        </svg>
+                        <div class="gridcontent">Gear Head Motors is an EV technology provider that aims to
+                            revolutionise transport with its innovative e-bikes that combine technology, design and
+                            sustainability.</div>
+                    </div>
+                    <div class="r1c2">
+                        <div class="flexcontainer">
+                            <div class="topgridcontent">Product</div>
+                            <div class="flexcontainer">
+                                <div class="gridcontent hoverlink">L Series</div>
+                                <div class="gridcontent hoverlink">I Series</div>
+                                <div class="gridcontent hoverlink">F Series
+                                </div>
+                                <div class="gridcontent hoverlink">E Series</div>
+                            </div>
+                        </div>
+                        <div class="flexcontainer">
+                            <div class="topgridcontent">Company</div>
+                            <div class="gridcontent flexcontainer">
+                                <div class="hoverlink">Blogs</div>
+                                <div class="hoverlink">Become a dealer</div>
+                            </div>
+                        </div>
+                        <div class="flexcontainer">
+                            <div class=" topgridcontent">Community</div>
+                            <div class="gridcontent flexcontainer">
+                                <div class="hoverlink">About Us</div>
+                                <div class="hoverlink">Contact Us</div>
+                                <div class="hoverlink">Press Kit</div>
+                            </div>
+                        </div>
+                        <div class="flexcontainer">
+                            <div class="topgridcontent">Service</div>
+                            <div class="gridcontent flexcontainer">
+                                <div class="hoverlink">Terms & Condition</div>
+                                <div class="hoverlink">Privacy Policy</div>
+                                <div class="hoverlink">Return Policy</div>
+                                <div class="hoverlink">Warranty</div>
+                            </div>
+                        </div>
+                        <!-- <div class="flexcontainer">
+                            <div class="gridcontent hoverlink">L Series</div>
+                            <div class="gridcontent hoverlink">I Series</div>
+                            <div class="gridcontent hoverlink">F Series
+                            </div>
+                            <div class="gridcontent hoverlink">E Series</div>
+                        </div> -->
+                        <!-- <div class="gridcontent flexcontainer">
+                            <div class="hoverlink">Blogs</div>
+                            <div class="hoverlink">Become a dealer</div>
+                        </div>
+                        <div class="gridcontent flexcontainer">
+                            <div class="hoverlink">About Us</div>
+                            <div class="hoverlink">Contact Us</div>
+                            <div class="hoverlink">Press Kit</div>
+                        </div>
+                        <div class="gridcontent flexcontainer">
+                            <div class="hoverlink">Terms & Condition</div>
+                            <div class="hoverlink">Privacy Policy</div>
+                            <div class="hoverlink">Return Policy</div>
+                            <div class="hoverlink">Warranty</div>
+                        </div> -->
+                    </div>
+                    <div class="r2c1">
+                        <div class="topgridcontent">Contact Us
+                            <div class="gridcontent hoverlink">contactus@ghmev.com</div>
+                        </div>
+                        <div class="topgridcontent">Service Support
+                            <div class="gridcontent">+91 8977938474 | service@ghmev.com</div>
+                        </div>
+                        <div class="topgridcontent">Address
+                            <div class="gridcontent">Gear Head Motors Head Quarter's, plot 30 NK Towers , Aurnodaya
+                                Co-Operative Society, Hyderabad, Telangana 500081.</div>
+                        </div>
+                    </div>
+                    <div class="r2c2 flexcontainer">
+                        <div class="topgridcontent subscribe">subscribe to our newsletter</div>
+                        <div class="gridcontent">To get special offers, free giveaways, and once-in-a-lifetime deals.
+                        </div>
+                        <div class="email contact">
+                            <input type="text" placeholder="Enter email">
+                            <button>Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- import three js-->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
+        }
+      }
+    </script>
+
+
+    <script type="module">
+
+
+        import * as THREE from 'three';
+        import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+        import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
+        import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+        import { ScrollTrigger } from "https://cdn.skypack.dev/gsap/ScrollTrigger";
+
+        gsap.registerPlugin(ScrollTrigger);
+        function scrollgsap() {
+
+            // const scroll = new LocomotiveScroll({
+            //   el: document.querySelector('.main'),
+            //   smooth: true
+            // });
+
+
+            gsap.registerPlugin(ScrollTrigger);
+            const locoScroll = new LocomotiveScroll({
+                el: document.querySelector(".main"),
+                smooth: true
+            });
+            locoScroll.on("scroll", ScrollTrigger.update);
+
+            ScrollTrigger.scrollerProxy(".main", {
+                scrollTop(value) {
+                    return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+                },
+                getBoundingClientRect() {
+                    return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+                },
+                pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
+            });
+            ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+            ScrollTrigger.refresh();
+
+        }
+
+
+        scrollgsap();
+        //funtion for scene creation
+        function createscene(view, container, object) {
+
+            const scene = new THREE.Scene();
+
+            // const hemisphereLight = new THREE.HemisphereLight(0xffffff, 10);
+            // hemisphereLight.position.set(0, 5, -5);
+            // scene.add(hemisphereLight);
+            //camera
+            const camera = new THREE.PerspectiveCamera(view, container.clientWidth / container.clientHeight, 0.1, 1000);
+
+            //Action
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+            // renderer.shadowMap.enabled = false;
+            // renderer.outputEncoding = THREE.sRGBEncoding;
+            renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
+            renderer.setClearColor(0x000000, 0);
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(renderer.domElement);
+
+            var loader = new GLTFLoader();//gltfloader
+            var obj = new THREE.Object3D();//object
+
+            // obj.position.set(position.x, position.y, position.z);
+            //    obj.scale.set(2,2,2);
+            // scene.backgroundColor = 0x000000;
+            let group1, group2;
+            const pivot = new THREE.Group();
+            loader.load(object, function (gltf) {
+                obj = gltf.scene;
+                // obj.position.y = -0.8
+                scene.add(obj);
+
+
+                const box = new THREE.Box3().setFromObject(obj);
+                const centre = new THREE.Vector3();
+                box.getCenter(centre);
+                obj.position.sub(centre);
+
+                pivot.add(obj);
+                scene.add(pivot);
+                // pivot.position.set(0, 0, 0)
+                group1 = obj.getObjectByName('wheel_front');//back part
+                group2 = obj.getObjectByName('wheel_rear');//front 
+
+                gsap.from(container, { duration: 1, x: window.innerWidth, ease: "linear" })
+                gsap.to(group1.rotation, { duration: 1, x: Math.PI * 2 })
+                if (window.innerWidth>425) {
+                    
+                    gsap.fromTo(container, { x: window.innerWidth / 2.5 }, {
+                        duration: 1,
+                        x: -window.innerWidth / 3,
+                        y: window.innerHeight + 180,
+                        scrollTrigger: {
+                            trigger: ".page1",
+                            start: "0%",
+                            // end: "85%",
+                            // markers: true,
+                            scrub: true,
+                            scroller: ".main"
+                        }
+                    })
+
+                    gsap.to(camera.position, {
+                    duration: 1,
+                    z: 3,
+                    x: 0,
+                    y: 0,
+                    ease: "power4.in",
+                    scrollTrigger: {
+                        trigger: ".page1",
+                        start: "0%",
+                        // markers: true,
+                        // end: "80%",
+                        scrub: true,
+                        scroller: ".main"
+                    }
+                })
+                }
+                else{
+                    gsap.fromTo(container, { x: 0 }, {
+                        // duration: 1,
+                        x: -window.innerWidth / 3.77,
+                        y: window.innerHeight /1,
+                        scrollTrigger: {
+                            trigger: ".page1",
+                            start: "0%",
+                            // end: "80%",
+                            // markers: true,
+                            scrub: true,
+                            scroller: ".main"
+                        }
+                    })
+
+                    gsap.to(camera.position, {
+                    duration: 1,
+                    z: 3,
+                    x: 0,
+                    y: 0,
+                    ease: "power4.in",
+                    scrollTrigger: {
+                        trigger: ".page1",
+                        start: "0%",
+                        // markers: true,
+                        end: "80%",
+                        scrub: true,
+                        scroller: ".main"
+                    }
+                })
+                }
+                gsap.to(obj.rotation, {
+                    duration: 1,
+                    y: Math.PI * 3,
+                    scrollTrigger: {
+                        trigger: ".page1",
+                        start: "0%",
+                        // markers: true,
+                        scrub: true,
+                        scroller: ".main"
+                    }
+                })
+                
+
+                document.querySelectorAll(".heading").forEach(function (button) {
+
+                    let newid = 0;
+                    button.addEventListener("click", (e) => {
+
+
+                        const btnid = e.target.id;
+                        if (btnid > 10) {
+                            newid = btnid;
+                            const plus = document.getElementById(newid);
+                            document.getElementById(newid - 10).classList.add("z-10");
+                            
+
+                            gsap.to(`.headcolor${btnid - 10}`, {
+                                width: "0%",
+
+                                duration: 0.3,
+                                ease: "power1.Out",
+                            });
+                            gsap.to(`.headcolor${btnid - 10}`, {
+                                backgroundColor: "#94a3b8",
+                                duration: 0.4,
+                                ease: "power1.Out",
+                            });
+                            gsap.to(plus, { rotate: 0, duration: 0.4, ease: "power1.Out", });
+
+                            gsap.to(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
+
+                            document.getElementsByClassName("featurecontent")[newid - 11].classList.add("hidden");
+                            console.log("close");
+                            console.log(newid);
+                            document.getElementsByClassName(`btn-headcolor${btnid - 10}`)[0].classList.remove("active");
+                            document.querySelector(`.btn-headcolor${btnid-10} .absolute`).classList.remove("pointer-events-none")
+                            document.querySelector(`.btn-headcolor${btnid-10} .absolute`).classList.add("cursor-pointer")
+                        }
+                    })
+                })
+                document.getElementById("1").addEventListener('click', () => {
+                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
+                    gsap.to(camera.position, {
+                        z: 0.9,
+                        x: -1,
+                        y: 0.7
+                    });
+                    document.querySelector("#model canvas").classList.add("rounded-full");
+                })
+                document.getElementById("2").addEventListener('click', () => {
+                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
+                    gsap.to(camera.position, {
+                        z: 1.17,
+                        x: -1.37,
+                        y: 0
+                    });
+                    document.querySelector("#model canvas").classList.add("rounded-full");
+                })
+                document.getElementById("3").addEventListener('click', () => {
+                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
+
+                    gsap.to(camera.position, { z: 0.8, x: -0.1, y: 0.5 });
+
+                    document.querySelector("#model canvas").classList.add("rounded-full");
+                })
+                document.getElementById("4").addEventListener('click', () => {
+                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
+
+                    gsap.to(camera.position, { z: 0.8, x: -0.1, y: 0.5 });
+
+                    document.querySelector("#model canvas").classList.add("rounded-full");
+                })
+                document.getElementById("5").addEventListener('click', () => {
+                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
+
+                    gsap.to(camera.position, { z: 0.8, x: -0.1, y: 0.5 });
+
+                    document.querySelector("#model canvas").classList.add("rounded-full");
+                })
+                document.getElementById("6").addEventListener('click', () => {
+                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
+
+                    gsap.to(camera.position, { z: 0.8, x: -0.1, y: 0.5 });
+
+                    document.querySelector("#model canvas").classList.add("rounded-full");
+                })
+                document.getElementById("7").addEventListener('click', () => {
+                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
+
+                    gsap.to(camera.position, { z: 0.8, x: -0.1, y: 0.5 });
+
+                    document.querySelector("#model canvas").classList.add("rounded-full");
+                })
+                document.getElementById("8").addEventListener('click', () => {
+                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
+
+                    gsap.to(camera.position, { z: 0.8, x: -0.1, y: 0.5 });
+
+                    document.querySelector("#model canvas").classList.add("rounded-full");
+                })
+                document.getElementById("9").addEventListener('click', () => {
+                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
+
+                    gsap.to(camera.position, { z: 0.8, x: -0.1, y: 0.5 });
+
+                    document.querySelector("#model canvas").classList.add("rounded-full");
+                })
+                document.getElementById("10").addEventListener('click', () => {
+                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
+
+                    gsap.to(camera.position, { z: 0.8, x: -0.1, y: 0.5 });
+
+                    document.querySelector("#model canvas").classList.add("rounded-full");
+                })
+
+            });
+            var light = new THREE.HemisphereLight(0xffffff, 0x000000, 100);
+            scene.add(light);
+            camera.position.set(0, 0, 1.7);
+            pivot.rotation.y = -Math.PI / 2;
+
+
+            //animation part
+
+
+
+            //object render
+            function animate() {
+                requestAnimationFrame(animate);
+                // console.log(obj);
+
+
+                renderer.render(scene, camera);
+            }
+            animate();
+
+        }
+        const container1 = document.getElementById("model")
+
+        if (window.innerWidth <= 425) {
+            createscene(125, container1, "bicycle/cycle.gltf")
+        }
+        else {
+            createscene(75, container1, "bicycle/cycle.gltf")
+
+        }
+        // gsap.from(container1, {duration: 1, x: window.innerWidth/6, ease: "linear"})
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"
+        integrity="sha512-1PKqXBz2ju2JcAerHKL0ldg0PT/1vr3LghYAtc59+9xy8e19QEtaNUyt1gprouyWnpOPqNJjL4gXMRMEpHYyLQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"
+        integrity="sha512-G7Wpe/pbg+zjyyM9HgQY6kacLAy+580lmA8DUXmZtioTI5FkaCRoLOaCLoeblrZABs7KZFD03cfSV9j7nmwxfw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"
+        integrity="sha512-1PKqXBz2ju2JcAerHKL0ldg0PT/1vr3LghYAtc59+9xy8e19QEtaNUyt1gprouyWnpOPqNJjL4gXMRMEpHYyLQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+
+</body>
+
 </html>
