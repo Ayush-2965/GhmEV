@@ -665,24 +665,23 @@
 
 
     <!-- import three js-->
-    <script type="importmap">
+    <!-- <script type="importmap">
       {
         "imports": {
           "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
           "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
         }
       }
-    </script>
+    </script> -->
 
 
     <script type="module">
 
-
-        import * as THREE from 'three';
-        import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-        import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
-        import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-        import { ScrollTrigger } from "https://cdn.skypack.dev/gsap/ScrollTrigger";
+        import * as THREE from './node_modules/three/build/three.module.min.js';
+        import { GLTFLoader } from './node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+        import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitControls.js';
+        import { gsap } from './node_modules/gsap/index.js';
+        import { ScrollTrigger } from './node_modules/gsap/ScrollTrigger.js';
 
         gsap.registerPlugin(ScrollTrigger);
         function scrollgsap() {
