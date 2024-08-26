@@ -1,3 +1,9 @@
+
+
+
+
+
+
 function scrollgsap() {
     // const scroll = new LocomotiveScroll({
     //   el: document.querySelector('.main'),
@@ -7,8 +13,22 @@ function scrollgsap() {
     gsap.registerPlugin(ScrollTrigger);
     const locoScroll = new LocomotiveScroll({
         el: document.querySelector(".main"),
-        smooth: true,
+        smooth: 2,
+        smartphone: {
+            smooth: 0.5,
+            breakpoint: 1024,
+        },
     });
+
+    const element = document.getElementById("ebikes");
+    document.getElementById("bike").addEventListener('click', () => {
+        locoScroll.destroy();
+        locoScroll.scrollTo(element);
+        
+        locoScroll.init();
+        locoScroll.start();
+        locoScroll.update();
+    })
     locoScroll.on("scroll", ScrollTrigger.update);
 
     ScrollTrigger.scrollerProxy(".main", {
@@ -153,111 +173,210 @@ tl.from(".part2 .features", {
         // pin:true
     },
 });
-tl.from(".part2 .comp", {
-    opacity: 0,
-    scrollTrigger: {
-        trigger: "#part2",
+// tl.from(".part2 .comp", {
+//     opacity: 0,
+//     scrollTrigger: {
+//         trigger: "#part2",
 
-        start: "top 50%",
-        end: "top 15%",
-        scrub: 2,
-        scroller: ".main",
-        // pin:true
-    },
-});
+//         start: "top 50%",
+//         end: "top 15%",
+//         scrub: 2,
+//         scroller: ".main",
+//         // pin:true
+//     },
+// });
+if (window.innerWidth > 425) {
 
-gsap.from(".card1", {
-    opacity: 0,
-    scale: 0.5,
-    // duration:5,
-    scrollTrigger: {
-        trigger: ".page2",
+    gsap.from(".card1", {
+        opacity: 0,
+        scale: 0.5,
+        // duration:5,
+        scrollTrigger: {
+            trigger: ".page2",
 
-        start: "top 50%",
-        end: "top 0%",
-        scrub: 1,
-        scroller: ".main",
-        // pin:true
-    },
-});
-gsap.from(".card1 .img1", {
-    x: -250,
-    scrollTrigger: {
-        trigger: ".page2",
-        start: "top 50%",
-        end: "top 0%",
-        scroller: ".main",
-        scrub: 2,
-    },
-});
+            start: "top 50%",
+            end: "top 0%",
+            scrub: 1,
+            scroller: ".main",
+            // pin:true
+        },
+    });
+    gsap.from(".card1 .img1", {
+        x: -250,
+        scrollTrigger: {
+            trigger: ".page2",
+            start: "top 50%",
+            end: "top 0%",
+            scroller: ".main",
+            scrub: 2,
+        },
+    });
 
-gsap.from(".card2", {
-    opacity: 0,
-    scale: 0.5,
-    scrollTrigger: {
-        trigger: ".page2",
-        start: "top 35%",
-        end: "top 1%",
+    gsap.from(".card2", {
+        opacity: 0,
+        scale: 0.5,
+        scrollTrigger: {
+            trigger: ".page2",
+            start: "top 35%",
+            end: "top 1%",
 
-        scrub: 1,
-        scroller: ".main",
-        // pin:true
-    },
-});
-gsap.from(".card2 .img", {
-    x: -250,
-    scrollTrigger: {
-        trigger: ".page2",
-        start: "top 35%",
-        end: "top 1%",
+            scrub: 1,
+            scroller: ".main",
+            // pin:true
+        },
+    });
+    gsap.from(".card2 .img2", {
+        x: -250,
+        scrollTrigger: {
+            trigger: ".page2",
+            start: "top 35%",
+            end: "top 1%",
 
-        scrub: 2,
-        scroller: ".main",
-        // pin:true
-    },
-});
-gsap.from(".card3", {
-    opacity: 0,
-    scale: 0.5,
-    scrollTrigger: {
-        trigger: ".page2",
-        start: "top 35%",
-        end: "top 0%",
-        scroller: ".main",
-        scrub: 1,
-    },
-});
-gsap.from(".card3 .img", {
-    x: -250,
-    scrollTrigger: {
-        trigger: ".page2",
-        start: "top 35%",
-        end: "top 0%",
-        scroller: ".main",
-        scrub: 2,
-    },
-});
-gsap.from(".card4", {
-    opacity: 0,
-    scale: 0.5,
-    scrollTrigger: {
-        trigger: ".page2",
-        start: "top 21%",
-        end: "top 0%",
-        scroller: ".main",
-        scrub: 1,
-    },
-});
-gsap.from(".card4 .img", {
-    x: -250,
-    scrollTrigger: {
-        trigger: ".page2",
-        start: "top 21%",
-        end: "top 0%",
-        scroller: ".main",
-        scrub: 2,
-    },
-});
+            scrub: 2,
+            scroller: ".main",
+            // pin:true
+        },
+    });
+    gsap.from(".card3", {
+        opacity: 0,
+        scale: 0.5,
+        scrollTrigger: {
+            trigger: ".page2",
+            start: "top 35%",
+            end: "top 0%",
+            scroller: ".main",
+            scrub: 1,
+        },
+    });
+    gsap.from(".card3 .img3", {
+        x: -250,
+        scrollTrigger: {
+            trigger: ".page2",
+            start: "top 35%",
+            end: "top 0%",
+            scroller: ".main",
+            scrub: 2,
+        },
+    });
+    gsap.from(".card4", {
+        opacity: 0,
+        scale: 0.5,
+        scrollTrigger: {
+            trigger: ".page2",
+            start: "top 21%",
+            end: "top 0%",
+            scroller: ".main",
+            scrub: 1,
+        },
+    });
+    gsap.from(".card4 .img4", {
+        x: -250,
+        scrollTrigger: {
+            trigger: ".page2",
+            start: "top 21%",
+            end: "top 0%",
+            scroller: ".main",
+            scrub: 2,
+        },
+    });
+}
+else {
+    const tlcard = gsap.timeline({});
+    tlcard.from(".card1", {
+        opacity: 0,
+        scale: 0.5,
+        // duration:5,
+        scrollTrigger: {
+            trigger: ".page2",
+
+            start: "top 50%",
+            end: "top 21%",
+            scrub: 1,
+            scroller: ".main",
+            // pin:true
+        },
+    });
+    tlcard.from(".card1 .img1", {
+        x: -250,
+        scrollTrigger: {
+            trigger: ".page2",
+            start: "top 50%",
+            end: "top 21%",
+            scroller: ".main",
+            scrub: 2,
+        },
+    });
+
+    tlcard.from(".card2", {
+        opacity: 0,
+        scale: 0.5,
+        scrollTrigger: {
+            trigger: ".page2",
+
+            start: "top 50%",
+            end: "top 21%",
+            scrub: 1,
+            scroller: ".main",
+            // pin:true
+        },
+    }, 0);
+    tlcard.from(".card2 .img2", {
+        x: -250,
+        scrollTrigger: {
+            trigger: ".page2",
+            start: "top 50%",
+            end: "top 21%",
+            scroller: ".main",
+            scrub: 2,
+        },
+    }, 0);
+
+    tlcard.from(".card3", {
+        opacity: 0,
+        scale: 0.5,
+        // duration:5,
+        scrollTrigger: {
+            trigger: ".page2",
+            start: "top 21%",
+            end: "top 0%",
+            scroller: ".main",
+            scrub: 1,
+        },
+    });
+    tlcard.from(".card3 .img3", {
+        x: -250,
+        scrollTrigger: {
+            trigger: ".page2",
+            start: "top 21%",
+            end: "top 0%",
+            scroller: ".main",
+            scrub: 2,
+        },
+    });
+
+    tlcard.from(".card4", {
+        opacity: 0,
+        scale: 0.5,
+        scrollTrigger: {
+            trigger: ".page2",
+            start: "top 21%",
+            end: "top 0%",
+            scroller: ".main",
+            scrub: 1,
+        },
+    }, 0);
+    tlcard.from(".card4 .img4", {
+        x: -250,
+        scrollTrigger: {
+            trigger: ".page2",
+            start: "top 21%",
+            end: "top 0%",
+            scroller: ".main",
+            scrub: 2,
+        },
+    }, 0);
+
+}
 
 tl.to(".toptext", {
     y: 70,
@@ -282,11 +401,11 @@ document.querySelectorAll(".overlay").forEach(function (card) {
         if (currentAnimation) {
             currentAnimation.kill(); // Stop any existing animation
         }
-        cardindex = parseInt(e.target.id);
-        //  console.log(cardindex)
-        cardhover = `.card${cardindex}`;
+        let cardindex = parseInt(e.target.id);
+        console.log(cardindex)
+        let cardhover = `.card${cardindex % 4}`;
         currentAnimation = gsap.to(`${cardhover} .img`, {
-            duration: 1.77,
+            duration: 1.7,
             y: -20,
             ease: Power1.easeInOut,
             repeat: -1,
@@ -298,9 +417,9 @@ document.querySelectorAll(".overlay").forEach(function (card) {
         if (currentAnimation) {
             currentAnimation.kill(); // Stop the animation on mouse leave
         }
-        cardindex = parseInt(e.target.id);
+        let cardindex = parseInt(e.target.id);
         //  console.log(cardindex)
-        cardhover = `.card${cardindex}`;
+        let cardhover = `.card${cardindex % 4}`;
         gsap.to(`${cardhover} .img`, { duration: 0.5, y: 0 }); // Reset position along the y-axis
     });
 });
@@ -473,34 +592,42 @@ carousel.addEventListener("scroll", infiniteScroll);
 wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
 wrapper.addEventListener("mouseleave", autoPlay);
 
+
+// model features animation
 let activeid = 0;
 document.querySelectorAll(".heading").forEach(function (button) {
-    button.addEventListener("mouseenter", (e) => {
+
+
+    button.addEventListener("mouseover", (e) => {
 
         if (button.classList.contains("active")) {
             console.log("active");
-            button.style.color="black";
+            button.style.color = "black";
         }
         else {
             let i;
             for (i = 1; i <= 10; i++) {
                 if (i != activeid) {
-                    button.style.color="white";
+
+                    if (window.innerWidth > 425) {
+
+                        button.style.color = "white";
+                    }
                     gsap.to(`.headcolor${i}`, {
                         width: "0%",
-                        
+
                         duration: 0.4,
                         ease: "power1.Out",
                     });
                 }
 
             }
-            
+
             // console.log(e.target.id)
             const btn = button.classList[0].split("-")[1];
             gsap.to(`.${btn}`, {
                 width: "100%",
-                
+
                 duration: 0.4,
                 ease: "power2.in",
             });
@@ -514,7 +641,7 @@ document.querySelectorAll(".heading").forEach(function (button) {
     button.addEventListener("mouseleave", () => {
         for (let i = 1; i <= 10; i++) {
             if (i != activeid) {
-                button.style.color="black";
+                button.style.color = "black";
                 gsap.to(`.headcolor${i}`, {
                     width: "0%",
                     duration: 0.4,
@@ -533,7 +660,7 @@ document.querySelectorAll(".heading").forEach(function (button) {
         });
 
         button.classList.add("active")
-        
+
         const id = e.target.id;
         if (id > 0 && id <= 10) {
             oid = id;
@@ -541,31 +668,32 @@ document.querySelectorAll(".heading").forEach(function (button) {
 
             for (let i = 1; i <= 10; i++) {
                 if (i != activeid) {
-    
+
                     gsap.to(`.headcolor${i}`, {
                         width: "0%",
-                        
+
                         duration: 0.3,
                         ease: "power1.Out",
                     });
                     gsap.to(`.headcolor${i}`, {
-                        backgroundColor:"#94a3b8",
+                        backgroundColor: "#94a3b8",
                         duration: 0.4,
                         ease: "power1.Out",
                     });//cursor-pointer
                     document.querySelector(`.btn-headcolor${i} .absolute`).classList.remove("pointer-events-none")
                     document.querySelector(`.btn-headcolor${i} .absolute`).classList.add("cursor-pointer")
                 }
-                else{
+                else {
                     document.querySelector(`.btn-headcolor${i} .absolute`).classList.add("pointer-events-none")
                     document.querySelector(`.btn-headcolor${i} .absolute`).classList.remove("cursor-pointer")
+                    button.style.color = "gray";
                     gsap.to(`.headcolor${i}`, {
-                        backgroundColor:"#71a4f780",
+                        backgroundColor: "#71a4f780",
                         duration: 0.1,
                         ease: "power1.Out",
                     });
                 }
-    
+
             }
 
 
@@ -591,12 +719,46 @@ document.querySelectorAll(".heading").forEach(function (button) {
 
             document.getElementsByClassName("featurecontent")[oid - 1].classList.remove("hidden");
         }
-        else if(id>10){
-            activeid=0;
+        else if (id > 10) {
+            activeid = 0;
         }
     });
 });
 
+document.querySelectorAll(".box").forEach(function (boxbtn) {
+    boxbtn.addEventListener('click', () => {
+        document.querySelectorAll(".heading").forEach((all) => {
+            all.classList.remove("active");
+        });
+
+        document.querySelectorAll(".featurecontent").forEach((all) => {
+            all.classList.add("hidden");
+        });
+
+        gsap.to(`.headcolor`, {
+            width: "0%",
+            backgroundColor: "#94a3b8",
+            duration: 0.3,
+            ease: "power1.Out",
+        });
+
+        gsap.to(".ri-add-line", {
+            rotate: 0,
+            duration: 0.4,
+            ease: "power1.Out",
+        });
+
+        for (let i = 1; i <= 10; i++) {
+            document.querySelector(`.btn-headcolor${i} .absolute`).classList.remove("pointer-events-none")
+            document.querySelector(`.btn-headcolor${i} .absolute`).classList.add("cursor-pointer")
+        }
+        // document.querySelectorAll(".btn-headcolor .absolute").forEach((all) => {
+        //     all.classList.remove("pointer-events-none");
+        //     all.classList.add("cursor-pointer")
+        // });
+
+    })
+})
 // const reviewanimation=()=>{
 // tlreview=new TimelineMax({ repeat: -1 })
 // .to(".autoplay5",{
