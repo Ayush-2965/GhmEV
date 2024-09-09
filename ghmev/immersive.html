@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHM EV</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="">
+    <div id="container"></div>
+    <div id="playground" class="cycleplay absolute z-[10] h-screen w-full bg-[#f3f3f3]">
+
+        <!-- <div class="w-screen h-[80px]"></div> -->
+
+
+        <video loop autoplay class="absolute w-[70vw] left-0" id="cycleVid">
+            <source src="./public/assets/0006-0063.mkv" type="video/mp4">
+        </video>
+        <div class="flex">
+
+
+            <div class="w-[50%] h-full relative">
+                <div class="text-[2.25rem] font-semibold">Experience Reality Like Never Before <br> with AR and 360°
+                    Views</div>
+                <div id="model2" class="w-screen h-screen absolute z-[-1]" data-scroll>
+
+                </div>
+            </div>
+            <div class="w-[50%] h-full ">
+                <div>360 Mode <span id="De" style="display: inline;">De-</span>Activated</div>
+                <div class="flex gap-7 justify-end">
+
+                    <button id="mode360" class="bg-orange-500 w-max h-16 font-bold p-5 rounded-md">360
+                        mode</button>
+                    <button id="end360" class="bg-orange-500 w-max h-16 font-bold p-5 rounded-md">End
+                        360mode</button>
+                </div>
+                <button id="start" class="bg-[#c9c9c9] w-max h-16 font-bold p-5 rounded-md mx-auto">Start AR</button>
+                <!-- <button>manual</button> -->
+                <button id="Hybrid">Feel the Hybrid Mode</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module" src="">
+
+
+        const end = document.getElementById("end360")
+        end.addEventListener('click', () => {
+            document.getElementById('playground').classList.add("hidden")
+
+        })
+
+
+
+        const container3 = document.getElementById("model2")
+        const playbtn = document.getElementById("playbtn")
+        if (window.innerWidth <= 425) {
+
+            playbtn.addEventListener('click', () => {
+                document.getElementById('playground').classList.remove("hidden")
+                createscene(125, container3, "./assets/model/untitled.glb")
+            })
+        }
+        else if (window.innerWidth >= 425 && window.innerWidth <= 768) {
+
+            playbtn.addEventListener('click', () => {
+                document.getElementById('playground').classList.remove("hidden")
+                createscene(100, container3, "./assets/model/untitled.glb")
+            })
+        }
+        else {
+
+
+            playbtn.addEventListener('click', () => {
+                document.getElementById('playground').classList.remove("hidden")
+                createscene(75, container3, "./assets/model/untitled.glb")
+            })
+        }
+    </script>
+    <script nomodule src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js"
+        crossorigin="anonymous"></script>
+    <script nomodule
+        src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=Object.assign%2CElement.prototype.append%2CNodeList.prototype.forEach%2CCustomEvent%2Csmoothscroll"
+        crossorigin="anonymous"></script>
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"
+        integrity="sha512-1PKqXBz2ju2JcAerHKL0ldg0PT/1vr3LghYAtc59+9xy8e19QEtaNUyt1gprouyWnpOPqNJjL4gXMRMEpHYyLQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"
+        integrity="sha512-G7Wpe/pbg+zjyyM9HgQY6kacLAy+580lmA8DUXmZtioTI5FkaCRoLOaCLoeblrZABs7KZFD03cfSV9j7nmwxfw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"
+        integrity="sha512-1PKqXBz2ju2JcAerHKL0ldg0PT/1vr3LghYAtc59+9xy8e19QEtaNUyt1gprouyWnpOPqNJjL4gXMRMEpHYyLQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type="module" src="ar.js"></script>
+        <script type="module" src="script.js"></script>
+        <script type="module" src="3d.js"></script>
+</body>
+
+</html>

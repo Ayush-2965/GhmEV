@@ -1,6 +1,24 @@
 
 
+const wordDiv = document.getElementById("topline");
 
+let wordText = wordDiv.textContent;
+
+
+
+wordDiv.innerHTML = ""; // Clear existing content
+
+
+
+for (let char of wordText) {
+
+  let span = document.createElement("span");
+
+  span.textContent = char;
+
+  wordDiv.appendChild(span);
+
+}
 
 
 
@@ -15,19 +33,23 @@ function scrollgsap() {
         el: document.querySelector(".main"),
         smooth: 2,
         smartphone: {
-            smooth: 0.5,
+            smooth: 0.3,
             breakpoint: 1024,
+        },
+        tablet: {
+            smooth: 1,
+            breakpoint: 1440,
         },
     });
 
     const element = document.getElementById("ebikes");
     document.getElementById("bike").addEventListener('click', () => {
-        locoScroll.destroy();
+        // locoScroll.destroy();
         locoScroll.scrollTo(element);
         
-        locoScroll.init();
-        locoScroll.start();
-        locoScroll.update();
+        // locoScroll.init();
+        // locoScroll.start();
+        // locoScroll.update();
     })
     locoScroll.on("scroll", ScrollTrigger.update);
 
@@ -160,31 +182,20 @@ gsap.from(".page3", {
     },
 });
 
-tl.from(".part2 .features", {
+gsap.from(".part2 .features", {
     opacity: 0,
+    duration:3,
+    ease:"power3.inOut",
     scrollTrigger: {
         trigger: "#part2",
-
         start: "top 50%",
-        end: "top 15%",
-        scrub: 2,
+        end: "top 50%",
         // markers:true,
         scroller: ".main",
         // pin:true
     },
 });
-// tl.from(".part2 .comp", {
-//     opacity: 0,
-//     scrollTrigger: {
-//         trigger: "#part2",
 
-//         start: "top 50%",
-//         end: "top 15%",
-//         scrub: 2,
-//         scroller: ".main",
-//         // pin:true
-//     },
-// });
 if (window.innerWidth > 425) {
 
     gsap.from(".card1", {
@@ -758,6 +769,22 @@ document.querySelectorAll(".box").forEach(function (boxbtn) {
         // });
 
     })
+})
+
+gsap.from("#topline span",{
+    opacity:0,
+    y:-900,
+    stagger:0.1,
+    ease:"power3.inOut",
+    scrollTrigger: {
+        trigger: ".part3",
+        start: "-20%",
+        end:"0%",
+        scrub:2,
+        markers:true,
+        scroller: ".main",
+        
+    },
 })
 // const reviewanimation=()=>{
 // tlreview=new TimelineMax({ repeat: -1 })

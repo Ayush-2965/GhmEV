@@ -20,6 +20,7 @@
 </head>
 
 <body data-scroll-container>
+
     <nav id="navbar">
         <div class="nav">
             <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="white"
@@ -99,12 +100,24 @@
             </div>
         </div>
     </nav>
+    <div id="content4" style="position: absolute;">
+        <button id="exit" class="bg-orange-500 w-32 h-16 font-bold p-5 rounded-md">End AR</button>
+        <div id="container" class="absolute"></div>
+        <button id="place-button" class="bg-orange-500 w-[max-content] h-16 font-bold p-5 rounded-md">Place
+            Object</button>
+    </div>
+
+
     <div class="main overflow-hidden" id="main">
+
         <div class="scrollArea">
-            <div id="model" class="w-full h-screen absolute md:translate-x-[40%]" data-scroll>
+            <div id="model1" style="z-index: 0;" class="w-full h-screen absolute md:translate-x-[40%]" data-scroll>
 
             </div>
+
             <div class="page1">
+                <!-- <div id="arButton">Enter AR Mode</div>
+                <div id="arContainer"></div> -->
                 <div class="content">
                     <h1>electric like never before</h1>
                 </div>
@@ -117,17 +130,25 @@
                 </div>
                 <!-- <div id="model"></div> -->
             </div>
+            <div class="page1 play">
+
+                <div class="flex w-full h-screen">
+                    <div class="w-[50%] h-full">
+
+                    </div>
+                    <div id="content5"
+                        class="opacity-0 flex flex-col gap-7 items-center justify-center w-[50%] h-screen absolute right-0 z-20">
+                        <div class="font-semibold text-[2.25rem]">Enter Into the Real Immersive World</div>
+                        <button id="playbtn" class=" w-max h-max p-7 px-14 bg-[#88e1e8] text-[1.25rem] rounded-full shadow-md hover:scale-105">Enter</button>
+                        
+                    </div>
+                </div>
+            </div>
             <div id="part2" class="page1 part2">
+                <div id="model" class="w-full h-screen absolute md:translate-y-20 md:-translate-x-[40%]" data-scroll>
+                </div>
 
 
-                <!-- <div class="w-full h-full flex flex-col  items-end ">
-                    <div class="h-[90%] w-full flex flex-col items-end"> -->
-
-                <!-- <div class="w-full h-[9%]"></div> -->
-
-
-                <!-- </div>
-                </div> -->
                 <div class="flex flex-col w-full h-full">
                     <div class="w-full ">
                         <div class="features bg-[#f3f3f3c5] backdrop-blur">features & specifications
@@ -141,7 +162,9 @@
                     </div>
                     <div class="flex w-full h-full">
 
-                        <div class="w-[50%] h-full"></div>
+                        <div class="w-[50%] h-full relative">
+
+                        </div>
                         <div class="w-[50%] h-full bg-[#f3f3f3c5] backdrop-blur">
 
                             <div class="w-[100%] h-[90%] flex items-start mt-24 bg-transparent">
@@ -422,7 +445,9 @@
             </div>
         </div>
         <div class="part3">
-            <div class="topline">Try out our app</div>
+            <div id="topline" class="topline">Try out our app
+
+            </div>
             <div class="image">
                 <div class="overlay">
 
@@ -445,11 +470,7 @@
         <div class="page3">
             <div class="customerreview">
                 <div class="topline">what our customer thinks</div>
-                <!-- <div class="filter">
-                    <div class="filterbox">Filter
-                        <i class="ri-filter-3-line"></i>
-                    </div>
-                </div> -->
+
             </div>
             <div class="wrapper">
 
@@ -636,28 +657,7 @@
                                 <div class="hoverlink">Warranty</div>
                             </div>
                         </div>
-                        <!-- <div class="flexcontainer">
-                            <div class="gridcontent hoverlink">L Series</div>
-                            <div class="gridcontent hoverlink">I Series</div>
-                            <div class="gridcontent hoverlink">F Series
-                            </div>
-                            <div class="gridcontent hoverlink">E Series</div>
-                        </div> -->
-                        <!-- <div class="gridcontent flexcontainer">
-                            <div class="hoverlink">Blogs</div>
-                            <div class="hoverlink">Become a dealer</div>
-                        </div>
-                        <div class="gridcontent flexcontainer">
-                            <div class="hoverlink">About Us</div>
-                            <div class="hoverlink">Contact Us</div>
-                            <div class="hoverlink">Press Kit</div>
-                        </div>
-                        <div class="gridcontent flexcontainer">
-                            <div class="hoverlink">Terms & Condition</div>
-                            <div class="hoverlink">Privacy Policy</div>
-                            <div class="hoverlink">Return Policy</div>
-                            <div class="hoverlink">Warranty</div>
-                        </div> -->
+                        
                     </div>
                     <div class="r2c1">
                         <div class="topgridcontent">Contact Us
@@ -686,417 +686,14 @@
     </div>
 
 
-    <!-- import three js-->
-    <!-- <script type="importmap">
-      {
-        "imports": {
-          "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
-          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
-        }
-      }
-    </script> -->
-
-
-    <script type="module">
-
-        import * as THREE from './node_modules/three/build/three.module.min.js';
-        import { GLTFLoader } from './node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-        import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitControls.js';
-        import { EXRLoader } from './node_modules/three/examples/jsm/loaders/EXRLoader.js';
-        import { VRButton } from './node_modules/three/examples/jsm/webxr/VRButton.js';
-        import { ARButton } from './node_modules/three/examples/jsm/webxr/ARButton.js';
-        import { XRButton } from './node_modules/three/examples/jsm/webxr/XRButton.js';
-        import { ScrollTrigger } from './node_modules/gsap/ScrollTrigger.js';
-
-        
-        gsap.registerPlugin(ScrollTrigger);
-        function scrollgsap() {
-
-            // const scroll = new LocomotiveScroll({
-            //   el: document.querySelector('.main'),
-            //   smooth: true
-            // });
-
-
-            gsap.registerPlugin(ScrollTrigger);
-            const locoScroll = new LocomotiveScroll({
-                el: document.querySelector(".main"),
-                smooth: 2,
-                smartphone: {
-                    smooth: 0.5,
-                    breakpoint: 1024,
-                },
-            });
-            locoScroll.on("scroll", ScrollTrigger.update);
-
-            ScrollTrigger.scrollerProxy(".main", {
-                scrollTop(value) {
-                    return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-                },
-                getBoundingClientRect() {
-                    return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-                },
-                pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
-            });
-            ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-            ScrollTrigger.refresh();
-
-        }
-
-
-        scrollgsap();
-        //funtion for scene creation
-        function createscene(view, container, object) {
-
-            const scene = new THREE.Scene();
-            const axesHelper = new THREE.AxesHelper(5);
-            scene.add(axesHelper);
-            // var light = new THREE.HemisphereLight(0xffffff, 0x000000, 10);
-            // scene.add(light);
-
-            // const light = new THREE.DirectionalLight(0xffffff, 10);
-            // light.position.set(1, 4, 5.9);
-            // scene.add(light);
-            // const light2 = new THREE.DirectionalLight(0xffffff, 1);
-            // light2.position.set(-1, -4, 5);
-            // scene.add(light2);
-            // const hemisphereLight = new THREE.DirectionalLight(0x000000, 0xffffff, 100);
-            // hemisphereLight.position.set(0, 50, 100);
-            // scene.add(hemisphereLight);
-            //camera
-            const camera = new THREE.PerspectiveCamera(view, container.clientWidth / container.clientHeight, 0.1, 1000);
-            const helper = new THREE.CameraHelper( camera );
-            scene.add( helper );
-            //Action
-            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
-            renderer.shadowMap.enabled = false;
-            renderer.outputEncoding = THREE.sRGBEncoding;
-            renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
-            // renderer.toneMapping = THREE.ACESFilmicToneMapping;
-            // renderer.toneMappingExposure = 0.8;
-
-            renderer.setClearColor(0x000000, 0);
-            renderer.setSize(container.clientWidth, container.clientHeight);
-            container.appendChild(renderer.domElement);
-
-            var loader = new GLTFLoader();//gltfloader
-            var obj = new THREE.Object3D();//object
-
-            document.body.appendChild( VRButton.createButton( renderer ) );
-            renderer.xr.enabled = true;
-
-            const exrLoader = new EXRLoader();
-            exrLoader.load('./public/assets/model/hdri/studio_small_08_1k.exr', (texture) => {
-                texture.mapping = THREE.EquirectangularReflectionMapping;
-                scene.environment = texture;
-                scene.background = null;
-            }, undefined, (error) => {
-                console.error('An error occurred loading the EXR:', error);
-            });
-
-            let group1, group2;
-            const pivot = new THREE.Group();
-            loader.load(object, function (gltf) {
-                obj = gltf.scene;
-                // obj.position.y = -0.8
-                scene.add(obj);
-
-
-                const box = new THREE.Box3().setFromObject(obj);
-                const centre = new THREE.Vector3();
-                box.getCenter(centre);
-                obj.position.sub(centre);
-
-                pivot.add(obj);
-                scene.add(pivot);
-                // pivot.position.set(0, 0, 0)
-
-
-                // const targetObject = obj.getObjectByName('Line01');
-                // const targetObject2 = obj.getObjectByName('Line140');
-                // if (targetObject || targetObject2) {
-                //     // Create the light
-                //     const light = new THREE.PointLight(0xffffff, 5);
-                //     light.position.set(0, 0, -500);
-                //     const light2 = new THREE.PointLight(0xffffff, 5);
-                //     light2.position.set(0, 0, 500); // Set initial position relative to the object // Set initial position relative to the object
-                //     const light3 = new THREE.PointLight(0xffffff, 1);
-                //     light3.position.set(0, 0, -500);
-                //     const light4 = new THREE.PointLight(0xffffff, 1);
-                //     light4.position.set(-80, 0, 500);
-
-                //     targetObject.add(light);
-                //     targetObject2.add(light3); // Attach the light to the object
-                //     // const helper = new THREE.PointLightHelper(light);
-
-                //     targetObject.add(light2);
-                //     targetObject2.add(light4);
-                //     // scene.add(helper);
-
-                //     gsap.to(light.position, {
-                //         z: 50,
-                //         x: 10,
-                //         // y:-100,
-                //         scrollTrigger: {
-                //             trigger: ".page1",
-                //             start: "0%",
-                //             // markers: true,
-                //             scrub: true,
-                //             scroller: ".main"
-                //         }
-
-                //     })
-
-                //     gsap.to(light2, {
-                //         intensity: 5,
-                //         scrollTrigger: {
-                //             trigger: ".page1",
-                //             start: "0%",
-                //             // markers: true,
-                //             scrub: true,
-                //             scroller: ".main"
-                //         }
-                //     });
-                //     // Optionally, add the light to the scene so that it's visible
-                //     // scene.add(light);
-                // }
-
-                group1 = obj.getObjectByName('wheel_front');//back part
-                group2 = obj.getObjectByName('wheel_rear');//front 
-
-                gsap.from(container, { duration: 1, x: window.innerWidth, ease: "linear" })
-                gsap.to(group1.rotation, { duration: 1, x: Math.PI * 2 })
-                if (window.innerWidth > 640) {
-
-                    gsap.fromTo(container, { x: window.innerWidth / 2.5 }, {
-                        duration: 1,
-                        x: -window.innerWidth / 3,
-                        y: window.innerHeight + 180,
-                        scrollTrigger: {
-                            trigger: ".page1",
-                            start: "0%",
-                            // end: "85%",
-                            // markers: true,
-                            scrub: true,
-                            scroller: ".main"
-                        }
-                    })
-
-                    gsap.to(camera.position, {
-                        duration: 1,
-                        z: 3,
-                        x: 0,
-                        y: 0,
-                        ease: "power4.in",
-                        scrollTrigger: {
-                            trigger: ".page1",
-                            start: "0%",
-                            // markers: true,
-                            // end: "80%",
-                            scrub: true,
-                            scroller: ".main"
-                        }
-                    })
-                }
-                else {
-                    gsap.fromTo(container, { x: 0 }, {
-                        // duration: 1,
-                        x: -window.innerWidth / 3.77,
-                        y: window.innerHeight / 1,
-                        scrollTrigger: {
-                            trigger: ".page1",
-                            start: "0%",
-                            // end: "80%",
-                            // markers: true,
-                            scrub: true,
-                            scroller: ".main"
-                        }
-                    })
-
-                    gsap.to(camera.position, {
-                        duration: 1,
-                        z: 3,
-                        x: 0,
-                        y: 0,
-                        ease: "power4.in",
-                        scrollTrigger: {
-                            trigger: ".page1",
-                            start: "0%",
-                            // markers: true,
-                            end: "80%",
-                            scrub: true,
-                            scroller: ".main"
-                        }
-                    })
-                }
-                gsap.to(obj.rotation, {
-                    duration: 1,
-                    y: Math.PI * 3,
-                    scrollTrigger: {
-                        trigger: ".page1",
-                        start: "0%",
-                        // markers: true,
-                        scrub: true,
-                        scroller: ".main"
-                    }
-                })
-
-
-                document.querySelectorAll(".heading").forEach(function (button) {
-
-                    let newid = 0;
-                    button.addEventListener("click", (e) => {
-
-
-                        const btnid = e.target.id;
-                        if (btnid > 10) {
-                            newid = btnid;
-                            const plus = document.getElementById(newid);
-                            document.getElementById(newid - 10).classList.add("z-10");
-
-
-                            gsap.to(`.headcolor${btnid - 10}`, {
-                                width: "0%",
-
-                                duration: 0.3,
-                                ease: "power1.Out",
-                            });
-                            gsap.to(`.headcolor${btnid - 10}`, {
-                                backgroundColor: "#94a3b8",
-                                duration: 0.4,
-                                ease: "power1.Out",
-                            });
-                            gsap.to(plus, { rotate: 0, duration: 0.4, ease: "power1.Out", });
-
-                            gsap.to(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
-
-                            document.getElementsByClassName("featurecontent")[newid - 11].classList.add("hidden");
-                            console.log("close");
-                            console.log(newid);
-                            document.getElementsByClassName(`btn-headcolor${btnid - 10}`)[0].classList.remove("active");
-                            document.querySelector(`.btn-headcolor${btnid - 10} .absolute`).classList.remove("pointer-events-none")
-                            document.querySelector(`.btn-headcolor${btnid - 10} .absolute`).classList.add("cursor-pointer")
-                        }
-                    })
-                })
-                document.getElementById("1").addEventListener('click', () => {
-                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
-                    gsap.to(camera.position, {
-                        z: 1.1,
-                        x: -0.9,
-                        y: -0.1
-                    });
-                    document.querySelector("#model canvas").classList.add("rounded-full");
-                })
-                document.getElementById("2").addEventListener('click', () => {
-                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
-                    gsap.to(camera.position, {
-                        z: 0.9,
-                        x: 0.37,
-                        y: 0.5
-                    });
-                    document.querySelector("#model canvas").classList.add("rounded-full");
-                })
-                document.getElementById("3").addEventListener('click', () => {
-                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
-
-                    gsap.to(camera.position, { z: 0.3, x: 0.47, y: -0.3 });
-
-                    document.querySelector("#model canvas").classList.add("rounded-full");
-                })
-                document.getElementById("4").addEventListener('click', () => {
-                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
-
-                    gsap.to(camera.position, { z: 0.8, x: 0.67, y: 0 });
-
-                    document.querySelector("#model canvas").classList.add("rounded-full");
-                })
-                document.getElementById("5").addEventListener('click', () => {
-                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
-
-                    gsap.to(camera.position, { z: 0.8, x: 0.3, y: 0.67 });
-
-                    document.querySelector("#model canvas").classList.add("rounded-full");
-                })
-                document.getElementById("6").addEventListener('click', () => {
-                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
-
-                    gsap.to(camera.position, { z: 0.8, x: 0.3, y: 0.7 });
-
-                    document.querySelector("#model canvas").classList.add("rounded-full");
-                })
-                document.getElementById("7").addEventListener('click', () => {
-                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
-
-                    gsap.to(camera.position, { z: 0.8, x: -1, y: 0 });
-
-                    document.querySelector("#model canvas").classList.add("rounded-full");
-                })
-                document.getElementById("8").addEventListener('click', () => {
-                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
-
-                    gsap.to(camera.position, { z: 0.57, x: -0.7, y: 0.7 });
-
-                    document.querySelector("#model canvas").classList.add("rounded-full");
-                })
-                document.getElementById("9").addEventListener('click', () => {
-                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
-
-                    gsap.to(camera.position, { z: 0.8, x: -0.1, y: 0.5 });
-
-                    document.querySelector("#model canvas").classList.add("rounded-full");
-                })
-                document.getElementById("10").addEventListener('click', () => {
-                    gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
-
-                    gsap.to(camera.position, { z: 0.8, x: 0.3, y: 0.7 });
-
-                    document.querySelector("#model canvas").classList.add("rounded-full");
-                })
-
-            });
-
-            camera.position.set(0, 0, 1.7);
-            pivot.rotation.y = -Math.PI / 2;
-
-
-            //animation part
-
-
-
-            //object render
-            function animate() {
-                requestAnimationFrame(animate);
-                // console.log(obj);
-
-
-                renderer.render(scene, camera);
-            }
-            animate();
-
-        }
-        const container1 = document.getElementById("model")
-
-        if (window.innerWidth <= 425) {
-            createscene(125, container1, "untitled.glb")
-        }
-        else if (window.innerWidth >= 425 && window.innerWidth <= 768) {
-            createscene(100, container1, "./assets/model/cycle/cycle_allTextureBake.gltf")
-        }
-        else {
-            createscene(75, container1, "untitled.glb")
-
-        }
-        // gsap.from(container1, {duration: 1, x: window.innerWidth/6, ease: "linear"})
-
-    </script>
-
     <!-- <script type="module" src="dist/bundle.min.js"></script> -->
     <script nomodule src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js"
         crossorigin="anonymous"></script>
     <script nomodule
         src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=Object.assign%2CElement.prototype.append%2CNodeList.prototype.forEach%2CCustomEvent%2Csmoothscroll"
         crossorigin="anonymous"></script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
@@ -1118,6 +715,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"
         integrity="sha512-1PKqXBz2ju2JcAerHKL0ldg0PT/1vr3LghYAtc59+9xy8e19QEtaNUyt1gprouyWnpOPqNJjL4gXMRMEpHYyLQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="3d.js"></script>
+    <!-- <script type="module" src="ar.js"></script> -->
     <script type="module" src="script.js"></script>
 
 </body>

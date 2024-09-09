@@ -18,12 +18,14 @@ body {
 /* html.has-scroll-smooth {
     overflow: hidden; 
   } */
+  /* #arButton { position: fixed; top: 20px; left: 20px; z-index: 1; padding: 10px; background-color: #fff; border: 1px solid #ccc; cursor: pointer; }
+  #arContainer { display: none; width: 100%; height: 100%; } */
 .main {
     position: relative;
     /* overflow: hidden; */
     /* min-width: 1500px; */
     background-color: #f3f3f3;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 nav {
@@ -281,8 +283,8 @@ nav {
     display: flex;
     flex-direction: column;
     text-transform: capitalize;
-    margin-top: 60px;
-    padding: 15px 0 25px 60px;
+    /* margin-top: 60px; */
+    padding: 75px 0 25px 60px;
     letter-spacing: 1.6px;
 }
 
