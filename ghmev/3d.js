@@ -184,64 +184,96 @@ function createscene(view, container, object) {
 
 
         if (container == container3) {
-            camera.position.set(0, 0, 2.7)
 
-            // gsap.to(pivot.rotation, {
-            //     y: `+=${Math.PI * 2}`,
-            //     duration: 3,
-            //     ease: "power2.Out",
-            //     yoyo:true,
-            // })
+            pivot.position.set(0, 0, 0)
+            
             controls.enabled = false;
-            document.getElementById('mode360').addEventListener('click', () => {
-                controls.enabled = true;
-                controls.enableDamping = true; // Smooth motion
-                controls.dampingFactor = 0.25;
-                controls.rotateSpeed = 0.45;
-                controls.enableZoom = true; // Disable zoom functionality
-                controls.enablePan = false;
-                // controls.maxPolarAngle = 1.5;
-                // controls.minPolarAngle = 1;
+            camera.position.set(0, 0, 2.7)
+            let switchbtn = "off";
+            const toggleSwitch = document.getElementById("toggleSwitch");
+            toggleSwitch.addEventListener('click', () => {
+                if (switchbtn == "off") {
+                    switchbtn = "on";
+                    toggleSwitch.classList.remove("justify-start");
+                    toggleSwitch.classList.add("justify-end");
+                    let electric = document.getElementsByClassName("electric")[0];
+                    let tl = gsap.timeline()
+                    tl.to(".electric", { opacity: 0.5, duration: 0.4 })
+                    tl.to(".electric", { opacity: 0, duration: 0.5, delay: 0.2 })
 
-                //cursor action
-                renderer.domElement.classList.add('cursor-grab');
+                    controls.enabled = true;
+                    controls.enableDamping = true; // Smooth motion
+                    controls.dampingFactor = 0.25;
+                    controls.rotateSpeed = 0.45;
+                    controls.enableZoom = true; // Disable zoom functionality
+                    controls.enablePan = false;
+                    controls.maxPolarAngle = 1.5;
+                    controls.minPolarAngle = 1;
+                    controls.maxDistance = 5;
+                    controls.minDistance = 1;
 
-                controls.addEventListener('start', () => {
-                    renderer.domElement.classList.remove('cursor-grab');
-                    renderer.domElement.classList.add('cursor-grabbing');
-                });
-
-                controls.addEventListener('end', () => {
-                    renderer.domElement.classList.remove('cursor-grabbing');
+                    //cursor action
                     renderer.domElement.classList.add('cursor-grab');
-                });
 
+                    controls.addEventListener('start', () => {
+                        renderer.domElement.classList.remove('cursor-grab');
+                        renderer.domElement.classList.add('cursor-grabbing');
+                    });
 
-
-
-                function onMouseLeave() {
-
-                    gsap.to(pivot.rotation, { duration: 1, x: 0, y: -Math.PI / 2 })
-
-                    // Bring camera and control to initial position
-                    gsap.to(camera.position, { duration: 0.1, x: 0, y: 0, z: 2.7, ease: 'power3.out' });
-                    gsap.to(controls.target, {
-                        duration: 0.5, x: 0, y: 0, z: 0, ease: 'power2.out',
-                        onUpdate: () => {
-                            controls.update(); // Update controls during animation
-                        }
+                    controls.addEventListener('end', () => {
+                        renderer.domElement.classList.remove('cursor-grabbing');
+                        renderer.domElement.classList.add('cursor-grab');
                     });
 
 
+
+
+                    function onMouseLeave() {
+
+                        gsap.to(pivot.rotation, { duration: 1, x: 0, y: -Math.PI / 2, z: 0 })
+
+                        // Bring camera and control to initial position
+                        gsap.to(camera.position, { duration: 0.1, x: 0, y: 0, z: 2.7, ease: 'power3.out' });
+                        gsap.to(controls.target, {
+                            duration: 0.5, x: 0, y: 0, z: 0, ease: 'power2.out',
+                            onUpdate: () => {
+                                controls.update(); // Update controls during animation
+                            }
+                        });
+
+
+                    }
+
+                    container.addEventListener('mouseleave', onMouseLeave);
+                    // renderer.domElement.style.zIndex = 11;
+                    // renderer.domElement.style.position = "fixed";
+                    document.getElementById('De').style.display = "none"
+
+                } else {
+                    switchbtn = "off";
+                    controls.enabled = false;
+                    document.getElementById('De').style.display = "inline"
+                    toggleSwitch.classList.remove("justify-end")
+                    toggleSwitch.classList.add("justify-start")
+                    renderer.domElement.classList.remove('cursor-grabbing');
+                    renderer.domElement.classList.remove('cursor-grab');
                 }
 
-                container.addEventListener('mouseleave', onMouseLeave);
-                container.style.zIndex = 1;
-                document.getElementById('De').style.display = "none"
             })
+
+
+            // if (switchbtn == "on") {
+
+            // }
+            // else {
+
+            // }
             const end = document.getElementById("end360")
             end.addEventListener('click', () => {
                 controls.enabled = false;
+                switchbtn = "off"
+                toggleSwitch.classList.remove("justify-end")
+                toggleSwitch.classList.add("justify-start")
                 document.getElementById('De').style.display = "inline"
                 renderer.domElement.classList.remove('cursor-grab');
                 renderer.domElement.classList.remove('cursor-grabbing');
@@ -451,7 +483,7 @@ function createscene(view, container, object) {
     function animate() {
         requestAnimationFrame(animate);
         // console.log(obj);
-        // controls.update();
+        controls.update();
         renderer.render(scene, camera);
     }
     animate();
@@ -464,25 +496,25 @@ const playbtn = document.getElementById("playbtn")
 if (window.innerWidth <= 425) {
     createscene(125, container1, "./assets/model/untitled.glb")
     createscene(125, container2, "./assets/model/untitled.glb")
-    // playbtn.addEventListener('click', () => {
-    //     document.getElementById('playground').classList.remove("hidden")
-    //     createscene(125, container3, "./assets/model/untitled.glb")
-    // })
+    playbtn.addEventListener('click', () => {
+        document.getElementById('playground').classList.remove("hidden")
+        createscene(125, container3, "./assets/model/untitled.glb")
+    })
 }
 else if (window.innerWidth >= 425 && window.innerWidth <= 768) {
     createscene(100, container1, "./assets/model/untitled.glb")
     createscene(100, container2, "./assets/model/untitled.glb")
-    // playbtn.addEventListener('click', () => {
-    //     document.getElementById('playground').classList.remove("hidden")
-    //     createscene(100, container3, "./assets/model/untitled.glb")
-    // })
+    playbtn.addEventListener('click', () => {
+        document.getElementById('playground').classList.remove("hidden")
+        createscene(100, container3, "./assets/model/untitled.glb")
+    })
 }
 else {
     createscene(75, container1, "./assets/model/untitled.glb")
     createscene(75, container2, "./assets/model/untitled.glb")
 
-    // playbtn.addEventListener('click', () => {
-    //     document.getElementById('playground').classList.remove("hidden")
-    //     createscene(75, container3, "./assets/model/untitled.glb")
-    // })
+    playbtn.addEventListener('click', () => {
+        document.getElementById('playground').classList.remove("hidden")
+        createscene(75, container3, "./assets/model/untitled.glb")
+    })
 }
