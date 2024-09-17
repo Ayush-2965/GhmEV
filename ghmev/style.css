@@ -2,6 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    @font-face {
+        font-family: "LexenDeca";
+        src: url("./assets/fonts/LexendDeca-Light.ttf") format("ttf");
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "Lexend Deca";
+        src: url("./assets/fonts/LexendDeca-Regular.ttf") format("ttf");
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "Lexend Deca";
+        src: url("./assets/fonts/LexendDeca-Medium.ttf") format("ttf");
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "Lexend Deca";
+        src: url("./assets/fonts/LexendDeca-SemiBold.ttf") format("ttf");
+        font-weight: 600;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "Lexend Deca";
+        src: url("./assets/fonts/LexendDeca-Bold.ttf") format("ttf");
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "Lexend Deca";
+        src: url("./assets/fonts/LexendDeca-ExtraBold.ttf") format("ttf");
+        font-weight: 700;
+        font-style: normal;
+    }
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+
+.cursor-grab {
+    cursor: grab;
+}
+
+.cursor-grabbing {
+    cursor: grabbing;
+}
 
 * {
     margin: 0;
@@ -14,30 +74,38 @@ body {
     width: 100%;
     /* scroll-behavior: smooth; */
 }
+
 /* body::-webkit-scrollbar {display: none;} */
 /* html.has-scroll-smooth {
     overflow: hidden; 
   } */
-  /* #arButton { position: fixed; top: 20px; left: 20px; z-index: 1; padding: 10px; background-color: #fff; border: 1px solid #ccc; cursor: pointer; }
+/* #arButton { position: fixed; top: 20px; left: 20px; z-index: 1; padding: 10px; background-color: #fff; border: 1px solid #ccc; cursor: pointer; }
   #arContainer { display: none; width: 100%; height: 100%; } */
 .main {
     position: relative;
     /* overflow: hidden; */
     /* min-width: 1500px; */
+    /* background-color: #cfcfcf; */
     background-color: #f3f3f3;
     overflow: hidden;
+}
+
+.mobile-view-css {
+    position: absolute;
+    left: 0;
+    translate: -50%;
 }
 
 nav {
     width: 100%;
     height: 60px;
-   
+
     /* background-color: #c04444; */
 }
 
 .main nav {
     background-color: #f3f3f3;
-
+    /* background-color: #cfcfcf; */
 }
 
 .nav {
@@ -45,6 +113,7 @@ nav {
     min-width: none;
     /* height: 60px; */
     position: fixed;
+    /* background-color: #f3f3f3; */
     background-color: #f3f3f3;
     display: flex;
     justify-content: space-between;
@@ -52,7 +121,7 @@ nav {
     top: 0;
     z-index: 20;
     padding: 0 25px;
-    
+
     /* padding: 0 25px; */
 }
 
@@ -66,8 +135,8 @@ nav {
     color: black;
 }
 
-.nav i:hover{
-    color: rgba(24, 132, 142, 0.8) ;
+.nav i:hover {
+    color: rgba(24, 132, 142, 0.8);
 }
 
 .middlecont {
@@ -92,10 +161,12 @@ nav {
     cursor: pointer;
 
 }
-.capsule :hover{
-    transform: scale(1.09) ;
-    color: rgba(24, 132, 142, 0.8) ;
+
+.capsule :hover {
+    transform: scale(1.09);
+    color: rgba(24, 132, 142, 0.8);
 }
+
 .capsule h4 {
     font-family: "Lexend Deca", sans-serif;
     font-size: 20px;
@@ -129,10 +200,11 @@ nav {
     padding-top: 3px;
     margin-right: 22px;
 }
+
 .endcontent .ri-shopping-cart-fill:hover {
-   transform: scale(1.09) ;
-   color: rgba(24, 132, 142, 0.8) ;
-   /* rotateY(180deg) */
+    transform: scale(1.09);
+    color: rgba(24, 132, 142, 0.8);
+    /* rotateY(180deg) */
 }
 
 .endcontent .ri-arrow-drop-down-line {
@@ -160,10 +232,12 @@ nav {
     background-color: white;
     text-align: center;
     overflow: hidden;
-    
+
 }
-.profileicon i{
+
+.profileicon i {
     font-size: 18px;
+    margin-top: 1px;
 }
 
 .page1 {
@@ -201,7 +275,7 @@ nav {
     color: rgba(0, 0, 0, 0.215);
     margin: 55px 0 0 100px;
     text-shadow: -3px 0px 0px #000000ad;
-    
+
 }
 
 .button {
@@ -246,16 +320,17 @@ nav {
 
 }
 
-.heading{
+.heading {
     padding: 12px;
-    
+
     /* background-color: #3c6065; */
-    
+
 }
+
 /* .heading .absolute{
     cursor: pointer;
 } */
-.heading::first-letter{
+.heading::first-letter {
     text-transform: capitalize;
 }
 
@@ -684,11 +759,13 @@ nav {
     font-size: 36px;
     letter-spacing: 1.1px;
 }
-.rating{
+
+.rating {
     display: flex;
 }
+
 .rating img {
-    
+
     width: 30px;
     height: 30px;
 }
@@ -698,6 +775,8 @@ nav {
     margin-top: 12px;
     text-align: center;
     font-size: 24px;
+    font-weight: 400;
+    font-family: "Montserrat";
 }
 
 .reviewcard .reviewimg {
@@ -797,7 +876,7 @@ nav {
     display: flex;
     justify-content: center;
     background-color: #343434;
-    
+
 }
 
 .end {
@@ -860,13 +939,14 @@ nav {
 
 }
 
-.hoverlink {
+.hoverlink{
     cursor: pointer;
 }
 
 .hoverlink:hover {
-    text-decoration: underline;
+    transform: translateY(-2px);
     color: #ffffffea;
+    font-weight: 400;
 }
 
 .r2c1 {
@@ -892,8 +972,7 @@ nav {
     width: 390px;
     height: 38px;
     font-size: 18px;
-    /* border: none; */
-    padding: 1px 5px 0 15px;
+    padding: 1px 15px 0 15px;
     border: none;
     border-bottom: 1px solid rgb(161, 161, 161);
     outline: none;
@@ -906,9 +985,9 @@ nav {
 .r2c2 input::placeholder {
     letter-spacing: 2px;
     font-size: 18px;
-    font-weight: lighter;
-    color: rgba(255, 255, 255, 0.708);
-    
+    font-weight: 300;
+    color: rgba(163, 163, 163, 0.63);
+
 }
 
 .r2c2 button {
@@ -936,10 +1015,10 @@ nav {
     .content {
         width: 90%;
         min-width: 600px;
-    
+
     }
 
-    
+
 
     .content2 {
         width: 90%;
@@ -1050,6 +1129,7 @@ nav {
         font-size: 21px;
     }
 }
+
 @media only screen and (max-width: 1024px) {
     .r1c2 {
         column-gap: 5px;
@@ -1059,7 +1139,7 @@ nav {
     .content {
         /* width: 90%;
         min-width: 600px; */
-    margin-left: 70px;
+        margin-left: 70px;
     }
 
     .content2 {
@@ -1075,6 +1155,7 @@ nav {
     }
 
 }
+
 @media only screen and (max-width:768px) {
     .cardcontainer {
         min-width: 200px;
@@ -1103,16 +1184,16 @@ nav {
     }
 
     .content {
-    margin-left: 40px;
+        margin-left: 40px;
     }
 
     .content2 {
-        
+
         margin-left: 40px;
     }
 
     .button {
-       
+
         margin-left: 40px;
     }
 
@@ -1161,14 +1242,17 @@ nav {
     .r2c2 {
         display: none;
     }
-    .topgridcontent{
+
+    .topgridcontent {
         font-size: 18px;
     }
+
     .gridcontent {
         font-size: 12px;
         /* line-height: 15px; */
     }
-    .flexcontainer{
+
+    .flexcontainer {
         margin-top: 15px;
         gap: 10px;
     }
@@ -1182,24 +1266,29 @@ nav {
 
     /* .main {
         width: 100vw; */
-        /* min-width: 100%;
+    /* min-width: 100%;
     } */
+    .nav {
+        padding: 0px 18px;
+    }
 
     .button {
         /* margin: auto; */
         margin: 60px auto;
     }
 
-    .page1{
+    .page1 {
         height: 100vh;
     }
-    .page1 .part2{
+
+    .page1 .part2 {
         height: 100vh;
     }
+
     .content {
 
         min-width: 200px;
-        margin: 10px 0 0 15px;
+        margin: 10px 0 0 20px;
         height: max-content;
     }
 
@@ -1210,19 +1299,22 @@ nav {
 
     .content2 {
         min-width: 200px;
-        margin: 10px 0 0 15px;
+        margin: 10px 0 0 20px;
         height: max-content;
         font-size: 17px;
         text-shadow: 1.2px 0px 0px #000000ad;
     }
 
     .button {
-        width: 95%;
+        width: 90%;
         height: 30px;
         font-size: 17px;
-        padding: 0;
+        padding: 17px 0;
+        padding-bottom: 18px;
         margin: auto;
         margin-top: 25px;
+        text-align: center;
+        border-radius: 20px;
     }
 
     .button i {
@@ -1239,7 +1331,7 @@ nav {
     }
 
     .features h6 {
-        
+
         font-size: 14px;
     }
 
@@ -1299,7 +1391,8 @@ nav {
         top: 0;
         left: 0;
     }
-    .overlay{
+
+    .overlay {
         position: absolute;
         top: 0;
         z-index: 10;
@@ -1336,7 +1429,7 @@ nav {
     .topline {
         font-size: calc(100vw/13);
         gap: 35px;
-        
+
     }
 
     .filter {
@@ -1347,9 +1440,11 @@ nav {
         width: calc(100vw/1.2);
         height: calc(100vw/2);
     }
-    .wrapper .carousel{
+
+    .wrapper .carousel {
         outline: none;
     }
+
     .carousel .reviewcard {
         /* width: calc(100vw/1.2); */
         height: calc(100vw/2);
@@ -1461,35 +1556,44 @@ nav {
         grid-template-rows: max-content max-content;
     }
 }
-@media only screen and (max-width: 425px){
-    nav{
+
+@media only screen and (max-width: 425px) {
+    nav {
         height: 40px;
     }
-    .nav{
+
+    .nav {
         height: 40px;
     }
-    .nav svg{
+
+    .nav svg {
         height: 40px;
     }
-    .endcontent{
+
+    .endcontent {
         height: 30px;
         gap: 5px;
     }
-    .endcontent i{
-        font-size: 16px;
+
+    .endcontent i {
+        font-size: 12px;
     }
-    .endcontent .righticon{
+
+    .endcontent .righticon {
         font-size: 20px;
     }
-    .endcontent .profile{
+
+    .endcontent .profile {
         margin-top: 2px;
         width: 50px;
         height: 20px;
     }
-    .endcontent .profileicon{
+
+    .endcontent .profileicon {
         height: 16px;
         width: 16px;
     }
+
     .reviewcard .reviewimg {
         /* display: none; */
         width: 35px;
@@ -1503,13 +1607,15 @@ nav {
         width: 31px;
         height: 31px;
     }
+
     .reviewcard h1 {
         /* width: 90%; */
         margin: 0;
         margin-bottom: 3px;
         font-size: calc(100vw/20);
     }
-    .reviewcontent{
+
+    .reviewcontent {
         margin-top: 3px;
     }
 
@@ -1523,12 +1629,12 @@ nav {
     }
 
     .features h6 {
-        
+
         font-size: 11px;
     }
 }
 
-@media only screen and (max-width: 321px){
+@media only screen and (max-width: 321px) {
 
     .features {
         width: 100%;
@@ -1540,8 +1646,8 @@ nav {
     }
 
     .features h6 {
-        
+
         font-size: 10px;
     }
-    
+
 }
