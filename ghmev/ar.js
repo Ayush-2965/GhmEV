@@ -29,20 +29,6 @@ let xrSession = null;
 let isAR = true;
 init();
 
-
-// End AR session on button click
-// const endSessionButton = document.getElementById("exit");
-// endSessionButton.textContent = 'End AR Session';
-// // document.body.appendChild(endSessionButton);
-
-// endSessionButton.addEventListener('click', () => {
-//     if (renderer.xr.isPresenting) {
-//         renderer.xr.getSession().end(); // End the AR session
-        
-//     }
-// });
-
-
 document.getElementById('start').addEventListener('click', startARSession);
 document.getElementById('exit').addEventListener('click', endARSession);
 
@@ -56,15 +42,15 @@ function init() {
     light.position.set(0.5, 1, 0.25);
     scene.add(light);
 
-    const exrloader= new EXRLoader();
-    exrloader.load('./assets/model/hdri/studio_small_08_1k.exr',(texture)=>{
-        texture.mapping=THREE.EquirectangularReflectionMapping;
-        scene.enviroment=texture;
-        scene.background=null;
+    const exrloader = new EXRLoader();
+    exrloader.load('./assets/model/hdri/studio_small_08_1k.exr', (texture) => {
+        texture.mapping = THREE.EquirectangularReflectionMapping;
+        scene.enviroment = texture;
+        scene.background = null;
     })
 
     // let container = document.createElement('div');
-    const container =document.getElementById("container");
+    const container = document.getElementById("container");
 
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -75,7 +61,7 @@ function init() {
     container.appendChild(renderer.domElement);
     console.log(renderer.domElement)
 
-    
+
 
     // const options = {
     //     requiredFeatures: ['hit-test'],
@@ -109,7 +95,7 @@ function init() {
         render()
 
     });
-    
+
     // const reticleGeometry = new THREE.RingGeometry(0.05, 0.1, 32);
     // const reticleMaterial = new THREE.MeshBasicMaterial({
     //     color: 0xffffff,
@@ -122,20 +108,20 @@ function init() {
     // scene.add(reticle);
     // console.log("loaded reticle");
 
-    
-    
 
-    
+
+
+
 
     // Touch events for pinch-to-zoom
 
 
     window.addEventListener('resize', onWindowResize, false);
-    
+
     let initialDistance = 0;
     const minScale = 0.4;
     const maxScale = 1;
-
+    renderer.domElement.addEventListener('select', onSelect)
     renderer.domElement.addEventListener('touchstart', function (e) {
         e.preventDefault();
         touchDown = true;
@@ -155,7 +141,7 @@ function init() {
         touchDown = false;
     }, false);
 
-    
+
 
     renderer.domElement.addEventListener('touchmove', function (e) {
         e.preventDefault();
@@ -165,19 +151,19 @@ function init() {
             const dx = e.touches[0].pageX - e.touches[1].pageX;
             const dy = e.touches[0].pageY - e.touches[1].pageY;
             const currentDistance = Math.sqrt(dx * dx + dy * dy);
-    
+
             // Calculate scale factor
             const scaleChange = currentDistance / initialDistance;
-    
+
             // Apply the scale factor to the model's current scale
             const newScale = model.scale.x * scaleChange;
-    
+
             // Clamp the new scale to prevent it from going out of bounds
             const clampedScale = Math.min(Math.max(newScale, minScale), maxScale);
-    
+
             // Update the model scale uniformly
             model.scale.set(clampedScale, clampedScale, clampedScale);
-    
+
             // Update initial distance for next move
             initialDistance = currentDistance;
         }
@@ -195,19 +181,22 @@ function init() {
 
     }, false);
 
+
     // Handle AR mode zoom control
     // renderer.xr.addEventListener('sessionstart', onSessionStart);
     // renderer.xr.addEventListener('sessionend', onSessionEnd);
 
 }
 
-// function onSelect() {
-//     if (model) {
-//         model.position.setFromMatrixPosition(reticle.matrixWorld);
-//         scene.add(model);
-//         model.visible = true;
-//     }
-// }
+function onSelect() {
+    if (reticle.visible) {
+        model.position.setFromMatrixPosition(reticle.matrix);
+        scene.add(model);
+        model.visible = true;
+
+    }
+    render()
+}
 
 
 
@@ -307,28 +296,30 @@ function endARSession() {
         reticle = null;
     }
     console.log(reticle);
-    
+
 }
 
 
 function onSessionStart() {
     // renderer.xr.enabled=true;
     // var session = renderer.xr.setSession();
-    
+
 
     if (model) {
         model.visible = true;
-        
+
     }
-   
+
     // Ensure any existing reticle is removed before creating a new one
     if (reticle) {
         scene.remove(reticle);
         reticle = null;
     }
 
+
+
     // Create the reticle
-    const reticleGeometry = new THREE.RingGeometry(0.05, 0.1, 32);
+    const reticleGeometry = new THREE.RingGeometry(0.07, 0.1, 32);
     const reticleMaterial = new THREE.MeshBasicMaterial({
         color: 0xffffff,
     });
@@ -339,7 +330,12 @@ function onSessionStart() {
     scene.add(reticle);
 
     hitTestSourceRequested = false;
-
+    if (reticle.visible == false) {
+        document.getElementsByClassName("placegif")[0].classList.remove("hidden")
+    }
+    // else {
+    //     document.getElementsByClassName("placegif")[0].classList.add("hidden")
+    // }
     // Add device orientation event listener (remove old listeners if they exist)
     window.removeEventListener('deviceorientation', handleDeviceOrientation);
     window.addEventListener('deviceorientation', handleDeviceOrientation);
@@ -353,6 +349,13 @@ function handleDeviceOrientation(event) {
         reticle.visible = true;
     } else if (reticle) {
         reticle.visible = false;
+    }
+
+    if (reticle.visible == false) {
+        document.getElementsByClassName("placegif")[0].classList.remove("hidden")
+    }
+    else {
+        document.getElementsByClassName("placegif")[0].classList.add("hidden")
     }
 }
 
@@ -376,7 +379,7 @@ function onSessionEnd() {
     hitTestSourceRequested = false;
     xrSession = null;
     window.removeEventListener('deviceorientation', handleDeviceOrientation);
-    
+
 };
 
 function animate() {
@@ -384,6 +387,7 @@ function animate() {
     renderer.setAnimationLoop(render);
     requestAnimationFrame(animate);
     // controls.update();
+
 
 }
 function render(timestamp, frame) {
