@@ -20,7 +20,85 @@
 </head>
 
 <body data-scroll-container>
+    <div id="playground"
+        class="cycleplay hidden absolute z-[10] h-screen w-full bg-[#424242] xs:px-14 px-6 xs:pt-[60px] pt-[40px] text-[#E1E1E1] overflow-hidden">
+        <div class="flex items-center absolute w-full h-screen left-0 top-0 hidden z-[1]" id="cycleVid">
 
+            <video autoplay loop muted playsinline class="brightness-[70%] contrast-125">
+                <source src="./public/assets/0006-0063.mkv" type="video/mp4">
+            </video>
+        </div>
+        <!-- <div class="w-screen h-[80px]"></div> -->
+        <button id="end360"
+            class="bg-[#ff32323b] w-max xs:h-12 h-5 font-bold absolute top-0 right-0 xs:mt-[60px] mt-[40px] xs:px-7 px-3 rounded-bl-md sm:text-[16px] text-[10px] z-[1]">
+            X</button>
+        <div class="electric opacity-0 absolute z-[-5] w-screen h-screen">
+            <img src="./public/assets/images/26a1.gif" alt=""
+                class=" absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 z-[-5]">
+        </div>
+        <div id="model2" class="w-full h-full absolute left-0 z-[0]" data-scroll>
+
+        </div>
+        <div class="w-full text-center xs:my-10 my-7">
+            <div class="xl:text-[calc(100vw/48)] md:text-[calc(100vw/40)] text-[calc(100vw/24)] font-semibold font-lexendeca">Experience Reality Like Never Before with AR and
+                360°Views
+            </div>
+
+        </div>
+        
+        <div class="flex sm:justify-end justify-evenly">
+
+
+
+
+            <div class="flex sm:flex-col sm:gap-7 gap-6 sm:items-start z-10">
+                <!-- 360mode check (currently--display none )-->
+                <div class="flex justify-center w-full gap-1 font-semibold text-[1.05rem] font-lexendeca absolute bottom-0 left-0 mb-7" style="display: none;">360 Mode <span id="De"
+                    style="display: inline;">De-</span>Activated</div>
+
+                <!-- TWO switches -->
+                <div class="flex items-center gap-3">
+                    <div id="toggleSwitch"
+                        class=" flex items-center justify-start cursor-pointer sm:w-[5.5rem] w-[3.5rem] sm:h-12 h-8 rounded-full bg-[#dfdfdfe0] border-[2px] border-[#7c7c7c]">
+                        <div class="sm:w-11 w-[1.75rem] sm:h-11 h-[1.75rem] bg-[#1d6f95] rounded-full"></div>
+                    </div>
+                    <div id="mode360" class=" w-max h-max sm:text-[16px] text-[10px] font-bold sm:p-5 rounded-md">360mode</div>
+
+                </div>
+                <div class="flex items-center gap-3">
+                    <div id="toggleSwitch2"
+                        class=" flex items-center justify-start cursor-pointer sm:w-[5.5rem] w-[3.5rem] sm:h-12 h-8 rounded-full bg-[#dfdfdfe0] border-[2px] border-[#7c7c7c]">
+                        <div class="sm:w-11 w-[1.75rem] sm:h-11 h-[1.75rem] bg-[#1d6f95] rounded-full"></div>
+                    </div>
+                    <div id="modeHybrid" class=" w-max h-max sm:text-[16px] text-[10px] font-bold sm:p-5 rounded-md">Hybrid mode</div>
+                </div>
+                <div class="flex w-full sm:justify-start justify-center sm:relative absolute left-0 bottom-0 sm:mb-0 mb-16">
+    
+                    <button id="start" class="bg-[#00cdd580] w-max sm:h-16 h-8 font-bold px-5  rounded-md mx-auto">Start AR</button>
+                    
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+    <div id="content4" class="absolute w-screen h-screen top-0">
+        <div class="placegif hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div class="text-center text-white font-semibold font-lexendeca">Move Your Phone Towards Horizontal Plane Surface</div>
+            <img src="./public/assets/placeobject.gif" alt="">
+        </div>
+        <div id="container" class="absolute"></div>
+        <button id="exit" class="flex items-center absolute right-0 top-0 w-max h-max px-3 font-bold mt-14 mr-4 rounded-md text-[24px] text-[#c2c2c2]">
+            <i class="ri-close-fill"></i>
+        </button>
+        <div class="flex justify-center w-full absolute left-0 bottom-0 mb-3">
+            <button id="place-button" class="bg-[#a8f6e8ad] w-[max-content] h-16 font-bold p-5 rounded-md">Place
+                Object</button>
+
+        </div>
+    </div>
     <nav id="navbar">
         <div class="nav">
             <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="white"
@@ -91,7 +169,7 @@
                 <i class="ri-shopping-cart-fill righticon"></i>
                 <div class="profile">
 
-                    <div class="profileicon">
+                    <div class="profileicon flex items-center justify-center">
                         <i class="ri-user-3-fill"></i>
                     </div>
                     <i class="ri-arrow-drop-down-line righticon"></i>
@@ -100,12 +178,7 @@
             </div>
         </div>
     </nav>
-    <div id="content4" style="position: absolute;">
-        <button id="exit" class="bg-orange-500 w-32 h-16 font-bold p-5 rounded-md">End AR</button>
-        <div id="container" class="absolute"></div>
-        <button id="place-button" class="bg-orange-500 w-[max-content] h-16 font-bold p-5 rounded-md">Place
-            Object</button>
-    </div>
+   
 
 
     <div class="main overflow-hidden" id="main">
@@ -138,9 +211,10 @@
                     </div>
                     <div id="content5"
                         class="opacity-0 flex flex-col gap-7 items-center justify-center w-[50%] h-screen absolute right-0 z-20">
-                        <div class="font-semibold text-[2.25rem]">Enter Into the Real Immersive World</div>
-                        <button id="playbtn" class=" w-max h-max p-7 px-14 bg-[#88e1e8] text-[1.25rem] rounded-full shadow-md hover:scale-105">Enter</button>
-                        
+                        <div id="immersivetxt" class="font-semibold sm:text-[2.25rem] text-[24px] text-center sm:w-full w-screen sm:px-0 px-4 " >Enter Into the Real Immersive World</div>
+                        <button id="playbtn"
+                            class="font-regular w-max h-max sm:p-7 sm:px-14 p-3 px-7 bg-[#88e1e8] sm:text-[1.45rem] text-[16px] rounded-full shadow-md hover:scale-105">Enter</button>
+
                     </div>
                 </div>
             </div>
@@ -589,6 +663,7 @@
             </div>
             <!--Waves end-->
             <div class="endpart">
+                <!-- grid -->
                 <div class="end">
                     <div class="r1c1">
                         <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="white"
@@ -657,7 +732,7 @@
                                 <div class="hoverlink">Warranty</div>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="r2c1">
                         <div class="topgridcontent">Contact Us
@@ -677,7 +752,7 @@
                         </div>
                         <div class="email contact">
                             <input type="text" placeholder="Enter email">
-                            <button>Subscribe</button>
+                            <button class="hover:scale-105 text-center py-1">Subscribe</button>
                         </div>
                     </div>
                 </div>
@@ -716,7 +791,7 @@
         integrity="sha512-1PKqXBz2ju2JcAerHKL0ldg0PT/1vr3LghYAtc59+9xy8e19QEtaNUyt1gprouyWnpOPqNJjL4gXMRMEpHYyLQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="module" src="3d.js"></script>
-    <!-- <script type="module" src="ar.js"></script> -->
+    <script type="module" src="ar.js"></script>
     <script type="module" src="script.js"></script>
 
 </body>
