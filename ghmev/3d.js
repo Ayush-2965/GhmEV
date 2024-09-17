@@ -25,11 +25,11 @@ function createscene(view, container, object) {
 
     //Action
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
-    renderer.shadowMap.enabled = false;
+    renderer.shadowMap.enabled = true;
     renderer.outputEncoding = THREE.sRGBEncoding;
     renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
-    // renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    // renderer.toneMappingExposure = 0.8;
+    // renderer.toneMapping = THREE.NoToneMapping;
+    // renderer.toneMappingExposure = 0.1;
 
     renderer.setClearColor(0x000000, 0);
     renderer.setSize(container.clientWidth, container.clientHeight);
@@ -84,14 +84,15 @@ function createscene(view, container, object) {
             gsap.from(container, { duration: 1, x: window.innerWidth, ease: "linear" })
             gsap.to(group1.rotation, { duration: 1, x: Math.PI * 2 })
 
-
+            // const light2=new THREE.DirectionalLight(0x006069c6,100)
+            // light2.position.set(0,0,1)
+            // scene.add(light2)
             gsap.to("#content5", {
                 opacity: 1,
                 scrollTrigger: {
                     trigger: ".play",
-                    start: "0%",
-                    // markers: true,
-                    end: "1%",
+                    start: "-15%",
+                    end: "-4%",
                     scrub: true,
                     scroller: ".main"
                 }
@@ -137,9 +138,14 @@ function createscene(view, container, object) {
                 })
             }
             else {
+
+                document.getElementById("playbtn").classList.add("mobile-view-css")
+                document.getElementById("playbtn").style.bottom = "23%"
+                document.getElementById("immersivetxt").classList.add("mobile-view-css")
+                document.getElementById("immersivetxt").style.top = "10%"
                 gsap.fromTo(container, { x: 0 }, {
                     // duration: 1,
-                    x: -window.innerWidth / 3.77,
+
                     y: window.innerHeight / 1,
                     scrollTrigger: {
                         trigger: ".page1",
@@ -186,7 +192,7 @@ function createscene(view, container, object) {
         if (container == container3) {
 
             pivot.position.set(0, 0, 0)
-            
+
             controls.enabled = false;
             camera.position.set(0, 0, 2.7)
             let switchbtn = "off";
@@ -257,6 +263,17 @@ function createscene(view, container, object) {
                     toggleSwitch.classList.add("justify-start")
                     renderer.domElement.classList.remove('cursor-grabbing');
                     renderer.domElement.classList.remove('cursor-grab');
+
+                    gsap.to(pivot.rotation, { duration: 1, x: 0, y: -Math.PI / 2, z: 0 })
+
+                    // Bring camera and control to initial position
+                    gsap.to(camera.position, { duration: 0.1, x: 0, y: 0, z: 2.7, ease: 'power3.out' });
+                    gsap.to(controls.target, {
+                        duration: 0.5, x: 0, y: 0, z: 0, ease: 'power2.out',
+                        onUpdate: () => {
+                            controls.update(); // Update controls during animation
+                        }
+                    });
                 }
 
             })
@@ -284,6 +301,7 @@ function createscene(view, container, object) {
 
 
         if (container == container2) {
+            // controls.enabled = false;
             camera.position.set(0, 0, 3)
             pivot.rotation.y = Math.PI / 2;
             gsap.fromTo(container, { x: -window.innerWidth / 1.3 }, {
@@ -292,10 +310,7 @@ function createscene(view, container, object) {
                 // y: window.innerHeight + 180,
                 scrollTrigger: {
                     trigger: ".part2",
-                    start: "-10%",
-                    // end: "85%",
-                    // markers: true,
-                    // scrub: true,
+                    start: "-15%",
                     scroller: ".main"
                 }
             })
@@ -483,7 +498,7 @@ function createscene(view, container, object) {
     function animate() {
         requestAnimationFrame(animate);
         // console.log(obj);
-        controls.update();
+        // controls.update();
         renderer.render(scene, camera);
     }
     animate();
