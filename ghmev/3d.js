@@ -525,11 +525,23 @@ else if (window.innerWidth >= 425 && window.innerWidth <= 768) {
     })
 }
 else {
-    createscene(75, container1, "./assets/model/untitled.glb")
-    createscene(75, container2, "./assets/model/untitled.glb")
+    if (window.innerHeight > 1000) {
+        createscene(110, container1, "./assets/model/untitled.glb")
+        createscene(105, container2, "./assets/model/untitled.glb")
 
-    playbtn.addEventListener('click', () => {
-        document.getElementById('playground').classList.remove("hidden")
-        createscene(75, container3, "./assets/model/untitled.glb")
-    })
+        playbtn.addEventListener('click', () => {
+            document.getElementById('playground').classList.remove("hidden")
+            createscene(105, container3, "./assets/model/untitled.glb")
+        })
+    }
+    else{
+
+        createscene(75, container1, "./assets/model/untitled.glb")
+        createscene(75, container2, "./assets/model/untitled.glb")
+    
+        playbtn.addEventListener('click', () => {
+            document.getElementById('playground').classList.remove("hidden")
+            createscene(75, container3, "./assets/model/untitled.glb")
+        })
+    }
 }
