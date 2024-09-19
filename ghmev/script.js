@@ -59,7 +59,7 @@ function scrollgsap() {
         smooth: 2,
         
         smartphone: {
-            smooth: 0.5,
+            smooth: 0.7,
             breakpoint: 1024,
         },
         tablet: {
