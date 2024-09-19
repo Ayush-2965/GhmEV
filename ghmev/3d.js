@@ -36,16 +36,70 @@ function createscene(view, container, object) {
     container.appendChild(renderer.domElement);
 
 
+    const loadingScreen = document.getElementById('loading-screen');
+    const loadingBar = document.getElementById('loading-bar');
+    const loadingText = document.getElementById('loading-text');
+    let tickerStopped = false;
+    let targetProgress=0,currentProgress=0;
+    var obj = new THREE.Object3D();//3dobject/model
+    let group1, group2;
+    const loadingManager = new THREE.LoadingManager(
+        () => {
+            // This function is called when all resources are loaded
+            //checking all frames
+            const checkProgress = () => {
+                if (Math.round(currentProgress) >= 100) {
+                    gsap.to(loadingScreen, { opacity: 0, duration: 1, delay: 1, onComplete: () => {
+                        loadingScreen.style.display = 'none'; // Hide loading screen
+                        if (container == container1) {
+                            if (window.innerWidth>=768) {
+                                gsap.to(container, { duration: 1, x: window.innerWidth*0.4, ease: "linear" })
+                                gsap.to(group1.rotation, { duration: 1, x: Math.PI * 2 })
+                            }
+                            else{
+                                gsap.to(container, { duration: 1, x: 0, ease: "linear" })
+                                gsap.to(group1.rotation, { duration: 1, x: Math.PI * 2 })
+                            }
+                        }
+                        
+                    }});
+                } else {
+                    requestAnimationFrame(checkProgress); // Check again next frame
+                }
+            };
+            requestAnimationFrame(checkProgress); // Start checking progress
+        },
+        (url, itemsLoaded, itemsTotal) => {
+            // This function is called during loading
+            targetProgress = (itemsLoaded / itemsTotal) * 100;
+            
+        }
+    );
+
+    const tickerCallback = () => {
+        currentProgress += (targetProgress - currentProgress) * 0.05;
+    
+        loadingBar.style.width = `${currentProgress}%`;
+        loadingText.textContent = `Loading... ${Math.round(currentProgress)}%`;
+        console.log(currentProgress);
+        if (Math.round(currentProgress) >= 100 && !tickerStopped) {
+            tickerStopped = true;
+            gsap.ticker.remove(tickerCallback);
+            console.log('Ticker stopped');
+        }
+    };
+    // ticker for lopp animation
+    gsap.ticker.add(tickerCallback);
+
+
+    //for model controls
     const controls = new OrbitControls(camera, renderer.domElement);
     console.log(renderer.domElement)
 
-
-
-
-
-    var loader = new GLTFLoader();//gltfloader
-    var obj = new THREE.Object3D();//object
-
+    //loader with manager
+    var loader = new GLTFLoader(loadingManager);//gltfloader
+    
+    const pivot = new THREE.Group();
 
     const exrLoader = new EXRLoader();
     exrLoader.load('./assets/model/hdri/studio_small_08_1k.exr', (texture) => {
@@ -56,8 +110,6 @@ function createscene(view, container, object) {
         console.error('An error occurred loading the EXR:', error);
     });
 
-    let group1, group2;
-    const pivot = new THREE.Group();
     loader.load(object, function (gltf) {
         obj = gltf.scene;
         // obj.position.y = -0.8
@@ -81,9 +133,10 @@ function createscene(view, container, object) {
         group2 = obj.getObjectByName('wheel_rear');//back 
 
         if (container == container1) {
-            gsap.from(container, { duration: 1, x: window.innerWidth, ease: "linear" })
-            gsap.to(group1.rotation, { duration: 1, x: Math.PI * 2 })
-
+            gsap.to(container, { duration: 0.1, x: window.innerWidth, ease: "linear" })
+            // gsap.from(container, { duration: 1, x: window.innerWidth, ease: "linear" })
+            // gsap.to(group1.rotation, { duration: 1, x: Math.PI * 2 })
+           
             // const light2=new THREE.DirectionalLight(0x006069c6,100)
             // light2.position.set(0,0,1)
             // scene.add(light2)
@@ -534,11 +587,11 @@ else {
             createscene(105, container3, "./assets/model/untitled.glb")
         })
     }
-    else{
+    else {
 
         createscene(75, container1, "./assets/model/untitled.glb")
         createscene(75, container2, "./assets/model/untitled.glb")
-    
+
         playbtn.addEventListener('click', () => {
             document.getElementById('playground').classList.remove("hidden")
             createscene(75, container3, "./assets/model/untitled.glb")

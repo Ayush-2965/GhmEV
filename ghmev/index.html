@@ -19,6 +19,13 @@
         rel="stylesheet">
 </head>
 
+<div id="loading-screen" class="w-screen h-screen bg-black" style="position: fixed; z-index: 9999;">
+    <div>
+        <div id="loading-bar" style="width: 0%; height: 20px; background: green;"></div>
+        <p id="loading-text" class="text-white">Loading... 0%</p>
+    </div>
+</div>
+
 <body data-scroll-container>
     <div id="playground"
         class="cycleplay hidden absolute z-[10] h-screen w-full bg-[#424242] xs:px-14 px-6 xs:pt-[60px] pt-[40px] text-[#E1E1E1] overflow-hidden">
