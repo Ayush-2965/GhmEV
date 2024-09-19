@@ -516,7 +516,7 @@ if (window.innerWidth <= 425) {
         createscene(125, container3, "./assets/model/untitled.glb")
     })
 }
-else if (window.innerWidth >= 425 && window.innerWidth <= 768) {
+else if (window.innerWidth > 425 && window.innerWidth <= 768) {
     createscene(100, container1, "./assets/model/untitled.glb")
     createscene(100, container2, "./assets/model/untitled.glb")
     playbtn.addEventListener('click', () => {

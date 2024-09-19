@@ -42,34 +42,27 @@ function init() {
     light.position.set(0.5, 1, 0.25);
     scene.add(light);
 
-    const exrloader = new EXRLoader();
-    exrloader.load('./assets/model/hdri/studio_small_08_1k.exr', (texture) => {
+    const exrLoader = new EXRLoader();
+    exrLoader.load('./assets/model/hdri/studio_small_08_1k.exr', (texture) => {
         texture.mapping = THREE.EquirectangularReflectionMapping;
-        scene.enviroment = texture;
+        scene.environment = texture;
         scene.background = null;
-    })
+    }, undefined, (error) => {
+        console.error('An error occurred loading the EXR:', error);
+    });
 
     // let container = document.createElement('div');
     const container = document.getElementById("container");
 
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setClearColor(0x000000, 0);
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setAnimationLoop(animate);
     renderer.xr.enabled = true;
     container.appendChild(renderer.domElement);
     console.log(renderer.domElement)
-
-
-
-    // const options = {
-    //     requiredFeatures: ['hit-test'],
-    //     optionalFeatures: ['dom-overlay'],
-
-    // };
-    // options.domOverlay = { root: document.getElementById('content4') }
-    // document.body.appendChild(ARButton.createButton(renderer, options));
 
 
     document.querySelector("#place-button").addEventListener("click", function () {
@@ -96,22 +89,6 @@ function init() {
 
     });
 
-    // const reticleGeometry = new THREE.RingGeometry(0.05, 0.1, 32);
-    // const reticleMaterial = new THREE.MeshBasicMaterial({
-    //     color: 0xffffff,
-    //     side: THREE.DoubleSide,
-    // });
-    // reticle = new THREE.Mesh(reticleGeometry, reticleMaterial);
-    // reticle.rotation.x = -Math.PI / 2; // Align the reticle to face upwards
-    // reticle.visible = false;
-    // reticle.matrixAutoUpdate = false;
-    // scene.add(reticle);
-    // console.log("loaded reticle");
-
-
-
-
-
 
     // Touch events for pinch-to-zoom
 
@@ -121,7 +98,7 @@ function init() {
     let initialDistance = 0;
     const minScale = 0.4;
     const maxScale = 1;
-    renderer.domElement.addEventListener('select', onSelect)
+    renderer.domElement.addEventListener('select', onSelect , false)
     renderer.domElement.addEventListener('touchstart', function (e) {
         e.preventDefault();
         touchDown = true;
@@ -182,10 +159,6 @@ function init() {
     }, false);
 
 
-    // Handle AR mode zoom control
-    // renderer.xr.addEventListener('sessionstart', onSessionStart);
-    // renderer.xr.addEventListener('sessionend', onSessionEnd);
-
 }
 
 function onSelect() {
@@ -198,45 +171,6 @@ function onSelect() {
     render()
 }
 
-
-
-
-
-
-
-
-
-
-
-// function onWindowResize() {
-//     camera.aspect = window.innerWidth / window.innerHeight;
-//     camera.updateProjectionMatrix();
-//     renderer.setSize(window.innerWidth, window.innerHeight);
-// }
-
-
-
-// function onMouseWheel(event) {
-//     if (renderer.xr.isPresenting) {
-//         // Adjust camera FOV for zoom effect in AR mode
-//         const zoomSpeed = 0.05;
-//         camera.fov += event.deltaY * zoomSpeed; // Adjust FOV based on mouse wheel
-//         camera.fov = THREE.MathUtils.clamp(camera.fov, 30, 100); // Limit FOV values
-//         camera.updateProjectionMatrix(); // Update projection matrix to apply new FOV
-//     }
-// }
-
-// function animate() {
-//     // requestAnimationFrame(animate);
-//     if (reticle) {
-//         reticle.position.set(0, -0.3, -1.5).applyMatrix4(camera.matrixWorld);
-//         // reticle.quaternion.setFromRotationMatrix( controller.matrixWorld );
-//     }
-
-//     controls.update();
-//     renderer.render(scene, camera);
-// }
-// // animate();
 
 var touchDown, touchX, touchY, deltaX, deltaY;
 
@@ -301,9 +235,6 @@ function endARSession() {
 
 
 function onSessionStart() {
-    // renderer.xr.enabled=true;
-    // var session = renderer.xr.setSession();
-
 
     if (model) {
         model.visible = true;
@@ -315,8 +246,6 @@ function onSessionStart() {
         scene.remove(reticle);
         reticle = null;
     }
-
-
 
     // Create the reticle
     const reticleGeometry = new THREE.RingGeometry(0.07, 0.1, 32);
