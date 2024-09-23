@@ -49,6 +49,16 @@ function createscene(view, container, object) {
             //checking all frames
             const checkProgress = () => {
                 if (Math.round(currentProgress) >= 100) {
+                    gsap.to(".loading-bg",{
+                        y:-window.innerHeight-window.innerHeight*0.15,
+                        opacity:0.3,
+                        delay:0.4,
+                        duration:1,
+                        stagger:0.1,
+                        onStart:()=>{
+                            document.getElementsByClassName("loadingscr-obj")[0].style.display="none"
+                        }
+                    })
                     gsap.to(loadingScreen, { opacity: 0, duration: 1, delay: 1, onComplete: () => {
                         loadingScreen.style.display = 'none'; // Hide loading screen
                         if (container == container1) {
@@ -76,11 +86,12 @@ function createscene(view, container, object) {
         }
     );
 
-    const tickerCallback = () => {
-        currentProgress += (targetProgress - currentProgress) * 0.05;
     
-        loadingBar.style.width = `${currentProgress}%`;
-        loadingText.textContent = `Loading... ${Math.round(currentProgress)}%`;
+    const tickerCallback = () => {
+        currentProgress += (targetProgress - currentProgress) * 0.04;
+        
+        loadingBar.style.width = `${Math.round(currentProgress)}%`;
+        document.getElementsByClassName("load-percent")[0].textContent = `${Math.round(currentProgress)}%`;
         console.log(currentProgress);
         if (Math.round(currentProgress) >= 100 && !tickerStopped) {
             tickerStopped = true;
