@@ -75,6 +75,15 @@ body {
     /* scroll-behavior: smooth; */
 }
 
+#loading-sparkle{
+    background-image: url("./public/assets/giphy.gif");
+    background-position-x: 0%;
+    
+    background-repeat: no-repeat;
+    background-size: 50%;
+    /* width: 100vw; */
+    height: 100vh;
+}
 /* body::-webkit-scrollbar {display: none;} */
 /* html.has-scroll-smooth {
     overflow: hidden; 
@@ -136,7 +145,7 @@ nav {
 }
 
 .nav i:hover {
-    color: rgba(24, 132, 142, 0.8);
+    color: #18848ecc;
 }
 
 .middlecont {

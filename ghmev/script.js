@@ -1,22 +1,22 @@
-let hybribbtn="off"
+let hybribbtn = "off"
 
 const end = document.getElementById("end360")
 const hybrid = document.getElementById("toggleSwitch2")
 end.addEventListener('click', () => {
     document.getElementById('playground').classList.add("hidden")
-    hybribbtn="off"
+    hybribbtn = "off"
     document.getElementById('cycleVid').classList.add("hidden")
 })
 
 hybrid.addEventListener('click', () => {
-    if (hybribbtn=="off") {
-        hybribbtn="on"
+    if (hybribbtn == "off") {
+        hybribbtn = "on"
         document.getElementById('toggleSwitch2').classList.remove("justify-start")
         document.getElementById('toggleSwitch2').classList.add("justify-end")
         document.getElementById('cycleVid').classList.remove("hidden")
     }
-    else{
-        hybribbtn="off"
+    else {
+        hybribbtn = "off"
         document.getElementById('toggleSwitch2').classList.remove("justify-end")
         document.getElementById('toggleSwitch2').classList.add("justify-start")
         document.getElementById('cycleVid').classList.add("hidden")
@@ -37,11 +37,11 @@ wordDiv.innerHTML = ""; // Clear existing content
 
 for (let char of wordText) {
 
-  let span = document.createElement("span");
+    let span = document.createElement("span");
 
-  span.textContent = char;
+    span.textContent = char;
 
-  wordDiv.appendChild(span);
+    wordDiv.appendChild(span);
 
 }
 
@@ -57,7 +57,7 @@ function scrollgsap() {
     const locoScroll = new LocomotiveScroll({
         el: document.querySelector(".main"),
         smooth: 2,
-        
+
         smartphone: {
             smooth: 0.7,
             breakpoint: 1024,
@@ -66,7 +66,7 @@ function scrollgsap() {
             smooth: 1,
             breakpoint: 1440,
         },
-        laptop:{
+        laptop: {
             smooth: 2,
             breakpoint: 1920,
         },
@@ -76,7 +76,7 @@ function scrollgsap() {
     document.getElementById("bike").addEventListener('click', () => {
         // locoScroll.destroy();
         locoScroll.scrollTo(element);
-        
+
         // locoScroll.init();
         // locoScroll.start();
         // locoScroll.update();
@@ -793,32 +793,32 @@ document.querySelectorAll(".box").forEach(function (boxbtn) {
             document.querySelector(`.btn-headcolor${i} .absolute`).classList.remove("pointer-events-none")
             document.querySelector(`.btn-headcolor${i} .absolute`).classList.add("cursor-pointer")
         }
-       
+
 
     })
 })
 
-gsap.from("#topline span",{
-    opacity:0,
-    y:-900,
-    stagger:0.1,
-    ease:"power3.inOut",
+gsap.from("#topline span", {
+    opacity: 0,
+    y: -900,
+    stagger: 0.1,
+    ease: "power3.inOut",
     scrollTrigger: {
         trigger: ".part3",
         start: "-20%",
-        end:"0%",
-        scrub:2,
+        end: "0%",
+        scrub: 2,
         // markers:true,
         scroller: ".main",
-        
+
     },
 })
 
-gsap.from(".featurecont .heading",{
-    opacity:0,
-    x:900,
-    stagger:0.1,
-    ease:"power3.inOut",
+gsap.from(".featurecont .heading", {
+    opacity: 0,
+    x: 900,
+    stagger: 0.1,
+    ease: "power3.inOut",
     scrollTrigger: {
         trigger: ".part2",
         start: "-15%",
@@ -826,6 +826,144 @@ gsap.from(".featurecont .heading",{
         // scrub:2,
         // markers:true,
         scroller: ".main",
-        
+
     },
+})
+
+gsap.to(".ghm-load", {
+    opacity: 0.5,
+    scale: 1.05,
+    duration: 0.7,
+    // delay:0.5,
+    repeat: -1,
+    yoyo: true
+})
+
+gsap.to(".dot", {
+    display: "none",
+    stagger: 0.2,
+    repeat: -1,
+    // yoyo:true,
+})
+
+document.getElementsByClassName("ri-menu-fill righticon")[0].addEventListener("click", () => {
+
+    document.getElementsByClassName("hamburgerBg")[0].classList.remove("hidden")
+    document.getElementsByClassName("hamburger")[0].classList.remove("hidden")
+    gsap.to(".hamburger", {
+        right: "0%",
+        duration: 0.7,
+
+    })
+    gsap.to(".hamburgerBg", {
+        opacity:1,
+        duration: 0.5,
+
+    })
+    gsap.to(".hamburger", {
+        opacity:1,
+        duration: 0.5,
+
+    })
+})
+document.getElementsByClassName("hamburgerBg")[0].addEventListener("click", () => {
+    if (window.innerWidth <= 425) {
+        gsap.to(".hamburger", {
+            opacity: 0.5,
+            right: "-100%",
+            duration: 0.6,
+            onComplete: () => {
+                document.getElementsByClassName("hamburgerBg")[0].classList.add("hidden")
+                document.getElementsByClassName("hamburger")[0].classList.add("hidden")
+            }
+        })
+        gsap.to(".hamburgerBg", {
+            opacity: 0,
+            duration: 0.6,
+        })
+    } else {
+        gsap.to(".hamburger", {
+            opacity: 0.5,
+            right: "-100%",
+            duration: 0.6,
+            onComplete: () => {
+                document.getElementsByClassName("hamburgerBg")[0].classList.add("hidden")
+                document.getElementsByClassName("hamburger")[0].classList.add("hidden")
+            }
+        })
+        gsap.to(".hamburgerBg", {
+            opacity: 0,
+            duration: 0.6,
+        })
+    }
+})
+document.getElementById("menuClose").addEventListener("click", () => {
+    if (window.innerWidth <= 425) {
+        gsap.to(".hamburger", {
+            opacity: 0.5,
+            right: "-100%",
+            duration: 0.6,
+            onComplete: () => {
+                document.getElementsByClassName("hamburgerBg")[0].classList.add("hidden")
+                document.getElementsByClassName("hamburger")[0].classList.add("hidden")
+            }
+        })
+        gsap.to(".hamburgerBg", {
+            opacity: 0,
+            duration: 0.6,
+        })
+    } else {
+        gsap.to(".hamburger", {
+            opacity: 0.5,
+            right: "-100%",
+            duration: 0.6,
+            onComplete: () => {
+                document.getElementsByClassName("hamburgerBg")[0].classList.add("hidden")
+                document.getElementsByClassName("hamburger")[0].classList.add("hidden")
+            }
+        })
+        gsap.to(".hamburgerBg", {
+            opacity: 0,
+            duration: 0.6,
+        })
+    }
+})
+
+document.querySelectorAll(".menu").forEach(function (e) {
+    e.addEventListener("mouseover", () => {
+        const arrow = e.querySelector(".arrow");
+        const menuline = e.querySelector(".menuline");
+        gsap.to(menuline, {
+            width: "100%",
+            duration: 0.2,
+        })
+        gsap.to(arrow, {
+            x: 7,
+            scale: 1.25,
+            duration: 0.7,
+        })
+        gsap.to(e, {
+            fontSize: "1.5rem",
+            color: "#545454",
+            duration: 0.1,
+        })
+    })
+    e.addEventListener("mouseleave", () => {
+        const arrow = e.querySelector(".arrow");
+        const menuline = e.querySelector(".menuline");
+        gsap.to(menuline, {
+            width: "0%",
+            duration: 0.2,
+        })
+        gsap.to(arrow, {
+            x: 0,
+            scale: 1,
+            duration: 0.7,
+        })
+        gsap.to(e, {
+            fontSize: "1.4rem",
+            color: "black",
+            duration: 0.1,
+        })
+    })
 })

@@ -19,11 +19,41 @@
         rel="stylesheet">
 </head>
 
-<div id="loading-screen" class="w-screen h-screen bg-black" style="position: fixed; z-index: 9999;">
-    <div>
-        <div id="loading-bar" style="width: 0%; height: 20px; background: green;"></div>
-        <p id="loading-text" class="text-white">Loading... 0%</p>
+<div id="loading-screen" class="w-screen h-screen overflow-hidden" style="position: fixed; z-index: 9999;">
+    <div class="w-screen h-[115vh] absolute flex">
+        <div class="w-[10%] bg-[#262626] rounded-b-full loading-bg"></div>
+        <div class="w-[10%] bg-[#262626] rounded-b-full loading-bg"></div>
+        <div class="w-[10%] bg-[#262626] rounded-b-full loading-bg"></div>
+        <div class="w-[10%] bg-[#262626] rounded-b-full loading-bg"></div>
+        <div class="w-[10%] bg-[#262626] rounded-b-full loading-bg"></div>
+        <div class="w-[10%] bg-[#262626] rounded-b-full loading-bg"></div>
+        <div class="w-[10%] bg-[#262626] rounded-b-full loading-bg"></div>
+        <div class="w-[10%] bg-[#262626] rounded-b-full loading-bg"></div>
+        <div class="w-[10%] bg-[#262626] rounded-b-full loading-bg"></div>
+        <div class="w-[10%] bg-[#262626] rounded-b-full loading-bg"></div>
     </div>
+    <!-- <div id="loading-sparkle"></div> -->
+    <div class="loadingscr-obj">
+
+        <div class="absolute w-screen h-screen">
+            <h1
+                class="ghm-load absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[#a2a2a2] sm:text-[3rem] xs:text-[20px] text-[17px] font-bold">
+                GHM</h1>
+            <img src="./public/assets/output-onlinegiftools.gif" alt=""
+                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 brightness-200">
+        </div>
+        <div class="md:w-1/4 xs:w-1/3 w-1/2 absolute bottom-0 md:mb-7 xs:mb-10 mb-16 left-1/2 -translate-x-1/2">
+            <div class="rounded-full w-full border-[2px] border-[#cecece]">
+
+                <div id="loading-bar" class="rounded-full w-[0%] sm:h-[20px] h-[10px] bg-[#006069c6]"></div>
+            </div>
+            <p id="loading-text"
+                class="text-white sm:text-[1.35rem] xs:text-[16px] text-[10px] text-center md:mt-6 my-3">Loading <span
+                    class="dot">.</span><span class="dot">.</span><span class="dot">.</span> <span
+                    class="load-percent">0%</span></p>
+        </div>
+    </div>
+
 </div>
 
 <body data-scroll-container>
@@ -47,12 +77,14 @@
 
         </div>
         <div class="w-full text-center xs:my-7 my-10 mt-14">
-            <div class="xl:text-[calc(100vw/48)] md:text-[calc(100vw/40)] text-[calc(100vw/24)] font-semibold font-lexendeca">Experience Reality Like Never Before with AR and
+            <div
+                class="xl:text-[calc(100vw/48)] md:text-[calc(100vw/40)] text-[calc(100vw/24)] font-semibold font-lexendeca">
+                Experience Reality Like Never Before with AR and
                 360°Views
             </div>
 
         </div>
-        
+
         <div class="flex sm:justify-end justify-evenly">
 
 
@@ -60,8 +92,8 @@
 
             <div class="flex sm:flex-col sm:gap-7 gap-6 sm:items-start z-10">
                 <!-- 360mode check (currently--display none )-->
-                <div class="flex justify-center w-full gap-1 font-semibold text-[1.05rem] font-lexendeca absolute bottom-0 left-0 mb-7" style="display: none;">360 Mode <span id="De"
-                    style="display: inline;">De-</span>Activated</div>
+                <div class="flex justify-center w-full gap-1 font-semibold text-[1.05rem] font-lexendeca absolute bottom-0 left-0 mb-7"
+                    style="display: none;">360 Mode <span id="De" style="display: inline;">De-</span>Activated</div>
 
                 <!-- TWO switches -->
                 <div class="flex items-center gap-3">
@@ -69,7 +101,8 @@
                         class=" flex items-center justify-start cursor-pointer sm:w-[5.5rem] w-[3.5rem] sm:h-12 h-8 rounded-full bg-[#dfdfdfe0] border-[2px] border-[#7c7c7c]">
                         <div class="sm:w-11 w-[1.75rem] sm:h-11 h-[1.75rem] bg-[#1d6f95] rounded-full"></div>
                     </div>
-                    <div id="mode360" class=" w-max h-max sm:text-[16px] text-[10px] font-bold sm:p-5 rounded-md">360mode</div>
+                    <div id="mode360" class=" w-max h-max sm:text-[16px] text-[10px] font-bold sm:p-5 rounded-md">
+                        360mode</div>
 
                 </div>
                 <div class="flex items-center gap-3">
@@ -77,12 +110,15 @@
                         class=" flex items-center justify-start cursor-pointer sm:w-[5.5rem] w-[3.5rem] sm:h-12 h-8 rounded-full bg-[#dfdfdfe0] border-[2px] border-[#7c7c7c]">
                         <div class="sm:w-11 w-[1.75rem] sm:h-11 h-[1.75rem] bg-[#1d6f95] rounded-full"></div>
                     </div>
-                    <div id="modeHybrid" class=" w-max h-max sm:text-[16px] text-[10px] font-bold sm:p-5 rounded-md">Hybrid mode</div>
+                    <div id="modeHybrid" class=" w-max h-max sm:text-[16px] text-[10px] font-bold sm:p-5 rounded-md">
+                        Hybrid mode</div>
                 </div>
-                <div class="flex w-full sm:justify-start justify-center sm:relative absolute left-0 bottom-0 sm:mb-0 mb-24">
-    
-                    <button id="start" class="bg-[#00cdd580] w-max sm:h-16 h-8 font-bold px-5  rounded-md mx-auto">Start AR</button>
-                    
+                <div
+                    class="flex w-full sm:justify-start justify-center sm:relative absolute left-0 bottom-0 sm:mb-0 mb-24">
+
+                    <button id="start" class="bg-[#00cdd580] w-max sm:h-16 h-8 font-bold px-5  rounded-md mx-auto">Start
+                        AR</button>
+
                 </div>
             </div>
 
@@ -93,16 +129,61 @@
     </div>
     <div id="content4" class="absolute w-screen h-screen top-0">
         <div class="placegif hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <div class="text-center text-white font-semibold font-lexendeca">Move Your Phone Towards Horizontal Plane Surface</div>
+            <div class="text-center text-white font-semibold font-lexendeca">Move Your Phone Towards Horizontal Plane
+                Surface</div>
             <img src="./public/assets/placeobject.gif" alt="">
         </div>
         <div id="container" class="absolute"></div>
-        <button id="exit" class="flex items-center absolute right-0 top-0 w-max h-max px-3 font-bold mt-14 mr-4 rounded-md text-[24px] text-[#c2c2c2]">
+        <button id="exit"
+            class="flex items-center absolute right-0 top-0 w-max h-max px-3 font-bold mt-14 mr-4 rounded-md text-[24px] text-[#c2c2c2]">
             <i class="ri-close-fill"></i>
         </button>
         <div class="flex justify-center w-full absolute left-0 bottom-0 mb-7">
             <button id="place-button" class="bg-[#a8f6e8ad] w-[max-content] h-16 font-bold p-5 rounded-md">Place
                 Object</button>
+
+        </div>
+    </div>
+    <div class="hamburgerBg hidden w-screen h-screen bg-[#0000008f] absolute right-0 top-0 z-30" style="opacity: 0;">
+
+    </div>
+    <div class="hamburger hidden h-screen xs:w-[20%] w-[75%] bg-[#c4c4c4e4] absolute xs:right-[-20%] right-[-100%] top-0 z-[30]">
+        <div class="h-[60px] flex justify-between items-center w-full pl-7 pr-4 sm:text-[2rem] text-[1.45rem] text-white bg-[#23565b]">
+            <div>Hello, User</div>
+            <div id="menuClose" class="flex justify-center items-center cursor-pointer rounded-full w-[42px] h-[42px] bg-[#ff3a3ae9]"><i class="ri-close-line" style="font-size: 24px;"></i></div>
+        </div>
+        <div class="p-10 flex flex-col gap-2 text-[1.40rem]">
+
+            <div class="relative">
+                <div class="menu">
+
+                    <div class="menuitem h-[45px] flex justify-between px-1 items-center cursor-pointer">
+                        <div>E-bikes</div>
+                        <div class=" arrow absolute right-2 top-0"><i class="ri-arrow-drop-right-line" style="font-size: 32px;"></i></div>
+                    </div>
+                    <div class="mt-1 w-0 h-[1px] bg-black menuline"></div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="menu">
+
+                    <div class="menuitem h-[45px] flex justify-between px-1 items-center cursor-pointer">
+                        <div>App</div>
+                        <div class=" arrow absolute right-2 top-0"><i class="ri-arrow-drop-right-line" style="font-size: 32px;"></i></div>
+                    </div>
+                    <div class="mt-1 w-0 h-[1px] bg-black menuline"></div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="menu">
+
+                    <div class="menuitem h-[45px] flex justify-between px-1 items-center cursor-pointer">
+                        <div>Support</div>
+                        <div class="arrow absolute right-2 top-0"><i class="ri-arrow-drop-right-line" style="font-size: 32px;"></i></div>
+                    </div>
+                    <div class="mt-1 w-0 h-[1px] bg-black menuline"></div>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -185,7 +266,7 @@
             </div>
         </div>
     </nav>
-   
+
 
 
     <div class="main overflow-hidden" id="main">
@@ -218,7 +299,9 @@
                     </div>
                     <div id="content5"
                         class="opacity-0 flex flex-col gap-7 items-center justify-center w-[50%] h-screen absolute right-0 z-20">
-                        <div id="immersivetxt" class="font-semibold sm:text-[2.25rem] text-[24px] text-center sm:w-full w-screen sm:px-0 px-4 " >Enter Into the Real Immersive World</div>
+                        <div id="immersivetxt"
+                            class="font-semibold sm:text-[2.25rem] text-[24px] text-center sm:w-full w-screen sm:px-0 px-4 ">
+                            Enter Into the Real Immersive World</div>
                         <button id="playbtn"
                             class="font-regular w-max h-max sm:p-7 sm:px-14 p-3 px-7 bg-[#88e1e8] sm:text-[1.45rem] text-[16px] rounded-full shadow-md hover:scale-105">Enter</button>
 
