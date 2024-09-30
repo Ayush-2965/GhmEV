@@ -967,3 +967,10 @@ document.querySelectorAll(".menu").forEach(function (e) {
         })
     })
 })
+
+gsap.to(".roundloader",{
+    rotate:"+=360",
+    duration:0.5,
+    ease:"power3.inOut",
+    repeat:-1,
+})

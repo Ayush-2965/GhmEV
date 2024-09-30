@@ -59,13 +59,15 @@
 <body data-scroll-container>
     <div id="playground"
         class="cycleplay hidden absolute z-[10] h-screen w-full bg-[#424242] xs:px-14 px-6 xs:pt-[60px] pt-[40px] text-[#E1E1E1] overflow-hidden">
+        <div class="loader w-screen h-screen flex justify-center items-center bg-[#8f8f8f2b] absolute z-[11] left-0">
+            <div class="roundloader md:w-[120px] md:h-[120px] sm:w-[96px] sm:h-[96px] w-16 h-16"></div>
+        </div>
         <div class="flex items-center absolute w-full h-screen left-0 top-0 hidden z-[1]" id="cycleVid">
 
             <video autoplay loop muted playsinline class="brightness-[70%] contrast-125">
                 <source src="./public/assets/0006-0063.mkv" type="video/mp4">
             </video>
         </div>
-        <!-- <div class="w-screen h-[80px]"></div> -->
         <button id="end360"
             class="bg-[#ff32323b] w-max xs:h-12 h-5 font-bold absolute top-0 right-0 xs:mt-[60px] mt-[40px] xs:px-7 px-3 rounded-bl-md sm:text-[16px] text-[10px] z-[1]">
             X</button>
@@ -73,7 +75,7 @@
             <img src="./public/assets/images/26a1.gif" alt=""
                 class=" absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 z-[-5]">
         </div>
-        <div id="model2" class="w-full h-full absolute left-0 z-[0]" data-scroll>
+        <div id="model2" class="opacity-0 w-full h-full absolute left-0 z-[0]" data-scroll>
 
         </div>
         <div class="w-full text-center xs:my-7 my-10 mt-14">

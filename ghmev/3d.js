@@ -71,6 +71,17 @@ function createscene(view, container, object) {
                                 gsap.to(group1.rotation, { duration: 1, x: Math.PI * 2 })
                             }
                         }
+                        if (container==container3) {
+                            gsap.to(".roundloader",{
+                                opacity:0,
+                                duration:0.7,
+                                onComplete:()=>{
+                                    document.getElementsByClassName("loader")[0].style.display="none"
+                                    container3.classList.remove("opacity-0")
+                                    container3.style.opacity=1;
+                                }
+                            })
+                        }
                         
                     }});
                 } else {
@@ -88,16 +99,28 @@ function createscene(view, container, object) {
 
     
     const tickerCallback = () => {
-        currentProgress += (targetProgress - currentProgress) * 0.04;
-        
-        loadingBar.style.width = `${Math.round(currentProgress)}%`;
-        document.getElementsByClassName("load-percent")[0].textContent = `${Math.round(currentProgress)}%`;
-        console.log(currentProgress);
-        if (Math.round(currentProgress) >= 100 && !tickerStopped) {
-            tickerStopped = true;
-            gsap.ticker.remove(tickerCallback);
-            console.log('Ticker stopped');
+        tickerStopped = false
+        if (container==container1) {
+            currentProgress += (targetProgress - currentProgress) * 0.04;
+            loadingBar.style.width = `${Math.round(currentProgress)}%`;
+            document.getElementsByClassName("load-percent")[0].textContent = `${Math.round(currentProgress)}%`;
+            // console.log(currentProgress);
+            if (Math.round(currentProgress) >= 100 && !tickerStopped) {
+                tickerStopped = true;
+                gsap.ticker.remove(tickerCallback);
+                console.log('Ticker stopped');
+            }
+            
         }
+        if (container==container3) {
+            currentProgress += (targetProgress - currentProgress) * 0.06;
+            
+            if (Math.round(currentProgress) >= 100 && !tickerStopped) {
+                tickerStopped = true;
+                gsap.ticker.remove(tickerCallback);
+                console.log('Ticker stopped');
+            }
+        }        
     };
     // ticker for lopp animation
     gsap.ticker.add(tickerCallback);
