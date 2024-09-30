@@ -190,28 +190,46 @@ function onWindowResize() {
 
 }
 function startARSession() {
-    if (!xrSession) {
+    if (navigator.xr) {
+        console.log("WebXR supported by browser");
+        navigator.xr.isSessionSupported('immersive-ar').then((supported)=>{
+            if (supported) {
+                console.log("immersive-ar supported");
+                
+                if (!xrSession) {
+                    
+                    const options = {
+                        requiredFeatures: ['hit-test', 'local-floor'],
+                        optionalFeatures: ['dom-overlay'],
+                        domOverlay: { root: document.getElementById('content4') }
+                    };
+            
+                    navigator.xr.requestSession('immersive-ar', options).then((session) => {
+                        xrSession = session;
+                        renderer.xr.setSession(session);
+            
+                        onSessionStart();
+            
+                        // Handle session end event
+                        session.addEventListener('end', onSessionEnd);
+                    });
+                }
+                
+            } else {
+                console.log("Not supported");
+                alert("Immersive-AR Not Supported In Your Device")
+            }
+        })
+        console.log(hitTestSourceRequested);
+        console.log(xrSession);
+        console.log(hitTestSource);
+        console.log(reticle);
 
-        const options = {
-            requiredFeatures: ['hit-test', 'local-floor'],
-            optionalFeatures: ['dom-overlay'],
-            domOverlay: { root: document.getElementById('content4') }
-        };
 
-        navigator.xr.requestSession('immersive-ar', options).then((session) => {
-            xrSession = session;
-            renderer.xr.setSession(session);
-
-            onSessionStart();
-
-            // Handle session end event
-            session.addEventListener('end', onSessionEnd);
-        });
+    } else {
+        alert("WebXR not supported by the browser")
     }
-    console.log(hitTestSourceRequested);
-    console.log(xrSession);
-    console.log(hitTestSource);
-    console.log(reticle);
+    
 }
 
 function endARSession() {
