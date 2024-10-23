@@ -5,16 +5,11 @@ import { EXRLoader } from './node_modules/three/examples/jsm/loaders/EXRLoader.j
 import { VRButton } from './node_modules/three/examples/jsm/webxr/VRButton.js';
 import { ARButton } from './node_modules/three/examples/jsm/webxr/ARButton.js';
 import { XRButton } from './node_modules/three/examples/jsm/webxr/XRButton.js';
-// import { mod } from 'three/examples/jsm/nodes/Nodes.js';
-// import { log } from 'three/examples/jsm/nodes/Nodes.js';
 
 let camera, scene, renderer;
 let controller, reticle;
 let model = null;
 let controls;
-
-
-
 let initialFov = 70; // Starting field of view
 
 // Variables for touch controls
@@ -27,6 +22,7 @@ var hitTestSource = null;
 var hitTestSourceRequested = false;
 let xrSession = null;
 let isAR = true;
+
 init();
 
 document.getElementById('start').addEventListener('click', startARSession);
@@ -190,7 +186,7 @@ function onWindowResize() {
 
 }
 function startARSession() {
-    if (navigator.xr) {
+    if ( 'xr' in navigator ) {
         console.log("WebXR supported by browser");
         navigator.xr.isSessionSupported('immersive-ar').then((supported)=>{
             if (supported) {
@@ -217,17 +213,18 @@ function startARSession() {
                 
             } else {
                 console.log("Not supported");
-                alert("Immersive-AR Not Supported In Your Device")
+                document.getElementById("ar-messageBox").classList.remove("hidden")
             }
         })
-        console.log(hitTestSourceRequested);
-        console.log(xrSession);
-        console.log(hitTestSource);
-        console.log(reticle);
+        // console.log(hitTestSourceRequested);
+        // console.log(xrSession);
+        // console.log(hitTestSource);
+        // console.log(reticle);
 
 
     } else {
-        alert("WebXR not supported by the browser")
+        console.log("WebXR not supported by the browser")
+        document.getElementById("ar-messageBox").classList.remove("hidden")
     }
     
 }
@@ -283,13 +280,14 @@ function onSessionStart() {
     // else {
     //     document.getElementsByClassName("placegif")[0].classList.add("hidden")
     // }
+
     // Add device orientation event listener (remove old listeners if they exist)
     window.removeEventListener('deviceorientation', handleDeviceOrientation);
     window.addEventListener('deviceorientation', handleDeviceOrientation);
 };
 
 function handleDeviceOrientation(event) {
-    const beta = event.beta; // Range is typically between -180 to 180 degrees
+    const beta = event.beta; // Range is between -180 to 180 degrees
 
     // Show the reticle when the phone angle is between 0 and 90 degrees
     if (beta >= 30 && beta <= 60 && reticle) {
