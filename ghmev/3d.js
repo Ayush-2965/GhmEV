@@ -62,7 +62,7 @@ function createscene(view, container, object) {
                     gsap.to(loadingScreen, { opacity: 0, duration: 1, delay: 1, onComplete: () => {
                         loadingScreen.style.display = 'none'; // Hide loading screen
                         if (container == container1) {
-                            if (window.innerWidth>=768) {
+                            if (window.innerWidth>=640) {
                                 gsap.to(container, { duration: 1, x: window.innerWidth*0.4, ease: "linear" })
                                 gsap.to(group1.rotation, { duration: 1, x: Math.PI * 2 })
                             }
@@ -300,8 +300,8 @@ function createscene(view, container, object) {
                     controls.rotateSpeed = 0.45;
                     controls.enableZoom = true; // Disable zoom functionality
                     controls.enablePan = false;
-                    controls.maxPolarAngle = 1.5;
-                    controls.minPolarAngle = 1;
+                    controls.maxPolarAngle = Math.PI/2
+                    controls.minPolarAngle = Math.PI/4;
                     controls.maxDistance = 5;
                     controls.minDistance = 1;
 
@@ -444,7 +444,9 @@ function createscene(view, container, object) {
                         gsap.to(plus, { rotate: 0, duration: 0.4, ease: "power1.Out", });
 
                         gsap.to(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
-
+                        gsap.to(obj.rotation, {
+                            y: 0,z:0,x:0
+                        });
                         document.getElementsByClassName("featurecontent")[newid - 11].classList.add("hidden");
                         console.log("close");
                         console.log(newid);
@@ -461,6 +463,9 @@ function createscene(view, container, object) {
                     x: -0.9,
                     y: -0.1
                 });
+                gsap.to(obj.rotation, {
+                    y: 0,z:0,x:0
+                });
                 document.querySelector("#model canvas").classList.add("rounded-full");
             })
             document.getElementById("2").addEventListener('click', () => {
@@ -470,114 +475,92 @@ function createscene(view, container, object) {
                     x: 0.37,
                     y: 0.5
                 });
+                gsap.to(obj.rotation, {
+                    y: -0.5,
+                    
+                });
                 document.querySelector("#model canvas").classList.add("rounded-full");
             })
             document.getElementById("3").addEventListener('click', () => {
                 gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
 
                 gsap.to(camera.position, { z: 0.3, x: 0.47, y: -0.3 });
+                gsap.to(obj.rotation, {
+                    y: 0,z:0,x:0
+                });
+                
 
                 document.querySelector("#model canvas").classList.add("rounded-full");
             })
             document.getElementById("4").addEventListener('click', () => {
                 gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
 
-                gsap.to(camera.position, { z: 0.8, x: 0.67, y: 0 });
-
+                gsap.to(camera.position, { z: 1.5, x: 0.67, y: -0.1 });
+                gsap.to(obj.rotation, {
+                    y: -0.5,
+                    
+                });
                 document.querySelector("#model canvas").classList.add("rounded-full");
             })
             document.getElementById("5").addEventListener('click', () => {
                 gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
 
                 gsap.to(camera.position, { z: 0.8, x: 0.3, y: 0.67 });
-
+                gsap.to(obj.rotation, {
+                    y: 0,z:0,x:0
+                });
                 document.querySelector("#model canvas").classList.add("rounded-full");
             })
             document.getElementById("6").addEventListener('click', () => {
                 gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
 
                 gsap.to(camera.position, { z: 0.8, x: 0.3, y: 0.7 });
-
+                gsap.to(obj.rotation, {
+                    y: 0,z:0,x:0
+                });
                 document.querySelector("#model canvas").classList.add("rounded-full");
             })
             document.getElementById("7").addEventListener('click', () => {
                 gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
 
-                gsap.to(camera.position, { z: 0.8, x: -1, y: 0 });
-
+                gsap.to(camera.position, { z: 1, x: 0.67, y: -0.1 });
+                gsap.to(obj.rotation, {
+                    y: -0.5,
+                    
+                });
                 document.querySelector("#model canvas").classList.add("rounded-full");
             })
             document.getElementById("8").addEventListener('click', () => {
                 gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
 
-                gsap.to(camera.position, { z: 0.57, x: -0.7, y: 0.7 });
-
+                gsap.to(camera.position, { z: 0.97, x: -0.21, y: 0.7 });
+                gsap.to(obj.rotation, {
+                    y: 0.5,z:0.2,x:0
+                });
                 document.querySelector("#model canvas").classList.add("rounded-full");
             })
             document.getElementById("9").addEventListener('click', () => {
                 gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
 
                 gsap.to(camera.position, { z: 0.8, x: -0.1, y: 0.5 });
-
+                gsap.to(obj.rotation, {
+                    y: 0,z:0,x:0
+                });
                 document.querySelector("#model canvas").classList.add("rounded-full");
             })
             document.getElementById("10").addEventListener('click', () => {
                 gsap.from(camera.position, { z: 3, x: 0, y: 0, ease: "power1.in" })
 
-                gsap.to(camera.position, { z: 0.8, x: 0.3, y: 0.7 });
-
+                gsap.to(camera.position, { z: 1.1, x: 0, y: 0.6 });
+                gsap.to(obj.rotation, {
+                    y: -Math.PI/2,z:0,x:0
+                });
                 document.querySelector("#model canvas").classList.add("rounded-full");
             })
         }
 
     });
-    // const controls = new OrbitControls(camera, renderer.domElement);
-    // controls.enableDamping = true; // Smooth motion
-    // controls.dampingFactor = 0.25;
-    // controls.rotateSpeed = 0.35;
-    // // controls.enableZoom = false; // Disable zoom functionality
-    // // controls.enablePan = false;
-    // controls.maxPolarAngle = 1.5;
-    // controls.minPolarAngle = 1;
-
-
-    // const mouse = new THREE.Vector2();
-
-    // let previousMouseX = 0;
-    // let previousMouseY = 0;
-    // function onMouseMove(event) {
-    //     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    //     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-
-    //     const moveX = mouse.x - previousMouseX;
-    //     const moveY = mouse.y - previousMouseY;
-    //     pivot.rotation.y += moveX * 0.2;
-    //     pivot.rotation.x += moveY * 0.08;
-    //     previousMouseX = mouse.x;
-    //     previousMouseY = mouse.y;
-    // }
-
-
-    // function onMouseLeave() {
-
-    //     gsap.to(pivot.rotation, { duration: 1, x: 0, y: 0, })
-
-    //     // Bring camera and control to initial position
-    //     gsap.to(camera.position, { duration: 0.1, x: 0, y: 0, z: 5, ease: 'power3.out' });
-    //     gsap.to(controls.target, {
-    //         duration: 0.5, x: 0, y: 0, z: 0, ease: 'power2.out',
-    //         onUpdate: () => {
-    //             controls.update(); // Update controls during animation
-    //         }
-    //     });
-
-
-    // }
-
-    // container.addEventListener('mousemove', onMouseMove);
-    // container.addEventListener('mouseleave', onMouseLeave);
-
+    
     camera.position.set(0, 0, 1.7);
     pivot.rotation.y = -Math.PI / 2;
 
@@ -599,7 +582,7 @@ if (window.innerWidth <= 425) {
     createscene(125, container1, "./assets/model/untitled.glb")
     createscene(125, container2, "./assets/model/untitled.glb")
     playbtn.addEventListener('click', () => {
-        document.getElementById('playground').classList.remove("hidden")
+        document.getElementById('immersivemode').classList.remove("hidden")
         createscene(125, container3, "./assets/model/untitled.glb")
     })
 }
@@ -607,7 +590,7 @@ else if (window.innerWidth > 425 && window.innerWidth <= 768) {
     createscene(100, container1, "./assets/model/untitled.glb")
     createscene(100, container2, "./assets/model/untitled.glb")
     playbtn.addEventListener('click', () => {
-        document.getElementById('playground').classList.remove("hidden")
+        document.getElementById('immersivemode').classList.remove("hidden")
         createscene(100, container3, "./assets/model/untitled.glb")
     })
 }
@@ -617,7 +600,7 @@ else {
         createscene(105, container2, "./assets/model/untitled.glb")
 
         playbtn.addEventListener('click', () => {
-            document.getElementById('playground').classList.remove("hidden")
+            document.getElementById('immersivemode').classList.remove("hidden")
             createscene(105, container3, "./assets/model/untitled.glb")
         })
     }
@@ -627,7 +610,7 @@ else {
         createscene(75, container2, "./assets/model/untitled.glb")
 
         playbtn.addEventListener('click', () => {
-            document.getElementById('playground').classList.remove("hidden")
+            document.getElementById('immersivemode').classList.remove("hidden")
             createscene(75, container3, "./assets/model/untitled.glb")
         })
     }
