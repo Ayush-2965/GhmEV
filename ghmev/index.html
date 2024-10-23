@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GHM EV</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <link rel="stylesheet" href="main.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +31,6 @@
         <div class="w-[10%] bg-[#262626] rounded-b-full loading-bg"></div>
         <div class="w-[10%] bg-[#262626] rounded-b-full loading-bg"></div>
     </div>
-    <!-- <div id="loading-sparkle"></div> -->
     <div class="loadingscr-obj">
 
         <div class="absolute w-screen h-screen">
@@ -57,16 +55,56 @@
 </div>
 
 <body data-scroll-container>
-    <div id="playground"
+    <div id="ar-messageBox" class="ar-msg-box hidden bg-white rounded-[12px] border-[2px] border-[#114b64] flex flex-col fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 sm:w-2/4 w-[80%] max-h-[50%] z-[100] overflow-hidden">
+        <div class="header text-center mb-2 p-2 w-full relative top-0 flex items-center gap-7">
+            <div><img src="public/assets/images/error.png" alt="" class="sm:w-24 sm:h-24 w-20 h-20"></div>
+            <div class="md:text-[2rem] sm:text-[1.4rem] text-[calc(100vw/20)]">Not Supported</div>
+            <!-- <div class="text-lg"><i class="ri-close-fill"></i></div> -->
+        </div>
+        <div id="errcontent" class="relative overflow-y-auto w-[95%] left-1/2 -translate-x-1/2 bg-white">
+
+            <div class="px-4 py-3 sm:text-[17px] text-[12px]">It looks like your device or browser doesn't support WebXR, which is necessary for this feature to work. Here are some steps you can take:</div>
+            <div class=" px-7 py-5 pb-7 flex flex-col gap-2 sm:text-[16px] text-[10px]">
+    
+                <li><span class="font-semibold">Update Your Browser: </span>Ensure you’re using the latest version of your browser. WebXR support may be available in newer versions.</li>
+                <li><span class="font-semibold">Check Browser Compatibility: </span>Make sure your browser is one that supports WebXR. Like - Chrome,Firefox etc</li>
+                <li><span class="font-semibold">Enable WebXR in Settings: </span>Some browsers may require you to enable WebXR in the settings or flags. Check your browser's documentation for details.</li>
+                <li><span class="font-semibold">Check Device Compatibility: </span>If on an mobile device check whether your device support AR or not.You may check <a href="https://developers.google.com/ar/devices" class="text-blue-400">here</a>. <br> (For Android devices, If supported update "Google play services for AR")</li>
+                <li><span class="font-semibold">Try a Different Device: </span>consider switching to another device that supports WebXR.</li>
+                <li><span class="font-semibold">Update Your Device: </span>Ensure your device's operating system is up to date, as older versions may not support the necessary technologies.</li>
+                
+    
+                
+            </div>
+        </div>
+        <div id="footer" class="w-full p-3 relative mt-3 bg-slate-200" style="box-shadow: white 0px -16px 20px 20px;">
+            <div class="okbtn mr-5 flex justify-end gap-7">
+                <!-- <div class="border border-black rounded-lg px-3 py-2 w-[120px] text-center mr-2 cursor-pointer">Cancel</div> -->
+                <div id="errOk" class="border border-black hover:bg-[#006069c6] rounded-lg px-3 py-2 w-[120px] text-center mr-2 hover:text-white cursor-pointer">OK</div>
+            </div>
+        </div>
+    </div>
+    <div id="immersivemode"
         class="cycleplay hidden absolute z-[10] h-screen w-full bg-[#424242] xs:px-14 px-6 xs:pt-[60px] pt-[40px] text-[#E1E1E1] overflow-hidden">
         <div class="loader w-screen h-screen flex justify-center items-center bg-[#8f8f8f2b] absolute z-[11] left-0">
             <div class="roundloader md:w-[120px] md:h-[120px] sm:w-[96px] sm:h-[96px] w-16 h-16"></div>
         </div>
         <div class="flex items-center absolute w-full h-screen left-0 top-0 hidden z-[1]" id="cycleVid">
+            <div class="relative w-full h-max">
+                
+                <video autoplay loop muted playsinline class="brightness-[70%] contrast-125">
+                    <source src="./public/assets/0006-0063.mkv" type="video/mp4">
+                </video>
+                <div class="flex flex-col details absolute w-[100%] h-64 xl:top-[17%] top-[7%]  left-[3%] z-[2] text-white">
+                    <div class="mb-[7%] xl:text-[2.5rem] md:text-[2rem] sm:text-[1.5rem] font-bold text-[#b3fbff]" style="text-shadow: 5px 3px 12px #000000;">"Pedal to empower your ride"</div>
+                    <ul class="flex flex-col md:gap-9 sm:gap-7 gap-3 translate-x-[10%] w-max">
 
-            <video autoplay loop muted playsinline class="brightness-[70%] contrast-125">
-                <source src="./public/assets/0006-0063.mkv" type="video/mp4">
-            </video>
+                        <li class="rounded-full w-full px-4 bg-[#00cdd580] lg:text-[1.25rem] md:text-[1rem] sm:text-[0.75rem] text-[0.55rem] font-semibold list-disc">Charge-on the go</li>
+                        <li class="rounded-full w-full px-4 bg-[#00cdd580] lg:text-[1.25rem] md:text-[1rem] sm:text-[0.75rem] text-[0.55rem] font-semibold list-disc">Increased Mileage</li>
+                        <li class="rounded-full w-full px-4 bg-[#00cdd580] lg:text-[1.25rem] md:text-[1rem] sm:text-[0.75rem] text-[0.55rem] font-semibold list-disc">Increased Speed</li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <button id="end360"
             class="bg-[#ff32323b] w-max xs:h-12 h-5 font-bold absolute top-0 right-0 xs:mt-[60px] mt-[40px] xs:px-7 px-3 rounded-bl-md sm:text-[16px] text-[10px] z-[1]">
@@ -98,7 +136,7 @@
                     style="display: none;">360 Mode <span id="De" style="display: inline;">De-</span>Activated</div>
 
                 <!-- TWO switches -->
-                <div class="flex items-center gap-3">
+                <div id="Toggle360" class="flex items-center gap-3">
                     <div id="toggleSwitch"
                         class=" flex items-center justify-start cursor-pointer sm:w-[5.5rem] w-[3.5rem] sm:h-12 h-8 rounded-full bg-[#dfdfdfe0] border-[2px] border-[#7c7c7c]">
                         <div class="sm:w-11 w-[1.75rem] sm:h-11 h-[1.75rem] bg-[#1d6f95] rounded-full"></div>
@@ -129,7 +167,7 @@
     </div>
 
     </div>
-    <div id="content4" class="absolute w-screen h-screen top-0">
+    <div id="content4" class="ar_content absolute w-screen h-screen top-0">
         <div class="placegif hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <div class="text-center text-white font-semibold font-lexendeca">Move Your Phone Towards Horizontal Plane
                 Surface</div>
@@ -150,7 +188,7 @@
 
     </div>
     <div class="hamburger hidden h-screen xs:w-[20%] w-[75%] bg-[#c4c4c4e4] absolute xs:right-[-20%] right-[-100%] top-0 z-[30]">
-        <div class="h-[60px] flex justify-between items-center w-full pl-7 pr-4 sm:text-[2rem] text-[1.45rem] text-white bg-[#23565b]">
+        <div class="h-[60px] flex justify-between items-center w-full pl-7 pr-4 md:text-[2rem] sm:text-[1.65rem] text-[1.45rem] text-white bg-[#23565b]">
             <div>Hello, User</div>
             <div id="menuClose" class="flex justify-center items-center cursor-pointer rounded-full w-[42px] h-[42px] bg-[#ff3a3ae9]"><i class="ri-close-line" style="font-size: 24px;"></i></div>
         </div>
@@ -348,11 +386,7 @@
                                             class="headcolor1 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
                                         </div>
                                     </div>
-                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem
-                                        ipsum
-                                        dolor, sit amet consectetur
-                                        adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
-                                        omnis velit id minima quisquam quam. Expedita!</div>
+                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Prepare for an electrifying adventure with the assistance of a powerful motor.</div>
 
                                     <div
                                         class="btn-headcolor2 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2">
@@ -360,18 +394,14 @@
                                         <div id="2" class="absolute w-[100%] h-full top-0 left-0 z-10 cursor-pointer">
                                         </div>
                                         <div id="spf" class=" w-[95%] h-full">
-                                            supension fork
+                                            Supension Fork
                                         </div>
                                         <i id="12" class="ri-add-line cursor-pointer"></i>
                                         <div
                                             class="headcolor2 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
                                         </div>
                                     </div>
-                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem
-                                        ipsum
-                                        dolor, sit amet consectetur
-                                        adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
-                                        omnis velit id minima quisquam quam. Expedita!</div>
+                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Experience the outstanding prowess of the suspension fork, elevating the connection between the road and the tire to deliver a stable and seamless riding experience.</div>
 
                                     <div
                                         class="btn-headcolor3 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2">
@@ -386,11 +416,7 @@
                                             class="headcolor3 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
                                         </div>
                                     </div>
-                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem
-                                        ipsum
-                                        dolor, sit amet consectetur
-                                        adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
-                                        omnis velit id minima quisquam quam. Expedita!</div>
+                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">enhance the handling of e-cycles with a touch of elegance.</div>
 
                                     <div
                                         class="btn-headcolor4 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2">
@@ -405,11 +431,7 @@
                                             class="headcolor4 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
                                         </div>
                                     </div>
-                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem
-                                        ipsum
-                                        dolor, sit amet consectetur
-                                        adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
-                                        omnis velit id minima quisquam quam. Expedita!</div>
+                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Ralson Strong Boy tyres are 26.0x4.0” wide, which gives the rider a firm grip and resistance to punctures.</div>
 
                                     <div class="btn-headcolor5 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2"
                                         style="display: none;">
@@ -424,11 +446,7 @@
                                             class="headcolor5 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
                                         </div>
                                     </div>
-                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem
-                                        ipsum
-                                        dolor, sit amet consectetur
-                                        adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
-                                        omnis velit id minima quisquam quam. Expedita!</div>
+                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">With this feature, riders can effectively alert approaching vehicles, fostering a secure and hazard-free riding experience.</div>
 
                                     <div class="btn-headcolor6 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2"
                                         style="display: none;">
@@ -443,11 +461,7 @@
                                             class="headcolor6 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
                                         </div>
                                     </div>
-                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem
-                                        ipsum
-                                        dolor, sit amet consectetur
-                                        adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
-                                        omnis velit id minima quisquam quam. Expedita!</div>
+                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">With a bright headlight leading the way, an e-cycle transforms nighttime rides into extraordinary experiences, ensuring safety.</div>
 
                                     <div class="btn-headcolor7 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2"
                                         style="display: none;">
@@ -462,11 +476,7 @@
                                             class="headcolor7 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
                                         </div>
                                     </div>
-                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem
-                                        ipsum
-                                        dolor, sit amet consectetur
-                                        adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
-                                        omnis velit id minima quisquam quam. Expedita!</div>
+                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">This e-bike offers dual disc brakes with 160mm rotor discs, which provide the e-bike with extra braking power and additional control.</div>
 
                                     <div class="btn-headcolor8 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2"
                                         style="display: none;">
@@ -481,11 +491,7 @@
                                             class="headcolor8 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
                                         </div>
                                     </div>
-                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem
-                                        ipsum
-                                        dolor, sit amet consectetur
-                                        adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
-                                        omnis velit id minima quisquam quam. Expedita!</div>
+                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Specially designed to provide a comfortable and pressure-free riding experience for users to enjoy long leisure rides.</div>
 
                                     <div class="btn-headcolor9 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2"
                                         style="display: none;">
@@ -500,11 +506,7 @@
                                             class="headcolor9 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
                                         </div>
                                     </div>
-                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem
-                                        ipsum
-                                        dolor, sit amet consectetur
-                                        adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
-                                        omnis velit id minima quisquam quam. Expedita!</div>
+                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">The e-cycle is enhanced with a sturdy and long-lasting carbon steel alloy frame, adding a touch of elegance and exceptional style to its overall design.</div>
 
                                     <div class="btn-headcolor10 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2"
                                         style="display: none;">
@@ -519,11 +521,7 @@
                                             class="headcolor10 headcolor z-[-1] absolute w-0 h-full bg-slate-400 top-0 left-0">
                                         </div>
                                     </div>
-                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">Lorem
-                                        ipsum
-                                        dolor, sit amet consectetur
-                                        adipisicing elit. Ipsam, amet voluptatum! Ea maiores aspernatur nisi repellendus
-                                        omnis velit id minima quisquam quam. Expedita!</div>
+                                    <div class="py-1 sm:py-7 hidden featurecontent text-[9px] sm:text-[16px] ">This series comes with perfect handle positioning that caters to the rider’s comfort, balance, and overall performance.</div>
 
                                     <!-- <div id="11"
                                         class="btn-headcolor11 performance relative heading text-[0.77rem] sm:text-[1.25rem] font-semibold mb-2 flex justify-between border-black border-b-[1px] pb-2">
