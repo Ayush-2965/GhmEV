@@ -1,11 +1,20 @@
+let errorOkButton=document.getElementById("errOk")
+errorOkButton.addEventListener('click',()=>{
+    document.getElementById("ar-messageBox").classList.add("hidden")
+})
+
 let hybribbtn = "off"
+let mode360parent=document.getElementById("Toggle360")
 
 const end = document.getElementById("end360")
 const hybrid = document.getElementById("toggleSwitch2")
 end.addEventListener('click', () => {
-    document.getElementById('playground').classList.add("hidden")
+    document.getElementById('immersivemode').classList.add("hidden")
     hybribbtn = "off"
+    document.getElementById('toggleSwitch2').classList.remove("justify-end")
+    document.getElementById('toggleSwitch2').classList.add("justify-start")
     document.getElementById('cycleVid').classList.add("hidden")
+    mode360parent.classList.remove("hidden")
 })
 
 hybrid.addEventListener('click', () => {
@@ -14,12 +23,15 @@ hybrid.addEventListener('click', () => {
         document.getElementById('toggleSwitch2').classList.remove("justify-start")
         document.getElementById('toggleSwitch2').classList.add("justify-end")
         document.getElementById('cycleVid').classList.remove("hidden")
+        mode360parent.classList.add("hidden")
     }
     else {
         hybribbtn = "off"
+
         document.getElementById('toggleSwitch2').classList.remove("justify-end")
         document.getElementById('toggleSwitch2').classList.add("justify-start")
         document.getElementById('cycleVid').classList.add("hidden")
+        mode360parent.classList.remove("hidden")
     }
 
 })
@@ -59,7 +71,7 @@ function scrollgsap() {
         smooth: 2,
 
         smartphone: {
-            smooth: 0.7,
+            smooth: 1,
             breakpoint: 1024,
         },
         tablet: {
@@ -466,6 +478,27 @@ document.querySelectorAll(".overlay").forEach(function (card) {
 });
 
 //feature section
+gsap.from(`.buttons .box`, {
+    opacity: 0,
+    y: 90,
+    stagger: 0.1,
+    ease: "power3.inOut",
+    scrollTrigger:{
+        trigger:".part2",
+        start: "-15%",
+        markers:true,
+        scroller:".main"
+    }
+})
+
+let featureSectionAnimation=function(e){
+    gsap.from(`.btn-headcolor${e}`, {
+        opacity: 0,
+        x: 900,
+        // stagger: 0.1,
+        ease: "power3.inOut",
+    })
+}
 
 let boxColor = function () {
     document.querySelectorAll(".box").forEach((element) => {
@@ -486,6 +519,7 @@ box1.addEventListener("click", function () {
         document
             .querySelector(`.btn-headcolor${i}`)
             .setAttribute("style", "display:flex");
+        featureSectionAnimation(i)
     }
 });
 box2.addEventListener("click", function () {
@@ -497,6 +531,7 @@ box2.addEventListener("click", function () {
         document
             .querySelector(`.btn-headcolor${i}`)
             .setAttribute("style", "display:flex");
+            featureSectionAnimation(i)
     }
 });
 box3.addEventListener("click", function () {
@@ -508,6 +543,7 @@ box3.addEventListener("click", function () {
         document
             .querySelector(`.btn-headcolor${i}`)
             .setAttribute("style", "display:flex");
+            featureSectionAnimation(i)
     }
 });
 
@@ -856,12 +892,12 @@ document.getElementsByClassName("ri-menu-fill righticon")[0].addEventListener("c
 
     })
     gsap.to(".hamburgerBg", {
-        opacity:1,
+        opacity: 1,
         duration: 0.5,
 
     })
     gsap.to(".hamburger", {
-        opacity:1,
+        opacity: 1,
         duration: 0.5,
 
     })
@@ -968,9 +1004,9 @@ document.querySelectorAll(".menu").forEach(function (e) {
     })
 })
 
-gsap.to(".roundloader",{
-    rotate:"+=360",
-    duration:0.5,
-    ease:"power3.inOut",
-    repeat:-1,
+gsap.to(".roundloader", {
+    rotate: "+=360",
+    duration: 0.5,
+    ease: "power3.inOut",
+    repeat: -1,
 })
