@@ -1,6 +1,7 @@
 let errorOkButton=document.getElementById("errOk")
 errorOkButton.addEventListener('click',()=>{
     document.getElementById("ar-messageBox").classList.add("hidden")
+    document.getElementsByClassName("msgBoxBG")[0].classList.add("hidden")
 })
 
 let hybribbtn = "off"
@@ -486,7 +487,7 @@ gsap.from(`.buttons .box`, {
     scrollTrigger:{
         trigger:".part2",
         start: "-15%",
-        markers:true,
+        // markers:true,
         scroller:".main"
     }
 })

@@ -213,6 +213,7 @@ function startARSession() {
                 
             } else {
                 console.log("Not supported");
+                document.getElementsByClassName("msgBoxBG")[0].classList.remove("hidden")
                 document.getElementById("ar-messageBox").classList.remove("hidden")
             }
         })
@@ -224,6 +225,7 @@ function startARSession() {
 
     } else {
         console.log("WebXR not supported by the browser")
+        document.getElementsByClassName("msgBoxBG")[0].classList.remove("hidden")
         document.getElementById("ar-messageBox").classList.remove("hidden")
     }
     
