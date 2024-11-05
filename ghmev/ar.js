@@ -188,9 +188,6 @@ function onWindowResize() {
 function startARSession() {
     if ( 'xr' in navigator ) {
         console.log("WebXR supported by browser");
-        navigator.xr.isSessionSupported('immersive-ar').then((supported)=>{
-            if (supported) {
-                console.log("immersive-ar supported");
                 
                 if (!xrSession) {
                     
@@ -208,15 +205,13 @@ function startARSession() {
             
                         // Handle session end event
                         session.addEventListener('end', onSessionEnd);
+                    }).catch(function(error) {
+                        console.error('Error starting WebXR session:', error);
+                        document.getElementsByClassName("msgBoxBG")[0].classList.remove("hidden")
+                        document.getElementById("ar-messageBox").classList.remove("hidden")
                     });
                 }
                 
-            } else {
-                console.log("Not supported");
-                document.getElementsByClassName("msgBoxBG")[0].classList.remove("hidden")
-                document.getElementById("ar-messageBox").classList.remove("hidden")
-            }
-        })
         // console.log(hitTestSourceRequested);
         // console.log(xrSession);
         // console.log(hitTestSource);
