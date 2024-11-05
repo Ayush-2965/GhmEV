@@ -274,9 +274,7 @@ function onSessionStart() {
     if (reticle.visible == false) {
         document.getElementsByClassName("placegif")[0].classList.remove("hidden")
     }
-    // else {
-    //     document.getElementsByClassName("placegif")[0].classList.add("hidden")
-    // }
+    
 
     // Add device orientation event listener (remove old listeners if they exist)
     window.removeEventListener('deviceorientation', handleDeviceOrientation);

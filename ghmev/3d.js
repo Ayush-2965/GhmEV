@@ -101,7 +101,7 @@ function createscene(view, container, object) {
     const tickerCallback = () => {
         tickerStopped = false
         if (container==container1) {
-            currentProgress += (targetProgress - currentProgress) * 0.04;
+            currentProgress += (targetProgress - currentProgress) * 0.057;
             loadingBar.style.width = `${Math.round(currentProgress)}%`;
             document.getElementsByClassName("load-percent")[0].textContent = `${Math.round(currentProgress)}%`;
             // console.log(currentProgress);
@@ -146,7 +146,7 @@ function createscene(view, container, object) {
 
     loader.load(object, function (gltf) {
         obj = gltf.scene;
-        // obj.position.y = -0.8
+        
         // scene.add(obj);
 
 
@@ -157,23 +157,13 @@ function createscene(view, container, object) {
 
         pivot.add(obj);
         scene.add(pivot);
-        // pivot.position.set(0, 0, 0) //ye change hua h
-        // console.log(obj);
-
-
-
-
+      
         group1 = obj.getObjectByName('wheel_front');//front part
         group2 = obj.getObjectByName('wheel_rear');//back 
 
         if (container == container1) {
             gsap.to(container, { duration: 0.1, x: window.innerWidth, ease: "linear" })
-            // gsap.from(container, { duration: 1, x: window.innerWidth, ease: "linear" })
-            // gsap.to(group1.rotation, { duration: 1, x: Math.PI * 2 })
-           
-            // const light2=new THREE.DirectionalLight(0x006069c6,100)
-            // light2.position.set(0,0,1)
-            // scene.add(light2)
+            
             gsap.to("#content5", {
                 opacity: 1,
                 scrollTrigger: {
@@ -184,11 +174,6 @@ function createscene(view, container, object) {
                     scroller: ".main"
                 }
             })
-
-
-
-
-
 
 
 
@@ -366,12 +351,6 @@ function createscene(view, container, object) {
             })
 
 
-            // if (switchbtn == "on") {
-
-            // }
-            // else {
-
-            // }
             const end = document.getElementById("end360")
             end.addEventListener('click', () => {
                 controls.enabled = false;
