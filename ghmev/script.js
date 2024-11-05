@@ -457,7 +457,7 @@ document.querySelectorAll(".overlay").forEach(function (card) {
         }
         let cardindex = parseInt(e.target.id);
         console.log(cardindex)
-        let cardhover = `.card${cardindex % 4}`;
+        let cardhover = `.card${cardindex % 5}`;
         currentAnimation = gsap.to(`${cardhover} .img`, {
             duration: 1.7,
             y: -20,
