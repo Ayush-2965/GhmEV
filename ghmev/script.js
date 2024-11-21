@@ -1,3 +1,7 @@
+const screenWidth = window.screen.availWidth;
+const screenHeight = window.screen.availHeight;
+console.log(screenHeight,screenWidth);
+
 let errorOkButton=document.getElementById("errOk")
 errorOkButton.addEventListener('click',()=>{
     document.getElementById("ar-messageBox").classList.add("hidden")
@@ -125,16 +129,7 @@ let box1 = document.querySelector(".box1");
 let box2 = document.querySelector(".box2");
 let box3 = document.querySelector(".box3");
 let tl = gsap.timeline({});
-// Example of adding a log statement in GLTFLoader.js
-function loadAccessor(accessorIndex) {
-    const accessorDef = json.accessors[accessorIndex];
-    const bufferView = bufferViews[accessorDef.bufferView];
 
-    console.log("Accessor:", accessorDef);
-    console.log("BufferView:", bufferView);
-
-    // Existing code to load the accessor...
-}
 
 gsap.to(".nav", {
     backgroundColor: "#191e1e",
@@ -473,7 +468,7 @@ document.querySelectorAll(".overlay").forEach(function (card) {
         }
         let cardindex = parseInt(e.target.id);
         //  console.log(cardindex)
-        let cardhover = `.card${cardindex % 4}`;
+        let cardhover = `.card${cardindex % 5}`;
         gsap.to(`${cardhover} .img`, { duration: 0.5, y: 0 }); // Reset position along the y-axis
     });
 });

@@ -574,7 +574,7 @@ else if (window.innerWidth > 425 && window.innerWidth <= 768) {
     })
 }
 else {
-    if (window.innerHeight > 1000) {
+    if (window.innerHeight > 1000 && window.innerWidth <= 1200) {
         createscene(110, container1, "./assets/model/untitled.glb")
         createscene(105, container2, "./assets/model/untitled.glb")
 

@@ -288,7 +288,7 @@ nav {
 
 .content h1 {
     font-family: "Barlow Condensed", sans-serif;
-    font-size: calc(100vw/10.66);
+    font-size: calc(100vw / 13.66 + 100vh / 22);
     text-transform: capitalize;
     color: rgba(0, 96, 105, 0.775);
     font-weight: 600;
@@ -309,8 +309,8 @@ nav {
 }
 
 .button {
-    width: 250px;
-    height: 60px;
+    width: max-content;
+    height: max-content;
     border-radius: 12px;
 
     background-color: rgb(41, 54, 64);
@@ -319,19 +319,19 @@ nav {
     align-items: center;
     justify-content: space-evenly;
 
-    padding: 18px 0 18px 12px;
+    padding: 8px 10px 8px 18px;
     margin: 55px 0 0 100px;
 
     color: white;
     font-family: "Montserrat", sans-serif;
-    font-size: 26px;
+    font-size: calc(100vw / 127.66 + 100vh / 67);
     font-weight: 500;
     text-align: center;
     cursor: pointer;
 }
 
 .button i {
-    font-size: 48px;
+    font-size:  calc(100vw / 83.66 + 100vh / 45);
 }
 
 .button:hover {
@@ -539,9 +539,9 @@ nav {
 .innercont {
     display: flex;
     height: 80px;
-    padding: 0 40px;
+    padding: 0 calc(100vw / 107.66 + 100vh / 47);
     align-items: center;
-    margin-top: 40px;
+    margin-top: calc(100vw / 127.66 + 100vh / 67);
 
 }
 
@@ -562,7 +562,8 @@ nav {
 }
 
 .innercont h2 {
-    font-size: 28px;
+    /* font-size: 28px; */
+    font-size: calc(100vw / 107.66 + 100vh / 47);
     font-weight: 600;
 }
 
@@ -1002,7 +1003,64 @@ nav {
 
 }
 
+@media (max-height:700px) {
+    .ghm-load{
+        font-size: 2rem !important;
+    }
+    .part3{
+        margin-bottom: 77px;
+    }
+    .scrollArea{
+        margin-bottom: 77px;
+    }
+    .loadingscr-obj img{
+        /* transform: scale3d(0.9, 0.9, 0.9); */
+        width: 50%;
+        height: 65%;
+    }
+    .content{
+        margin: 30px 0 0 58px;
+    }
+    .content2{
+        margin-left:60px;
+        height: 90px;
+    }
+    .button{
+        margin-left:60px;
+    }
+    #model{
+        transform: translate(-320px, 180px);
+    }
+    .heading{
+        font-size: 1.05rem !important;
+    }
+    .featurecontent{
+        font-size: 14px !important;
+    }
 
+    .card {
+        width: calc(100vw/5 + 100vh/14) !important;
+        height: calc(100vw/4.5 + 100vh/17) !important;
+    }
+
+    .card .img {
+        width: calc(100vw/5 + 100vh/14) !important;
+    }
+}
+
+@media (min-height:720px) and (max-width: 1366px){
+    .content{
+        margin-left:74px;
+    }
+    .content2{
+        margin-left:75px;
+        height: 120px;
+    }
+    .button{
+        margin-left:75px;
+    }
+    
+}
 @media only screen and (max-width: 1280px) {
     .middlecont {
         /* visibility: hidden; */
